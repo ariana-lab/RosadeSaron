@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosa de Sarón - Residencia</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600;700&family=Sansita+Swashed:wght@300..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="Imagenes/logo.png" alt="Rosa de Sarón" class="logo-img"> 
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#horarios">Horarios</a></li>
+                <li><a href="#tarifas">Tarifas</a></li>
+                <li><a href="#localizacion">Localización</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#opiniones">Opiniones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>"Acompañando con respeto, <br> cuidando con el corazón."</h1>
+            </div>
+            <div class="social-icons">
+                <a href="https://web.facebook.com/BomeBoock/about" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/residenciarosadesaron/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="nosotros" class="about-section container">
+        <div class="about-grid">
+            <div class="about-text">
+                <div class="master-title-badge badge-teal">
+                    <h2>Residencia Rosa de Sarón</h2>
+                </div>
+
+                <div class="text-card">
+                    <p>
+                        Somos una residencia de cuidado integral enfocada en brindar dignidad, higiene y cariño con estándares de excelencia. Nos diferenciamos por ser un espacio que funciona y se siente "como una casa", no como una clínica, priorizando el respeto y la comodidad.
+                    </p>
+                    <p>
+                        Trabajamos activamente para evitar el abandono, integrando a las familias en el cuidado y contando con un equipo joven y vocacional. Ofrecemos modalidades flexibles (24/7, diurno o temporal) para adaptarnos a lo que tú y tu ser querido necesitan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-image-container">
+                <img src="Imagenes/afiche-bome.png" alt="Atención y Salud" class="about-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="services-section">
+        <div class="services-container container">
+            
+            <div class="service-display-card" id="display-card">
+                <div class="card-header-color">
+                    <h3 id="service-title">ENFERMERÍA</h3>
+                </div>
+                <div class="card-body">
+                    <img src="Imagenes/enfermeria.jpg" alt="Servicio" id="service-img" class="service-main-img">
+                    <p id="service-desc">
+                        Profesionales capacitados las 24 horas para tu tranquilidad. Gestionamos la salud y medicamentos de cada residente con cercanía y respeto.
+                    </p>
+                </div>
+            </div>
+
+            <div class="services-right-column">
+                
+                <div class="master-title-badge badge-white">
+                    <h2>Servicios</h2>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-btn" onclick="cambiarServicio('enfermeria')">
+                        <i class="fas fa-user-nurse"></i> <span>ENFERMERÍA</span>
+                    </div>
+                    <div class="service-btn" onclick="cambiarServicio('kinesiologia')">
+                        <i class="fas fa-crutch"></i> <span>KINESIOLOGÍA</span>
+                    </div>
+
+                    <div class="service-btn" onclick="cambiarServicio('comunes')">
+                        <i class="fas fa-home"></i> <span>ÁREAS COMUNES</span>
+                    </div>
+                    <div class="service-btn" onclick="cambiarServicio('actividades')">
+                        <i class="fas fa-dumbbell"></i> <span>ACTIVIDADES</span>
+                    </div>
+
+                    <div class="service-btn" onclick="cambiarServicio('insumos')">
+                        <i class="fas fa-cart-plus"></i> <span>INSUMOS</span>
+                    </div>
+                    <div class="service-btn" onclick="cambiarServicio('alimentacion')">
+                        <i class="fas fa-utensils"></i> <span>ALIMENTACIÓN</span>
+                    </div>
+
+                    <div class="service-btn" onclick="cambiarServicio('habitaciones')">
+                        <i class="fas fa-bed"></i> <span>HABITACIONES</span>
+                    </div>
+                    <div class="service-btn" onclick="cambiarServicio('otros')">
+                        <i class="fas fa-ellipsis-h"></i> <span>OTROS</span>
+                    </div>
+                </div>
+
+            </div> </div>
+    </section>
+
+    <script>
+        // BASE DE DATOS DE SERVICIOS
+        const datosServicios = {
+            'enfermeria': {
+                titulo: 'ENFERMERÍA',
+                img: 'Imagenes/enfermeria.jpg',
+                texto: 'Profesionales capacitados las 24 horas para tu tranquilidad. Gestionamos la salud y medicamentos de cada residente con cercanía y respeto.'
+            },
+            'kinesiologia': {
+                titulo: 'KINESIOLOGÍA',
+                img: 'Imagenes/kinesiologia.jpg', 
+                texto: 'Sesiones personalizadas para mantener la movilidad y fuerza física de nuestros residentes, enfocadas en la prevención y rehabilitación.'
+            },
+            'comunes': {
+                titulo: 'ÁREAS COMUNES',
+                img: 'Imagenes/comunes.jpg',
+                texto: 'Espacios amplios y luminosos diseñados para la convivencia, la lectura y el descanso, siempre mantenidos con la máxima higiene.'
+            },
+            'actividades': {
+                titulo: 'ACTIVIDADES',
+                img: 'Imagenes/actividades.jpeg',
+                texto: 'Talleres cognitivos, manualidades y recreación para mantener la mente activa y el espíritu alegre de nuestros adultos mayores.'
+            },
+            'insumos': {
+                titulo: 'INSUMOS',
+                img: 'Imagenes/insumos.jpeg',
+                texto: 'Suministro de productos esenciales para la salud y el bienestar de nuestros residentes, garantizando calidad y disponibilidad constante.'
+            },
+            'alimentacion': {
+                titulo: 'ALIMENTACIÓN',
+                img: 'Imagenes/alimentacion.jpg',
+                texto: 'Nutrición personalizada y equilibrada para cada residente, adaptada a sus necesidades dietéticas y preferencias.'
+            },
+            'habitaciones': {
+                titulo: 'HABITACIONES',
+                img: 'Imagenes/habitaciones.jpg',
+                texto: 'Ambientes cómodos y seguros para cada residente, con todas las comodidades necesarias para su bienestar.'
+            },
+            'otros': {
+                titulo: 'OTROS SERVICIOS',
+                img: 'Imagenes/otros.jpg',
+                texto: 'Servicios adicionales diseñados para mejorar la calidad de vida de nuestros residentes, siempre con un enfoque integral.'
+            }
+        };
+
+        // FUNCIÓN QUE CAMBIA EL CONTENIDO
+        function cambiarServicio(servicioKey) {
+            const titulo = document.getElementById('service-title');
+            const imagen = document.getElementById('service-img');
+            const desc = document.getElementById('service-desc');
+            const card = document.getElementById('display-card');
+
+            const info = datosServicios[servicioKey];
+
+            if (info) {
+                // Efecto Fade Out
+                card.style.opacity = '0'; 
+                
+                setTimeout(() => {
+                    titulo.innerText = info.titulo;
+                    // Aquí usamos una imagen genérica si no existe la específica para evitar errores
+                    // Puedes borrar el '||' si tienes todas las fotos
+                    imagen.src = info.img; 
+                    desc.innerText = info.texto;
+                    
+                    // Efecto Fade In
+                    card.style.opacity = '1'; 
+                }, 200);
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,363 @@
+/* =========================================
+   1. VARIABLES Y CONFIGURACIÓN BASE
+   ========================================= */
+:root {
+    --color-primary: #76a867;       /* Verde botones */
+    --color-dark-green: #558b46;    /* Verde oscuro texto */
+    --color-turquoise: #1CD6B9;     /* Turquesa Servicios */
+    --color-turquoise-dark: #14bfa3;
+    --color-light-bg: #FFF0E5;      /* Fondo durazno suave */
+    --color-white: #ffffff;
+    --color-text: #4a4a4a;
+    
+    /* Fuentes */
+    --font-title: 'Dancing Script', cursive;
+    --font-fancy: 'Sansita Swashed', cursive;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-white);
+    line-height: 1.6;
+}
+
+/* Clases utilitarias */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+
+/* =========================================
+   2. HEADER Y NAVEGACIÓN
+   ========================================= */
+.main-header {
+    width: 100%;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.logo-img {
+    height: 100px; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white; 
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    padding: 8px 18px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-image: linear-gradient(to right, var(--color-primary), white);
+    color: var(--color-dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border: 1px solid white;
+}
+
+/* Hero Section (Banner) */
+.hero-section {
+    height: 60vh; 
+    /* Asegúrate que la ruta de la imagen sea correcta */
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('Imagenes/fondo-familiar.jpg');
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.hero-content h1 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.social-icons {
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
+    display: flex;
+    gap: 20px;
+    font-size: 1.8rem;
+    z-index: 10;
+}
+
+.social-icons a {
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: var(--color-primary);
+}
+
+/* =========================================
+   3. CLASE MAESTRA PARA TÍTULOS
+   ========================================= */
+.master-title-badge {
+    font-family: var(--font-fancy);
+    font-size: 1.8rem;
+    padding: 5px 40px;
+    border-radius: 30px 0px 30px 0px; 
+    text-align: center;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
+    width: fit-content;
+    margin: 0 auto;
+    color: black;
+    -webkit-text-stroke: 1.5px white;
+}
+
+.master-title-badge h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Variante Turquesa (Nosotros) */
+.badge-teal {
+    background-color: var(--color-turquoise);
+    border: 3px solid white;
+    transform: translateY(-80px); 
+    margin-bottom: -45px; 
+    z-index: 10;
+    position: relative;
+}
+
+/* Variante Blanca (Servicios) */
+.badge-white {
+    background-color: white;
+    border: 3px solid var(--color-turquoise);
+    margin-bottom: 30px; /* Separación con los botones */
+}
+
+/* =========================================
+   4. SECCIÓN NOSOTROS
+   ========================================= */
+.about-section.container {
+    width: 95%;
+    max-width: 1600px;
+    padding: 120px 20px; /* Espacio vertical grande */
+}
+
+.about-grid {
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    gap: 60px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Columna Texto */
+.about-text {
+    flex: 1.5; /* Ocupa 60% */
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #f0f0f0;
+    line-height: 1.6;
+    color: #333;
+    position: relative;
+    z-index: 1;
+}
+
+.text-card p {
+    margin-bottom: 15px;
+}
+
+/* Columna Imagen */
+.about-image-container {
+    flex: 1; /* Ocupa 40% */
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-img {
+    width: 100%;
+    height: 450px; /* Altura fija para imponer presencia */
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+
+/* =========================================
+   5. SECCIÓN SERVICIOS (Nueva Estructura)
+   ========================================= */
+.services-section {
+    background-color: var(--color-light-bg);
+    padding: 90px 0; /* Buen espacio vertical */
+    font-family: var(--font-body);
+}
+
+.services-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; 
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* --- Columna Izquierda (La Tarjeta Grande) --- */
+.service-display-card {
+    flex: 1; /* Más ancha */
+    min-width: 300px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: auto; 
+    transition: opacity 0.2s ease; /* Para el efecto fade en JS */
+}
+
+.card-header-color {
+    background-color: var(--color-turquoise); 
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+
+.card-body {
+    padding: 50px;
+    text-align: center;
+    flex-grow: 1; /* Asegura que llene el espacio si sobra */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.service-main-img {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover; 
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- Columna Derecha (Título + Botones) --- */
+.services-right-column {
+    flex: 1; 
+    min-width: 300px;
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    /* Centra el título horizontalmente */
+    justify-content: center; /* Centra todo el bloque verticalmente */
+}
+
+/* Grilla de Botones */
+.services-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 Columnas */
+    gap: 20px;
+}
+
+.service-btn {
+    background-color: var(--color-turquoise); 
+    color: white;
+    padding: 15px 20px;
+    /* Forma de Hoja */
+    border-radius: 35px; 
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    
+    width: 100%;
+}
+
+.service-btn i {
+    font-size: 1.5rem;
+}
+
+.service-btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    background-color: var(--color-turquoise-dark);
+}
+
+/* =========================================
+   6. RESPONSIVE (Móviles)
+   ========================================= */
+@media (max-width: 900px) {
+    .about-grid, 
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* En móvil quitamos los efectos locos de posición */
+    .badge-teal {
+        transform: none;
+        margin-bottom: 20px;
+    }
+    
+    .services-right-column {
+        width: 100%;
+    }
+    
+    .text-card {
+        padding: 30px;
+    }
+}
