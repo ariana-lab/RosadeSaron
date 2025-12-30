@@ -102,31 +102,9 @@ body {
 
 .hero-content h1 {
     font-family: var(--font-title);
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 400;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-}
-
-.social-icons {
-    position: absolute;
-    bottom: 40px;
-    right: 50px;
-    display: flex;
-    gap: 20px;
-    font-size: 1.8rem;
-    z-index: 10;
-}
-
-.social-icons a {
-    color: white;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    display: inline-block;
-}
-
-.social-icons a:hover {
-    transform: scale(1.2);
-    color: var(--color-primary);
 }
 
 /* =========================================
@@ -142,7 +120,7 @@ body {
     width: fit-content;
     margin: 0 auto;
     color: black;
-    -webkit-text-stroke: 1.5px white;
+    -webkit-text-stroke: 1.3px white;
 }
 
 .master-title-badge h2 {
@@ -336,7 +314,993 @@ body {
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     background-color: var(--color-turquoise-dark);
 }
+/* --- SECCIÓN HORARIOS --- */
+/* --- OPCIÓN 2: DEGRADADO SUAVE --- */
+.schedule-section {
+    background: linear-gradient(to bottom, #ffffff 0%, #e0fcf9 100%);
+    padding: 100px 20px;
+    text-align: center;
+}
 
+/* Contenedor Flex para poner las tarjetas en fila */
+.schedule-container {
+    display: flex;
+    justify-content: center; /* Centradas en la pantalla */
+    gap: 15px;               /* Espacio entre tarjetas */
+    flex-wrap: wrap;         /* Si no caben, bajan a la siguiente línea */
+    padding: 40px 10px;      /* Espacio para que la sombra no se corte */
+}
+
+/* --- DISEÑO DE LA TARJETA --- */
+.schedule-card {
+    background-color: white;
+    width: 200px;            /* Ancho fijo para que se vean uniformes como en tu foto */
+    padding: 30px 15px;
+    border-radius: 15px;     /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Sombra suave base */
+    border: 1px solid #f0f0f0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /* LA MAGIA DE LA TRANSICIÓN */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos del contenido interno */
+.schedule-card .time {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #888;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.schedule-card h3 {
+    font-family: 'Sansita Swashed', cursive;
+    color: #c71eb0; /* ESTE es el color turquesa para los títulos */
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.schedule-card i {
+    font-size: 2.5rem; /* Icono grande */
+    color: #333;       /* Icono negro (como en tu foto) */
+    margin-bottom: 15px;
+    border: 3px solid #333; /* Borde estilo dibujo */
+    padding: 10px;
+    border-radius: 10px;    /* Icono cuadradito redondeado */
+}
+
+.schedule-card p {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+/* --- EFECTO HOVER (Lo que pediste) --- */
+.schedule-card:hover {
+    /* 1. Crece un 15% */
+    transform: scale(1.15) translateY(-10px); 
+    /* 2. Sombra Turquesa Brillante por debajo */
+    box-shadow: 0 5px 10px rgba(28, 214, 185, 0.5); 
+    
+    /* 3. Se pone por encima de las demás */
+    z-index: 10; 
+    
+    /* Opcional: Borde inferior de color para resaltar más */
+    border-bottom: 5px solid #1CD6B9;
+}
+/* =========================================
+   SECCIÓN TARIFAS (Estilo Carrusel)
+   ========================================= */
+.pricing-section {
+    background-color: var(--color-light-bg); /* Fondo durazno suave */
+    padding: 80px 0;
+}
+
+.pricing-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* --- CONTENEDOR DEL CARRUSEL --- */
+.carousel-container {
+    display: flex;
+    align-items: center; /* Alinea flechas y tarjeta al centro vertical */
+    justify-content: center;
+    gap: 20px; /* Espacio entre flechas y tarjeta */
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* --- BOTONES FLECHA --- */
+.carousel-btn {
+    background-color: white;
+    border: 2px solid #1CD6B9;
+    color: #1CD6B9;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Círculo perfecto */
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    
+    /* Centrar el ícono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.carousel-btn:hover {
+    background-color: #1CD6B9;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* --- TARJETA --- */
+.carousel-track {
+    flex: 1; /* Ocupa el espacio central */
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.pricing-card {
+    display: none; /* Ocultas por defecto */
+    width: 100%;
+    max-width: 700px; /* Ancho máximo de la tarjeta */
+    background: white;
+    border-radius: 20px;
+    border: 3px solid #1CD6B9; /* Borde Turquesa */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 40px;
+    text-align: center;
+    animation: fadeEffect 0.5s ease; /* Efecto suave al cambiar */
+}
+
+/* La tarjeta activa es la única que se ve */
+.pricing-card.active-slide {
+    display: block;
+}
+
+.card-content h3 {
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.card-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.card-content img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeEffect {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- INDICADORES (PUNTITOS) --- */
+.carousel-indicators {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active-dot {
+    background-color: #1CD6B9; /* Turquesa */
+    transform: scale(1.2);
+}
+
+/* --- RESPONSIVE (Móvil) --- */
+@media (max-width: 768px) {
+    .carousel-container {
+        position: relative; /* Para poner flechas sobre la foto si falta espacio */
+    }
+    .pricing-card {
+        padding: 25px;
+    }
+    .card-content h3 {
+        font-size: 1.8rem;
+    }
+    .card-content img {
+        height: 200px;
+    }
+    
+    /* Flechas más pequeñas en móvil */
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+/* =========================================
+   SECCIÓN OPINIONES (Testimonios)
+   ========================================= */
+
+/* Contenedor principal de la sección */
+.testimonials-section {
+    position: relative; /* Necesario para que la "cinta" se ubique respecto a esto */
+    padding: 100px 0;
+    background-color: var(--color-white);
+    overflow: hidden; /* Evita que la cinta se salga de la pantalla */
+}
+
+/* Contenedor para el contenido (Título y tarjetas) */
+.relative-container-testimonials {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté SOBRE la cinta */
+}
+
+/* --- LA CINTA DE FONDO (Pseudo-elemento) --- */
+.testimonials-section::before {
+    content: ''; /* Elemento vacío necesario */
+    position: absolute;
+    
+    /* Tamaño y posición */
+    top: 25%; /* Ajusta la altura vertical */
+    left: -10%; /* Empieza fuera de la pantalla a la izquierda */
+    width: 120%; /* Más ancho que la pantalla para cruzarla */
+    height: 50%; /* Altura de la cinta */
+    
+    /* Color y forma */
+    background-color: #e0fcf9; /* Verde/Turquesa muy clarito */
+    transform: rotate(-5deg); /* La inclinación */
+    border-radius: 50px; /* Bordes redondeados suaves */
+    
+    z-index: 0; /* Detrás de todo */
+    opacity: 0.8;
+    
+    /* La Animación de flotar */
+    animation: floatRibbon 8s ease-in-out infinite alternate;
+}
+
+/* Animación suave para la cinta */
+@keyframes floatRibbon {
+    0% { transform: rotate(-5deg) translateY(0px); }
+    100% { transform: rotate(-5deg) translateY(20px); } /* Se mueve un poquito arriba y abajo */
+}
+
+
+/* --- GRILLA DE TARJETAS --- */
+.testimonials-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* --- DISEÑO DE LA TARJETA (Default - Imagen 2) --- */
+.testimonial-card {
+    background-color: white;
+    width: 350px; /* Ancho fijo para que sean uniformes */
+    padding: 30px;
+    border-radius: 25px; /* Bordes bien redondeados */
+    
+    /* Sombra sutil inicial */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;
+    
+    position: relative;
+    
+    /* Transición suave para el hover */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote sutil */
+}
+
+/* Cabecera de la tarjeta (Foto y Nombre) */
+.card-header-testimonial {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.user-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Foto redonda */
+    object-fit: cover;
+    border: 2px solid var(--color-turquoise);
+}
+
+.card-header-testimonial h3 {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.stars {
+    color: #FFD700; /* Color dorado para estrellas */
+    font-size: 0.9rem;
+}
+
+/* El texto del testimonio */
+.testimonial-text {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Icono de comillas decorativo */
+.quote-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 3rem;
+    color: rgba(28, 214, 185, 0.1); /* Turquesa muy transparente */
+}
+
+
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .testimonial-card {
+        width: 100%; /* En móvil ocupan todo el ancho */
+    }
+    .testimonials-section::before {
+        height: 70%; /* Cinta más alta en móvil */
+        top: 15%;
+        transform: rotate(-15deg); /* Más inclinada */
+    }
+}
+
+/* =========================================
+   SECCIÓN GALERÍA
+   ========================================= */
+.gallery-section {
+    padding: 100px 50px;
+    background-color: white; /* O puedes usar #f9f9f9 para diferenciarla */
+}
+
+.gallery-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* --- LA GRILLA --- */
+.gallery-grid {
+    display: grid;
+    /* Esto crea columnas automáticas: mínimo 250px de ancho cada una */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* --- LA TARJETA DE FOTO --- */
+.gallery-item {
+    position: relative;
+    height: 250px; /* Altura fija para que sean cuadrados/rectángulos uniformes */
+    border-radius: 20px;
+    overflow: hidden; /* Recorta la imagen si se sale */
+    cursor: pointer;
+    border: 2px solid var(--color-turquoise); /* Borde Turquesa (Tu estilo) */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Llena el cuadro sin deformarse */
+    transition: transform 0.5s ease;
+}
+
+/* Efecto Hover: Zoom a la foto */
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(28, 214, 185, 0.3); /* Sombra turquesa */
+}
+
+/* Capa con la Lupa (Aparece al pasar el mouse) */
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(28, 214, 185, 0.4); /* Turquesa transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Invisible por defecto */
+    transition: opacity 0.3s ease;
+}
+
+.gallery-overlay i {
+    color: white;
+    font-size: 2rem;
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1; /* Aparece al hover */
+}
+
+
+/* =========================================
+   EL VISOR (LIGHTBOX) - "Efecto Aparte"
+   ========================================= */
+.lightbox-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 2000; /* Encima de TODO (incluso del menú y whatsapp) */
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9); /* Fondo Negro casi opaco */
+    backdrop-filter: blur(5px); /* Desenfoca la página de atrás */
+    animation: fadeIn 0.3s;
+}
+
+/* Imagen Grande */
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px; /* No más ancha que esto */
+    max-height: 80vh; /* Para que quepa en la pantalla verticalmente */
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(255,255,255,0.1);
+    animation: zoomIn 0.3s;
+}
+
+/* Botón Cerrar (X) */
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--color-turquoise);
+}
+
+/* Texto de descripción (si la imagen tiene alt) */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-family: var(--font-body);
+}
+
+/* Animaciones de entrada */
+@keyframes zoomIn {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+/* =========================================
+   SECCIÓN CONTACTO
+   ========================================= */
+.contact-section {
+    background-color: var(--color-light-bg); /* Fondo durazno suave */
+    padding: 80px 0;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alineados arriba */
+    gap: 50px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+/* --- COLUMNA IZQUIERDA: TARJETA INFO --- */
+.contact-info-card {
+    background-color: white;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    flex: 1; /* Ocupa 1 parte */
+    min-width: 300px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Diseño del Ícono (Headset + Burbuja) */
+.icon-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.main-icon {
+    font-size: 5rem; /* Icono grande */
+    color: #333;
+}
+
+.sub-icon {
+    font-size: 2.5rem;
+    color: var(--color-turquoise); /* Burbuja turquesa */
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    background: white;
+    border-radius: 50%;
+}
+
+.contact-details p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    padding: 10px 5px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* --- COLUMNA DERECHA: FORMULARIO --- */
+.contact-form {
+    flex: 1.5; /* Ocupa más espacio (1.5 partes) */
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo de los Inputs (Cajas blancas limpias) */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid transparent; /* Sin borde visible por defecto */
+    border-radius: 10px; /* Bordes suaves */
+    background-color: white;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #333;
+    
+    /* Sombra suave para que resalten del fondo durazno */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
+    transition: all 0.3s ease;
+}
+
+/* Efecto al escribir (Focus) */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-turquoise); /* Borde turquesa al hacer clic */
+    box-shadow: 0 4px 15px rgba(28, 214, 185, 0.2);
+}
+
+/* Botón de Enviar (Reutilizamos estilo de servicios pero más ancho) */
+.submit-btn {
+    background-color: var(--color-turquoise);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+    background-color: var(--color-turquoise-dark);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-info-card, .contact-form {
+        width: 100%;
+    }
+}
+/* =========================================
+   SECCIÓN LOCALIZACIÓN
+   ========================================= */
+.location-section {
+    padding: 120px 0 50px 0;
+    background-color: white;
+}
+
+.map-wrapper {
+    position: relative; /* Para poder poner la tarjeta encima */
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden; /* Recorta el mapa en las esquinas redondas */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 5px solid white; /* Marco blanco */
+}
+/* --- MAPA ESTÁTICO (IMAGEN) --- */
+.map-link {
+    display: block;
+    width: 100%;
+    height: 450px; /* La misma altura que tenías antes */
+    position: relative;
+    text-decoration: none;
+}
+
+.static-map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Para que la foto no se estire feo */
+    transition: transform 0.5s ease;
+}
+
+/* Efecto al pasar el mouse (Opcional pero bonito) */
+.map-overlay-hover {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.1); /* Oscurece un poquito */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Invisible por defecto */
+    transition: opacity 0.3s ease;
+}
+
+.map-overlay-hover span {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.map-link:hover .map-overlay-hover {
+    opacity: 1; /* Aparece el botón al pasar el mouse */
+}
+
+.map-link:hover .static-map-img {
+    transform: scale(1.05); /* Efecto zoom suave */
+}
+/* La tarjeta blanca flotante sobre el mapa */
+.address-card-overlay {
+    position: absolute;
+    right: 50px; /* A la derecha */
+    top: 50%;
+    transform: translateY(-50%); /* Centrada verticalmente */
+    
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    min-width: 250px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.address-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.pin-icon {
+    color: #FF4D4D; /* Rojo mapa */
+    font-size: 2rem;
+    margin-top: 5px;
+    animation: bounce 2s infinite; /* El pin salta */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* =========================================
+   FOOTER (PIE DE PÁGINA)
+   ========================================= */
+.main-footer {
+    background-color: white;
+    padding: 60px 0 20px 0;
+    border-top: 1px solid #eee;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Redes Sociales */
+.footer-social {
+    display: flex;
+    gap: 20px;
+}
+
+.social-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+.social-circle:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* Colores específicos de marcas */
+.insta { 
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); 
+}
+.tiktok { background-color: #000; }
+.face { background-color: #1877F2; }
+
+
+/* División Logo / Contacto */
+.footer-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+.footer-logo img {
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.footer-logo h3 {
+    font-family: var(--font-fancy);
+    color: var(--color-turquoise);
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.footer-contact-list {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.contact-item i {
+    color: #333;
+    font-size: 1.2rem;
+    width: 25px; /* Para alinear íconos */
+    text-align: center;
+}
+
+/* Copyright */
+.footer-copyright {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+
+/* =========================================
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================= */
+.whatsapp-float {
+    position: fixed; /* Se queda pegado en la pantalla */
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000; /* Siempre encima de todo */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+/* =========================================
+   FOOTER CON FLECHA EN EL MARGEN
+   ========================================= */
+
+.main-footer {
+    background-color: white;
+    padding: 60px 0 20px 0;
+    border-top: 1px solid #eee;
+    
+    /* IMPORTANTE: Necesario para posicionar la flecha respecto al footer */
+    position: relative; 
+    margin-top: 50px; /* Un poco de aire con la sección anterior */
+}
+
+/* --- LA FLECHA FLOTANTE --- */
+.scroll-top-btn {
+    /* Posición absoluta: se sale del flujo normal */
+    position: absolute;
+    
+    /* Lo ubicamos justo en el borde de arriba, mitad adentro mitad afuera */
+    top: -25px; 
+    left: 50%;
+    transform: translateX(-50%); /* Centrado horizontal perfecto */
+    
+    /* Diseño del círculo */
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    
+    /* Sombra para que destaque del fondo de la página */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1); 
+    border: 1px solid #f0f0f0;
+    
+    /* Centrar la flecha dentro del círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Texto/Icono */
+    color: #333; /* Color negro suave como en tu foto */
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+/* Efecto al pasar el mouse */
+.scroll-top-btn:hover {
+    background-color: var(--color-turquoise); /* Se pinta turquesa */
+    color: white; /* La flecha se vuelve blanca */
+    top: -30px; /* Sube un poquito más */
+    box-shadow: 0 5px 15px rgba(28, 214, 185, 0.4);
+}
+/* =========================================
+   RESPONSIVE (Móvil)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Mapa: La tarjeta baja y deja de flotar encima */
+    .map-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .address-card-overlay {
+        position: relative; /* Ya no flota */
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        border-top: 1px solid #eee;
+    }
+    
+    /* Footer vertical */
+    .footer-split {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-contact-list {
+        align-items: center; /* Centrar items de contacto */
+    }
+    
+    /* WhatsApp un poco más pequeño en móvil */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+/* --- BANNER PEQUEÑO (Para páginas internas como Galería) --- */
+.hero-small {
+    /* Altura menor que el del inicio (que tiene 60vh) */
+    height: 40vh; 
+    
+    /* Puedes usar la misma foto del inicio o una diferente para variar */
+    /* Si quieres otra foto, cambia la URL aquí abajo: */
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Imagenes/fondo-familiar.jpg');
+    
+    background-size: cover;
+    background-position: center;
+    
+    /* Para centrar el título "Nuestra Galería" */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* =========================================
    6. RESPONSIVE (Móviles)
    ========================================= */

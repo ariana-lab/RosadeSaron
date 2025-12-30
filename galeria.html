@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Rosa de Sarón</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600;700&family=Sansita+Swashed:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="Imagenes/logo.png" alt="Rosa de Sarón" class="logo-img"> 
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#">Inicio</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#horarios">Horarios</a></li>
+                <li><a href="index.html#tarifas">Tarifas</a></li>
+                <li><a href="index.html#opiniones">Comentarios</a></li>
+                <li><a href="index.html#contacto">Contactanos</a></li>
+                <li><a href="index.html#localizacion">Localización</a></li>
+                <li><a href="#" class="active">Galería</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>"Acompañando con respeto, <br> cuidando con el corazón."</h1>
+            </div>
+        </div>
+    </header>
+    <section class="gallery-page-header container" style="text-align: center;">
+        <div class="master-title-badge badge-teal" style="transform: none; margin-top: 60px; margin-bottom: 40px;">
+            <h2>Nuestra Galería</h2>
+        </div>
+        <p style="margin-top: 20px; color: #666;">Un recorrido visual por nuestros espacios y momentos especiales.</p>
+    </section>
+
+    <section class="container" style="margin-bottom: 100px;">
+        <div class="gallery-grid">
+            
+            <div class="gallery-item" onclick="abrirLightbox(this)">
+                <img src="Imagenes/galeria1.jpg" alt="Sala de estar">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="gallery-item" onclick="abrirLightbox(this)">
+                <img src="Imagenes/galeria2.jpg" alt="Actividades recreativas">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="gallery-item" onclick="abrirLightbox(this)">
+                <img src="Imagenes/galeria3.jpg" alt="Comedor">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="gallery-item" onclick="abrirLightbox(this)">
+                <img src="Imagenes/galeria4.jpg" alt="Jardín">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="gallery-item" onclick="abrirLightbox(this)">
+                <img src="Imagenes/habitacion.jpg" alt="Habitaciones">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            <div class="gallery-item" onclick="abrirLightbox(this)">
+                <img src="Imagenes/enfermeria.jpg" alt="Enfermería">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+
+            </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/residenciarosadesaron/" target="_blank" class="social-circle insta"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/" target="_blank" class="social-circle tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://web.facebook.com/BomeBoock/about" target="_blank" class="social-circle face"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="footer-copyright">
+                <p>@2026 Residencia Rosa de Sarón. Todos los derechos reservados.</p>
+                <p><a href="index.html" style="color: #999;">Volver al Inicio</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="miLightbox" class="lightbox-modal" onclick="cerrarLightbox()">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="imgGrande">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function abrirLightbox(elemento) {
+            const modal = document.getElementById("miLightbox");
+            const imgGrande = document.getElementById("imgGrande");
+            const caption = document.getElementById("caption");
+            const imgPequena = elemento.querySelector('img');
+            
+            modal.style.display = "flex";
+            modal.style.flexDirection = "column";
+            modal.style.justifyContent = "center";
+            modal.style.alignItems = "center";
+            
+            imgGrande.src = imgPequena.src;
+            caption.innerHTML = imgPequena.alt;
+            document.body.style.overflow = "hidden";
+        }
+
+        function cerrarLightbox() {
+            document.getElementById("miLightbox").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    </script>
+</body>
+</html>
