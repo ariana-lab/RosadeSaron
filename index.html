@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosa de Sarón - Residencia</title>
-    
+    <link rel="icon" href="Imagenes/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600;700&family=Sansita+Swashed:wght@300..900&display=swap" rel="stylesheet">
@@ -320,22 +320,22 @@
                     </div>
                 </div>
 
-                <form class="contact-form" id="miFormulario">
-                    
+                <form class="contact-form" action="https://formspree.io/f/xojvwavd" method="POST">
+    
                     <div class="form-group">
-                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="text" name="nombre" placeholder="Nombre completo" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="email" name="email" placeholder="Correo electrónico" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="Asunto" required>
+                        <input type="text" name="asunto" placeholder="Asunto" required>
                     </div>
 
                     <div class="form-group">
-                        <textarea rows="5" placeholder="Redactar correo" required></textarea>
+                        <textarea name="mensaje" rows="5" placeholder="Redactar correo" required></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">
@@ -524,23 +524,7 @@
             indiceActual = n;
             mostrarSlide(indiceActual);
         }
-
-
-        // --- LÓGICA DEL FORMULARIO DE CONTACTO ---
-        const formulario = document.getElementById('miFormulario');
         
-        formulario.addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que la página se recargue
-            
-            // Simulación de envío
-            // Aquí podrías conectar con un servicio real más adelante
-            
-            // 1. Mostrar alerta de éxito
-            alert("¡Mensaje enviado con éxito! Gracias por contactar a Residencia Rosa de Sarón. Nos comunicaremos contigo a la brevedad.");
-            
-            // 2. Limpiar el formulario
-            formulario.reset();
-        });
     
     // Iniciar con la del medio abierta (Opcional)
     // activarTarifa(2);
