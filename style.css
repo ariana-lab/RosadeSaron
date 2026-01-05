@@ -1,5 +1,21 @@
+/* ==========================================================================
+   HOJA DE ESTILOS - RESIDENCIA ROSA DE SARÓN
+   Autor: Ariana Puentes
+   Descripción: Estilos principales para sitio web One Page.
+   
+   ÍNDICE:
+   1. VARIABLES Y BASE
+   2. HEADER Y NAVEGACIÓN (Menú)
+   3. HERO SECTION (Banner Principal)
+   4. COMPONENTES GLOBALES (Títulos)
+   5. SECCIONES DE CONTENIDO (Nosotros, Servicios, Horarios, etc.)
+   6. FOOTER Y ELEMENTOS FLOTANTES
+   ========================================================================== */
+
+
 /* =========================================
    1. VARIABLES Y CONFIGURACIÓN BASE
+   Descripción: Paleta de colores y fuentes globales.
    ========================================= */
 :root {
     --color-primary: #76a867;       /* Verde botones */
@@ -29,15 +45,17 @@ body {
     line-height: 1.6;
 }
 
-/* Clases utilitarias */
+/* Contenedor maestro para centrar contenido */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto; 
 }
 
+
 /* =========================================
    2. HEADER Y NAVEGACIÓN
+   Descripción: Barra de navegación con efecto "Línea Mágica".
    ========================================= */
 .main-header {
     width: 100%;
@@ -48,12 +66,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
     width: 100%;
     position: absolute; 
     top: 0;
     left: 0;
     z-index: 10;
+    padding: 0 40px; /* Margen lateral para que el logo no se pegue al borde */
 }
 
 .logo-img {
@@ -63,33 +81,52 @@ body {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 30px; /* Espacio entre los enlaces */
     align-items: center;
 }
 
+/* Estilo de los enlaces (Sin botones, texto limpio) */
 .nav-links a {
     text-decoration: none;
     color: white; 
     font-weight: 600;
-    font-size: 0.9rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    padding: 8px 18px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+    font-size: 1rem; /* Aumenté un poquito el tamaño para leer mejor (antes 0.9rem) */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Sombra para contraste */
+    padding: 10px 0;
+    position: relative; /* Necesario para la línea mágica */
+    transition: color 0.3s ease;
 }
 
+/* La Línea Mágica (Pseudo-elemento) */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;           /* Invisible al inicio */
+    height: 3px;        /* Grosor */
+    bottom: 0;
+    left: 50%;
+    background-color: var(--color-turquoise); 
+    transform: translateX(-50%); /* Centrado */
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Efecto Hover: Aparece la línea y cambia color */
 .nav-links a:hover {
-    background-image: linear-gradient(to right, var(--color-primary), white);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    border: 1px solid white;
+    color: var(--color-turquoise);
 }
 
-/* Hero Section (Banner) */
+.nav-links a:hover::after {
+    width: 100%; /* La línea crece */
+}
+
+
+/* =========================================
+   3. HERO SECTION (BANNER)
+   Descripción: Foto principal con degradado oscuro encima.
+   ========================================= */
 .hero-section {
     height: 60vh; 
-    /* Asegúrate que la ruta de la imagen sea correcta */
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('Imagenes/fondo-familiar.jpg');
     background-size: cover;
     background-position: center top;
@@ -107,8 +144,18 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
+/* Banner pequeño para páginas internas (Galería) */
+.hero-small {
+    height: 40vh; 
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Imagenes/fondo-familiar.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
 /* =========================================
-   3. CLASE MAESTRA PARA TÍTULOS
+   4. COMPONENTES GLOBALES (TÍTULOS)
+   Descripción: Estilos reutilizables para encabezados de sección.
    ========================================= */
 .master-title-badge {
     font-family: var(--font-fancy);
@@ -120,7 +167,7 @@ body {
     width: fit-content;
     margin: 0 auto;
     color: black;
-    -webkit-text-stroke: 1.3px white;
+    -webkit-text-stroke: 1.3px white; /* Borde blanco en letras */
 }
 
 .master-title-badge h2 {
@@ -129,7 +176,7 @@ body {
     font-weight: 600;
 }
 
-/* Variante Turquesa (Nosotros) */
+/* Variante Turquesa (Flota hacia arriba) */
 .badge-teal {
     background-color: var(--color-turquoise);
     border: 3px solid white;
@@ -139,33 +186,35 @@ body {
     position: relative;
 }
 
-/* Variante Blanca (Servicios) */
+/* Variante Blanca (Normal) */
 .badge-white {
     background-color: white;
     border: 3px solid var(--color-turquoise);
-    margin-bottom: 30px; /* Separación con los botones */
+    margin-bottom: 30px; 
 }
 
+
 /* =========================================
-   4. SECCIÓN NOSOTROS
+   5. SECCIONES DE CONTENIDO
    ========================================= */
+
+/* --- NOSOTROS --- */
 .about-section.container {
     width: 95%;
     max-width: 1600px;
-    padding: 120px 20px; /* Espacio vertical grande */
+    padding: 120px 20px; 
 }
 
 .about-grid {
     display: flex;
-    align-items: center; /* Centrado vertical */
+    align-items: center;
     gap: 60px;
     width: 100%;
     flex-wrap: wrap;
 }
 
-/* Columna Texto */
 .about-text {
-    flex: 1.5; /* Ocupa 60% */
+    flex: 1.5;
     min-width: 300px;
     display: flex;
     flex-direction: column;
@@ -184,13 +233,8 @@ body {
     z-index: 1;
 }
 
-.text-card p {
-    margin-bottom: 15px;
-}
-
-/* Columna Imagen */
 .about-image-container {
-    flex: 1; /* Ocupa 40% */
+    flex: 1;
     min-width: 300px;
     display: flex;
     justify-content: center;
@@ -198,25 +242,20 @@ body {
 
 .about-img {
     width: 100%;
-    height: 450px; /* Altura fija para imponer presencia */
+    height: 450px;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
-.about-img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
+.about-img:hover { transform: scale(1.02); }
 
 
-/* =========================================
-   5. SECCIÓN SERVICIOS (Nueva Estructura)
-   ========================================= */
+/* --- SERVICIOS --- */
 .services-section {
     background-color: var(--color-light-bg);
-    padding: 90px 0; /* Buen espacio vertical */
+    padding: 90px 0;
     font-family: var(--font-body);
 }
 
@@ -229,9 +268,8 @@ body {
     flex-wrap: wrap;
 }
 
-/* --- Columna Izquierda (La Tarjeta Grande) --- */
 .service-display-card {
-    flex: 1; /* Más ancha */
+    flex: 1;
     min-width: 300px;
     background-color: white;
     border-radius: 30px;
@@ -240,7 +278,7 @@ body {
     display: flex;
     flex-direction: column;
     height: auto; 
-    transition: opacity 0.2s ease; /* Para el efecto fade en JS */
+    transition: opacity 0.2s ease;
 }
 
 .card-header-color {
@@ -253,7 +291,7 @@ body {
 .card-body {
     padding: 50px;
     text-align: center;
-    flex-grow: 1; /* Asegura que llene el espacio si sobra */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -267,22 +305,19 @@ body {
     margin-bottom: 20px;
 }
 
-/* --- Columna Derecha (Título + Botones) --- */
 .services-right-column {
     flex: 1; 
     min-width: 300px;
-    
     display: flex;
     flex-direction: column; 
-    align-items: center;    /* Centra el título horizontalmente */
-    justify-content: center; /* Centra todo el bloque verticalmente */
+    align-items: center;
+    justify-content: center;
 }
 
-/* Grilla de Botones */
 .services-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 Columnas */
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
@@ -290,7 +325,6 @@ body {
     background-color: var(--color-turquoise); 
     color: white;
     padding: 15px 20px;
-    /* Forma de Hoja */
     border-radius: 35px; 
     border: 2px solid white;
     display: flex;
@@ -301,140 +335,97 @@ body {
     font-size: 0.95rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    
     width: 100%;
-}
-
-.service-btn i {
-    font-size: 1.5rem;
 }
 
 .service-btn:hover {
     transform: scale(1.05) translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     background-color: var(--color-turquoise-dark);
 }
-/* --- SECCIÓN HORARIOS --- */
-/* --- OPCIÓN 2: DEGRADADO SUAVE --- */
+
+
+/* --- HORARIOS --- */
 .schedule-section {
     background: linear-gradient(to bottom, #ffffff 0%, #e0fcf9 100%);
     padding: 100px 20px;
     text-align: center;
 }
 
-/* Contenedor Flex para poner las tarjetas en fila */
 .schedule-container {
     display: flex;
-    justify-content: center; /* Centradas en la pantalla */
-    gap: 15px;               /* Espacio entre tarjetas */
-    flex-wrap: wrap;         /* Si no caben, bajan a la siguiente línea */
-    padding: 40px 10px;      /* Espacio para que la sombra no se corte */
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 40px 10px;
 }
 
-/* --- DISEÑO DE LA TARJETA --- */
 .schedule-card {
     background-color: white;
-    width: 200px;            /* Ancho fijo para que se vean uniformes como en tu foto */
+    width: 200px;
     padding: 30px 15px;
-    border-radius: 15px;     /* Bordes redondeados */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Sombra suave base */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     border: 1px solid #f0f0f0;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    
-    /* LA MAGIA DE LA TRANSICIÓN */
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+    transition: all 0.2s cubic-bezier(0.15, 0.7, 0.2, 1.2);
     position: relative;
     z-index: 1;
 }
 
-/* Estilos del contenido interno */
-.schedule-card .time {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #888;
-    margin-bottom: 10px;
-    font-style: italic;
-}
-
 .schedule-card h3 {
     font-family: 'Sansita Swashed', cursive;
-    color: #c71eb0; /* ESTE es el color turquesa para los títulos */
+    color: var(--color-turquoise);
     font-size: 1.4rem;
     margin-bottom: 15px;
 }
 
 .schedule-card i {
-    font-size: 2.5rem; /* Icono grande */
-    color: #333;       /* Icono negro (como en tu foto) */
+    font-size: 2.5rem;
+    color: #333;
     margin-bottom: 15px;
-    border: 3px solid #333; /* Borde estilo dibujo */
+    border: 3px solid #333;
     padding: 10px;
-    border-radius: 10px;    /* Icono cuadradito redondeado */
+    border-radius: 10px;
 }
 
-.schedule-card p {
-    font-size: 0.8rem;
-    color: #666;
-    line-height: 1.4;
-    font-style: italic;
-}
-
-/* --- EFECTO HOVER (Lo que pediste) --- */
 .schedule-card:hover {
-    /* 1. Crece un 15% */
     transform: scale(1.15) translateY(-10px); 
-    /* 2. Sombra Turquesa Brillante por debajo */
     box-shadow: 0 5px 10px rgba(28, 214, 185, 0.5); 
-    
-    /* 3. Se pone por encima de las demás */
     z-index: 10; 
-    
-    /* Opcional: Borde inferior de color para resaltar más */
     border-bottom: 5px solid #1CD6B9;
 }
-/* =========================================
-   SECCIÓN TARIFAS (Estilo Carrusel)
-   ========================================= */
+
+
+/* --- TARIFAS (Carrusel) --- */
 .pricing-section {
-    background-color: var(--color-light-bg); /* Fondo durazno suave */
+    background-color: var(--color-light-bg);
     padding: 80px 0;
 }
 
-.pricing-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-}
-
-/* --- CONTENEDOR DEL CARRUSEL --- */
 .carousel-container {
     display: flex;
-    align-items: center; /* Alinea flechas y tarjeta al centro vertical */
+    align-items: center;
     justify-content: center;
-    gap: 20px; /* Espacio entre flechas y tarjeta */
+    gap: 20px;
     width: 100%;
     max-width: 1000px;
+    margin: 0 auto;
 }
 
-/* --- BOTONES FLECHA --- */
 .carousel-btn {
     background-color: white;
     border: 2px solid #1CD6B9;
     color: #1CD6B9;
     width: 50px;
     height: 50px;
-    border-radius: 50%; /* Círculo perfecto */
+    border-radius: 50%;
     font-size: 1.5rem;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    
-    /* Centrar el ícono */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -445,68 +436,48 @@ body {
     background-color: #1CD6B9;
     color: white;
     transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-/* --- TARJETA --- */
 .carousel-track {
-    flex: 1; /* Ocupa el espacio central */
+    flex: 1;
     position: relative;
     display: flex;
     justify-content: center;
 }
 
 .pricing-card {
-    display: none; /* Ocultas por defecto */
+    display: none;
     width: 100%;
-    max-width: 700px; /* Ancho máximo de la tarjeta */
+    max-width: 700px;
     background: white;
     border-radius: 20px;
-    border: 3px solid #1CD6B9; /* Borde Turquesa */
+    border: 3px solid #1CD6B9;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     padding: 40px;
     text-align: center;
-    animation: fadeEffect 0.5s ease; /* Efecto suave al cambiar */
+    animation: fadeEffect 0.5s ease;
 }
 
-/* La tarjeta activa es la única que se ve */
-.pricing-card.active-slide {
-    display: block;
-}
+.pricing-card.active-slide { display: block; }
 
-.card-content h3 {
-    font-family: 'Sansita Swashed', cursive;
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.card-content p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 25px;
-    line-height: 1.6;
-}
-
-.card-content img {
+.pricing-card img {
     width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    margin-top: 20px;
 }
 
-/* Animación de desvanecimiento */
 @keyframes fadeEffect {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- INDICADORES (PUNTITOS) --- */
 .carousel-indicators {
     display: flex;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
+    justify-content: center;
 }
 
 .dot {
@@ -514,203 +485,36 @@ body {
     width: 12px;
     background-color: #ccc;
     border-radius: 50%;
-    display: inline-block;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .dot.active-dot {
-    background-color: #1CD6B9; /* Turquesa */
+    background-color: #1CD6B9;
     transform: scale(1.2);
 }
 
-/* --- RESPONSIVE (Móvil) --- */
-@media (max-width: 768px) {
-    .carousel-container {
-        position: relative; /* Para poner flechas sobre la foto si falta espacio */
-    }
-    .pricing-card {
-        padding: 25px;
-    }
-    .card-content h3 {
-        font-size: 1.8rem;
-    }
-    .card-content img {
-        height: 200px;
-    }
-    
-    /* Flechas más pequeñas en móvil */
-    .carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-}
-/* =========================================
-   SECCIÓN OPINIONES (Testimonios)
-   ========================================= */
 
-/* Contenedor principal de la sección */
-.testimonials-section {
-    position: relative; /* Necesario para que la "cinta" se ubique respecto a esto */
-    padding: 100px 0;
-    background-color: var(--color-white);
-    overflow: hidden; /* Evita que la cinta se salga de la pantalla */
-}
-
-/* Contenedor para el contenido (Título y tarjetas) */
-.relative-container-testimonials {
-    position: relative;
-    z-index: 2; /* Asegura que el contenido esté SOBRE la cinta */
-}
-
-/* --- LA CINTA DE FONDO (Pseudo-elemento) --- */
-.testimonials-section::before {
-    content: ''; /* Elemento vacío necesario */
-    position: absolute;
-    
-    /* Tamaño y posición */
-    top: 25%; /* Ajusta la altura vertical */
-    left: -10%; /* Empieza fuera de la pantalla a la izquierda */
-    width: 120%; /* Más ancho que la pantalla para cruzarla */
-    height: 50%; /* Altura de la cinta */
-    
-    /* Color y forma */
-    background-color: #e0fcf9; /* Verde/Turquesa muy clarito */
-    transform: rotate(-5deg); /* La inclinación */
-    border-radius: 50px; /* Bordes redondeados suaves */
-    
-    z-index: 0; /* Detrás de todo */
-    opacity: 0.8;
-    
-    /* La Animación de flotar */
-    animation: floatRibbon 8s ease-in-out infinite alternate;
-}
-
-/* Animación suave para la cinta */
-@keyframes floatRibbon {
-    0% { transform: rotate(-5deg) translateY(0px); }
-    100% { transform: rotate(-5deg) translateY(20px); } /* Se mueve un poquito arriba y abajo */
-}
-
-
-/* --- GRILLA DE TARJETAS --- */
-.testimonials-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
-/* --- DISEÑO DE LA TARJETA (Default - Imagen 2) --- */
-.testimonial-card {
-    background-color: white;
-    width: 350px; /* Ancho fijo para que sean uniformes */
-    padding: 30px;
-    border-radius: 25px; /* Bordes bien redondeados */
-    
-    /* Sombra sutil inicial */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    border: 1px solid #f0f0f0;
-    
-    position: relative;
-    
-    /* Transición suave para el hover */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote sutil */
-}
-
-/* Cabecera de la tarjeta (Foto y Nombre) */
-.card-header-testimonial {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.user-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; /* Foto redonda */
-    object-fit: cover;
-    border: 2px solid var(--color-turquoise);
-}
-
-.card-header-testimonial h3 {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-}
-
-.stars {
-    color: #FFD700; /* Color dorado para estrellas */
-    font-size: 0.9rem;
-}
-
-/* El texto del testimonio */
-.testimonial-text {
-    font-style: italic;
-    color: #555;
-    line-height: 1.6;
-}
-
-/* Icono de comillas decorativo */
-.quote-icon {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    font-size: 3rem;
-    color: rgba(28, 214, 185, 0.1); /* Turquesa muy transparente */
-}
-
-
-
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    .testimonial-card {
-        width: 100%; /* En móvil ocupan todo el ancho */
-    }
-    .testimonials-section::before {
-        height: 70%; /* Cinta más alta en móvil */
-        top: 15%;
-        transform: rotate(-15deg); /* Más inclinada */
-    }
-}
-
-/* =========================================
-   SECCIÓN GALERÍA
-   ========================================= */
+/* --- GALERÍA --- */
 .gallery-section {
     padding: 100px 50px;
-    background-color: white; /* O puedes usar #f9f9f9 para diferenciarla */
+    background-color: white;
 }
 
-.gallery-subtitle {
-    text-align: center;
-    color: #666;
-    margin-bottom: 40px;
-    font-style: italic;
-}
-
-/* --- LA GRILLA --- */
 .gallery-grid {
     display: grid;
-    /* Esto crea columnas automáticas: mínimo 250px de ancho cada una */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
-/* --- LA TARJETA DE FOTO --- */
 .gallery-item {
     position: relative;
-    height: 250px; /* Altura fija para que sean cuadrados/rectángulos uniformes */
+    height: 250px;
     border-radius: 20px;
-    overflow: hidden; /* Recorta la imagen si se sale */
+    overflow: hidden;
     cursor: pointer;
-    border: 2px solid var(--color-turquoise); /* Borde Turquesa (Tu estilo) */
+    border: 2px solid var(--color-turquoise);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
@@ -718,33 +522,29 @@ body {
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Llena el cuadro sin deformarse */
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-/* Efecto Hover: Zoom a la foto */
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
+.gallery-item:hover img { transform: scale(1.1); }
 .gallery-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(28, 214, 185, 0.3); /* Sombra turquesa */
+    box-shadow: 0 10px 25px rgba(28, 214, 185, 0.3);
 }
 
-/* Capa con la Lupa (Aparece al pasar el mouse) */
 .gallery-overlay {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(28, 214, 185, 0.4); /* Turquesa transparente */
+    background: rgba(28, 214, 185, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0; /* Invisible por defecto */
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
+.gallery-item:hover .gallery-overlay { opacity: 1; }
 .gallery-overlay i {
     color: white;
     font-size: 2rem;
@@ -753,175 +553,210 @@ body {
     border-radius: 50%;
 }
 
-.gallery-item:hover .gallery-overlay {
-    opacity: 1; /* Aparece al hover */
+
+/* --- OPINIONES --- */
+.testimonials-section {
+    position: relative;
+    padding: 100px 0;
+    background-color: var(--color-white);
+    overflow: hidden;
 }
 
-
-/* =========================================
-   EL VISOR (LIGHTBOX) - "Efecto Aparte"
-   ========================================= */
-.lightbox-modal {
-    display: none; /* Oculto por defecto */
-    position: fixed; 
-    z-index: 2000; /* Encima de TODO (incluso del menú y whatsapp) */
-    padding-top: 60px; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.9); /* Fondo Negro casi opaco */
-    backdrop-filter: blur(5px); /* Desenfoca la página de atrás */
-    animation: fadeIn 0.3s;
+.relative-container-testimonials {
+    position: relative;
+    z-index: 2;
 }
 
-/* Imagen Grande */
-.lightbox-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 900px; /* No más ancha que esto */
-    max-height: 80vh; /* Para que quepa en la pantalla verticalmente */
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 0 50px rgba(255,255,255,0.1);
-    animation: zoomIn 0.3s;
-}
-
-/* Botón Cerrar (X) */
-.close-btn {
+.testimonials-section::before {
+    content: '';
     position: absolute;
-    top: 30px;
-    right: 50px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
+    top: 25%;
+    left: -10%;
+    width: 120%;
+    height: 50%;
+    background-color: #e0fcf9;
+    transform: rotate(-5deg);
+    border-radius: 50px;
+    z-index: 0;
+    opacity: 0.8;
+    animation: floatRibbon 8s ease-in-out infinite alternate;
 }
 
-.close-btn:hover {
-    color: var(--color-turquoise);
+@keyframes floatRibbon {
+    0% { transform: rotate(-5deg) translateY(0px); }
+    100% { transform: rotate(-5deg) translateY(20px); }
 }
 
-/* Texto de descripción (si la imagen tiene alt) */
-#caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    font-family: var(--font-body);
+.testimonials-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 20px;
 }
 
-/* Animaciones de entrada */
-@keyframes zoomIn {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
+.testimonial-card {
+    background-color: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-/* =========================================
-   SECCIÓN CONTACTO
-   ========================================= */
+
+.testimonial-card:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 30px 50px rgba(28, 214, 185, 0.4);
+    border-color: var(--color-turquoise);
+    z-index: 10;
+}
+
+.user-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-turquoise);
+}
+
+
+/* --- CONTACTO --- */
 .contact-section {
-    background-color: var(--color-light-bg); /* Fondo durazno suave */
+    background-color: var(--color-light-bg);
     padding: 80px 0;
 }
 
 .contact-container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-start; /* Alineados arriba */
-    gap: 50px;
-    margin-top: 40px;
+    
+    /* CAMBIO CLAVE: 'stretch' obliga a que la tarjeta blanca mida lo mismo de alto que el formulario */
+    align-items: stretch; 
+    
+    gap: 40px;
     flex-wrap: wrap;
+    width: 100%;
 }
 
-/* --- COLUMNA IZQUIERDA: TARJETA INFO --- */
+/* --- TARJETA IZQUIERDA (ÍCONO + MENSAJE) --- */
 .contact-info-card {
     background-color: white;
-    padding: 50px 30px;
-    border-radius: 20px;
+    padding: 40px; /* Espacio interno generoso */
+    border-radius: 25px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     border: 1px solid #f0f0f0;
-    flex: 1; /* Ocupa 1 parte */
+    
+    /* TAMAÑO Y POSICIÓN */
+    flex: 1; /* Ocupa espacio proporcional */
     min-width: 300px;
-    max-width: 400px;
+    max-width: 400px; 
+    
+    /* Centrado del contenido */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    justify-content: center; /* Centra todo verticalmente */
+    align-items: center;     /* Centra todo horizontalmente */
+    
+    /* Aseguramos una altura mínima para que el texto no aplaste al ícono */
+    min-height: 500px; 
 }
 
-/* Diseño del Ícono (Headset + Burbuja) */
+/* El Ícono */
 .icon-wrapper {
     position: relative;
-    margin-bottom: 30px;
-    color: #333;
+    display: inline-block;
+    margin-bottom: 30px; /* Separación clara entre ícono y título */
 }
 
 .main-icon {
-    font-size: 5rem; /* Icono grande */
+    font-size: 6rem; /* Tamaño grande */
     color: #333;
 }
 
 .sub-icon {
-    font-size: 2.5rem;
-    color: var(--color-turquoise); /* Burbuja turquesa */
     position: absolute;
     top: -10px;
-    right: -20px;
+    right: -10px;
+    font-size: 3rem;
+    color: var(--color-turquoise);
     background: white;
     border-radius: 50%;
+    padding: 5px;
 }
 
-.contact-details p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 15px;
-    background-color: #f9f9f9;
-    padding: 10px 5px;
-    border-radius: 10px;
+/* --- MENSAJE CÁLIDO --- */
+.contact-warm-message {
+    text-align: center;
     width: 100%;
 }
 
-/* --- COLUMNA DERECHA: FORMULARIO --- */
+.contact-warm-message h3 {
+    font-family: var(--font-fancy);
+    color: var(--color-turquoise);
+    font-size: 2rem; 
+    margin-bottom: 20px;
+}
+
+.contact-warm-message p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    padding: 0 10px; /* Margen lateral para que el texto no toque bordes */
+}
+
+/* Etiqueta de tiempo de respuesta */
+.response-time {
+    font-weight: 600;
+    color: var(--color-dark-green);
+    background-color: #f0fdfa; /* Fondo menta muy suave */
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.9rem !important;
+}
+
+.response-time i {
+    margin-right: 5px;
+}
+
+/* --- FORMULARIO (DERECHA) --- */
 .contact-form {
-    flex: 1.5; /* Ocupa más espacio (1.5 partes) */
+    flex: 1.5; /* El formulario es un poco más ancho que la tarjeta */
     min-width: 320px;
+    max-width: 600px;
+    
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Centrado vertical */
     gap: 20px;
 }
 
-/* Estilo de los Inputs (Cajas blancas limpias) */
+/* Inputs y Textarea */
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 15px 20px;
-    border: 2px solid transparent; /* Sin borde visible por defecto */
-    border-radius: 10px; /* Bordes suaves */
+    border: 2px solid transparent;
+    border-radius: 10px;
     background-color: white;
     font-family: var(--font-body);
     font-size: 1rem;
-    color: #333;
-    
-    /* Sombra suave para que resalten del fondo durazno */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     transition: all 0.3s ease;
 }
 
-/* Efecto al escribir (Focus) */
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--color-turquoise); /* Borde turquesa al hacer clic */
+    border-color: var(--color-turquoise);
     box-shadow: 0 4px 15px rgba(28, 214, 185, 0.2);
 }
 
-/* Botón de Enviar (Reutilizamos estilo de servicios pero más ancho) */
+/* Botón Enviar */
 .submit-btn {
     background-color: var(--color-turquoise);
     color: white;
@@ -943,40 +778,40 @@ body {
 .submit-btn:hover {
     transform: scale(1.02);
     background-color: var(--color-turquoise-dark);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* --- RESPONSIVE (Móvil) --- */
+@media (max-width: 900px) {
     .contact-container {
-        flex-direction: column;
+        flex-direction: column; /* Uno debajo del otro */
         align-items: center;
     }
     .contact-info-card, .contact-form {
         width: 100%;
+        max-width: 100%;
+        min-height: auto; /* En móvil dejamos que la altura sea automática */
     }
 }
-/* =========================================
-   SECCIÓN LOCALIZACIÓN
-   ========================================= */
+
+/* --- LOCALIZACIÓN --- */
 .location-section {
     padding: 120px 0 50px 0;
     background-color: white;
 }
 
 .map-wrapper {
-    position: relative; /* Para poder poner la tarjeta encima */
+    position: relative;
     width: 100%;
     border-radius: 20px;
-    overflow: hidden; /* Recorta el mapa en las esquinas redondas */
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border: 5px solid white; /* Marco blanco */
+    border: 5px solid white;
 }
-/* --- MAPA ESTÁTICO (IMAGEN) --- */
+
 .map-link {
     display: block;
     width: 100%;
-    height: 450px; /* La misma altura que tenías antes */
+    height: 450px;
     position: relative;
     text-decoration: none;
 }
@@ -984,71 +819,34 @@ body {
 .static-map-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Para que la foto no se estire feo */
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-/* Efecto al pasar el mouse (Opcional pero bonito) */
-.map-overlay-hover {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.1); /* Oscurece un poquito */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0; /* Invisible por defecto */
-    transition: opacity 0.3s ease;
-}
+.map-link:hover .static-map-img { transform: scale(1.05); }
 
-.map-overlay-hover span {
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    color: #333;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.map-link:hover .map-overlay-hover {
-    opacity: 1; /* Aparece el botón al pasar el mouse */
-}
-
-.map-link:hover .static-map-img {
-    transform: scale(1.05); /* Efecto zoom suave */
-}
-/* La tarjeta blanca flotante sobre el mapa */
 .address-card-overlay {
     position: absolute;
-    right: 50px; /* A la derecha */
+    right: 50px;
     top: 50%;
-    transform: translateY(-50%); /* Centrada verticalmente */
-    
+    transform: translateY(-50%);
     background-color: white;
     padding: 20px 30px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     text-align: center;
     min-width: 250px;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     z-index: 10;
 }
 
-.address-text {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.5;
-}
-
 .pin-icon {
-    color: #FF4D4D; /* Rojo mapa */
+    color: #FF4D4D;
     font-size: 2rem;
     margin-top: 5px;
-    animation: bounce 2s infinite; /* El pin salta */
+    animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
@@ -1057,13 +855,43 @@ body {
     60% {transform: translateY(-5px);}
 }
 
+
 /* =========================================
-   FOOTER (PIE DE PÁGINA)
+   6. FOOTER Y ELEMENTOS FLOTANTES
    ========================================= */
 .main-footer {
     background-color: white;
     padding: 60px 0 20px 0;
     border-top: 1px solid #eee;
+    position: relative;
+    margin-top: 50px;
+}
+
+.scroll-top-btn {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.scroll-top-btn:hover {
+    background-color: var(--color-turquoise);
+    color: white;
+    top: -30px;
 }
 
 .footer-content {
@@ -1073,12 +901,7 @@ body {
     gap: 40px;
 }
 
-/* Redes Sociales */
-.footer-social {
-    display: flex;
-    gap: 20px;
-}
-
+.footer-social { display: flex; gap: 20px; }
 .social-circle {
     width: 50px;
     height: 50px;
@@ -1091,20 +914,11 @@ body {
     transition: transform 0.3s;
     text-decoration: none;
 }
-
-.social-circle:hover {
-    transform: scale(1.1) rotate(10deg);
-}
-
-/* Colores específicos de marcas */
-.insta { 
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); 
-}
+.social-circle:hover { transform: scale(1.1) rotate(10deg); }
+.insta { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 .tiktok { background-color: #000; }
 .face { background-color: #1877F2; }
 
-
-/* División Logo / Contacto */
 .footer-split {
     display: flex;
     justify-content: space-between;
@@ -1114,61 +928,16 @@ body {
     gap: 40px;
 }
 
-.footer-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex: 1;
-}
+.footer-logo img { height: 100px; margin-bottom: 10px; }
+.footer-logo h3 { font-family: var(--font-fancy); color: var(--color-turquoise); font-size: 1.5rem; }
 
-.footer-logo img {
-    height: 100px;
-    margin-bottom: 10px;
-}
+.footer-contact-list { display: flex; flex-direction: column; gap: 15px; }
+.contact-item { display: flex; align-items: center; gap: 15px; color: #555; }
+.footer-copyright { margin-top: 20px; font-size: 0.8rem; color: #999; }
 
-.footer-logo h3 {
-    font-family: var(--font-fancy);
-    color: var(--color-turquoise);
-    font-size: 1.5rem;
-    line-height: 1.2;
-}
-
-.footer-contact-list {
-    flex: 1.5;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 1rem;
-    color: #555;
-}
-
-.contact-item i {
-    color: #333;
-    font-size: 1.2rem;
-    width: 25px; /* Para alinear íconos */
-    text-align: center;
-}
-
-/* Copyright */
-.footer-copyright {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    color: #999;
-}
-
-
-/* =========================================
-   BOTÓN FLOTANTE WHATSAPP
-   ========================================= */
+/* WhatsApp */
 .whatsapp-float {
-    position: fixed; /* Se queda pegado en la pantalla */
+    position: fixed;
     bottom: 30px;
     right: 30px;
     width: 60px;
@@ -1181,147 +950,89 @@ body {
     justify-content: center;
     font-size: 35px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    z-index: 1000; /* Siempre encima de todo */
+    z-index: 1000;
     transition: all 0.3s ease;
     text-decoration: none;
 }
+.whatsapp-float:hover { background-color: #128c7e; transform: scale(1.1); }
 
-.whatsapp-float:hover {
-    background-color: #128c7e;
-    transform: scale(1.1);
+/* Lightbox */
+.lightbox-modal {
+    display: none;
+    position: fixed; 
+    z-index: 2000;
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s;
 }
-/* =========================================
-   FOOTER CON FLECHA EN EL MARGEN
-   ========================================= */
-
-.main-footer {
-    background-color: white;
-    padding: 60px 0 20px 0;
-    border-top: 1px solid #eee;
-    
-    /* IMPORTANTE: Necesario para posicionar la flecha respecto al footer */
-    position: relative; 
-    margin-top: 50px; /* Un poco de aire con la sección anterior */
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(255,255,255,0.1);
+    animation: zoomIn 0.3s;
 }
-
-/* --- LA FLECHA FLOTANTE --- */
-.scroll-top-btn {
-    /* Posición absoluta: se sale del flujo normal */
+.close-btn {
     position: absolute;
-    
-    /* Lo ubicamos justo en el borde de arriba, mitad adentro mitad afuera */
-    top: -25px; 
-    left: 50%;
-    transform: translateX(-50%); /* Centrado horizontal perfecto */
-    
-    /* Diseño del círculo */
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 50%;
-    
-    /* Sombra para que destaque del fondo de la página */
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.1); 
-    border: 1px solid #f0f0f0;
-    
-    /* Centrar la flecha dentro del círculo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* Texto/Icono */
-    color: #333; /* Color negro suave como en tu foto */
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    z-index: 5;
+    top: 30px;
+    right: 50px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-family: var(--font-body);
+}
+@keyframes zoomIn { from {transform:scale(0)} to {transform:scale(1)} }
 
-/* Efecto al pasar el mouse */
-.scroll-top-btn:hover {
-    background-color: var(--color-turquoise); /* Se pinta turquesa */
-    color: white; /* La flecha se vuelve blanca */
-    top: -30px; /* Sube un poquito más */
-    box-shadow: 0 5px 15px rgba(28, 214, 185, 0.4);
-}
 /* =========================================
-   RESPONSIVE (Móvil)
-   ========================================= */
-@media (max-width: 768px) {
-    /* Mapa: La tarjeta baja y deja de flotar encima */
-    .map-wrapper {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .address-card-overlay {
-        position: relative; /* Ya no flota */
-        right: auto;
-        top: auto;
-        transform: none;
-        width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-        border-top: 1px solid #eee;
-    }
-    
-    /* Footer vertical */
-    .footer-split {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .footer-contact-list {
-        align-items: center; /* Centrar items de contacto */
-    }
-    
-    /* WhatsApp un poco más pequeño en móvil */
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        font-size: 28px;
-        bottom: 20px;
-        right: 20px;
-    }
-}
-/* --- BANNER PEQUEÑO (Para páginas internas como Galería) --- */
-.hero-small {
-    /* Altura menor que el del inicio (que tiene 60vh) */
-    height: 40vh; 
-    
-    /* Puedes usar la misma foto del inicio o una diferente para variar */
-    /* Si quieres otra foto, cambia la URL aquí abajo: */
-    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Imagenes/fondo-familiar.jpg');
-    
-    background-size: cover;
-    background-position: center;
-    
-    /* Para centrar el título "Nuestra Galería" */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* =========================================
-   6. RESPONSIVE (Móviles)
+   RESPONSIVE DESIGN (MÓVIL)
    ========================================= */
 @media (max-width: 900px) {
     .about-grid, 
-    .services-container {
+    .services-container, 
+    .contact-container,
+    .map-wrapper,
+    .footer-split {
         flex-direction: column;
         align-items: center;
     }
+    .services-right-column,
+    .contact-info-card, 
+    .contact-form,
+    .testimonial-card { width: 100%; }
     
-    /* En móvil quitamos los efectos locos de posición */
-    .badge-teal {
-        transform: none;
-        margin-bottom: 20px;
+    .badge-teal { transform: none; margin-bottom: 20px; }
+    
+    .address-card-overlay {
+        position: relative; right: auto; top: auto; transform: none;
+        width: 100%; border-radius: 0; box-shadow: none; border-top: 1px solid #eee;
     }
     
-    .services-right-column {
-        width: 100%;
-    }
+    .carousel-container { position: relative; }
+    .carousel-btn { width: 40px; height: 40px; font-size: 1rem; }
+    .pricing-card { padding: 25px; }
     
-    .text-card {
-        padding: 30px;
-    }
+    .footer-split { text-align: center; }
+    .footer-contact-list { align-items: center; }
+    
+    .whatsapp-float { width: 50px; height: 50px; font-size: 28px; bottom: 20px; right: 20px; }
+    .testimonials-section::before { height: 70%; top: 15%; transform: rotate(-15deg); }
 }

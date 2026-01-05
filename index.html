@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosa de Sarón - Residencia</title>
+
     <link rel="icon" href="Imagenes/logo.png" type="image/png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600;700&family=Sansita+Swashed:wght@300..900&display=swap" rel="stylesheet">
@@ -13,12 +15,16 @@
     
     <link rel="stylesheet" href="style.css">
 </head>
-<body id = "inicio">
 
-    <header id = "inicio" class="main-header">
+<body id="inicio">
+
+    <header class="main-header">
+        
         <nav class="navbar">
             <div class="logo">
-                <img src="Imagenes/logo.png" alt="Rosa de Sarón" class="logo-img"> 
+                <a href="#inicio">
+                    <img src="Imagenes/logo.png" alt="Rosa de Sarón" class="logo-img"> 
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
@@ -27,7 +33,7 @@
                 <li><a href="#horarios">Horarios</a></li>
                 <li><a href="#tarifas">Tarifas</a></li>
                 <li><a href="#opiniones">Comentarios</a></li>
-                <li><a href="#contacto">Contactanos</a></li>
+                <li><a href="#contacto">Contáctanos</a></li>
                 <li><a href="#localizacion">Localización</a></li>
                 <li><a href="galeria.html">Galería</a></li>
             </ul>
@@ -40,8 +46,10 @@
         </div>
     </header>
 
+
     <section id="nosotros" class="about-section container">
         <div class="about-grid">
+            
             <div class="about-text">
                 <div class="master-title-badge badge-teal">
                     <h2>Residencia Rosa de Sarón</h2>
@@ -62,6 +70,7 @@
             </div>
         </div>
     </section>
+
 
     <section id="servicios" class="services-section">
         <div class="services-container container">
@@ -91,21 +100,18 @@
                     <div class="service-btn" onclick="cambiarServicio('kinesiologia')">
                         <i class="fas fa-crutch"></i> <span>KINESIOLOGÍA</span>
                     </div>
-
                     <div class="service-btn" onclick="cambiarServicio('comunes')">
                         <i class="fas fa-home"></i> <span>ÁREAS COMUNES</span>
                     </div>
                     <div class="service-btn" onclick="cambiarServicio('actividades')">
                         <i class="fas fa-dumbbell"></i> <span>ACTIVIDADES</span>
                     </div>
-
                     <div class="service-btn" onclick="cambiarServicio('insumos')">
                         <i class="fas fa-cart-plus"></i> <span>INSUMOS</span>
                     </div>
                     <div class="service-btn" onclick="cambiarServicio('alimentacion')">
                         <i class="fas fa-utensils"></i> <span>ALIMENTACIÓN</span>
                     </div>
-
                     <div class="service-btn" onclick="cambiarServicio('habitaciones')">
                         <i class="fas fa-bed"></i> <span>HABITACIONES</span>
                     </div>
@@ -114,69 +120,75 @@
                     </div>
                 </div>
 
-            </div> </div>
+            </div> 
+        </div>
     </section>
+
+
     <section id="horarios" class="schedule-section">
-        <div class = "container">
+        <div class="container">
 
-        <div class="section-header">
-            <div class="master-title-badge badge-teal">
-                <h2>Horario</h2>
-            </div>
-        </div>
-
-        <div class="schedule-container">
-            
-            <div class="schedule-card">
-                <span class="time">08:00 - 09:00 am</span>
-                <h3>Baño</h3>
-                <i class="fas fa-shower"></i> <p>"Se comienza el día con una ducha temperada y relajante"</p>
+            <div class="section-header">
+                <div class="master-title-badge badge-teal">
+                    <h2>Horario</h2>
+                </div>
             </div>
 
-            <div class="schedule-card">
-                <span class="time">10:00 - 11:00 am</span>
-                <h3>Desayuno</h3>
-                <i class="fas fa-mug-hot"></i> <p>"Se prepara el desayuno balanceado y con buena nutrición"</p>
+            <div class="schedule-container">
+                <div class="schedule-card">
+                    <span class="time">08:00 - 09:00 am</span>
+                    <h3>Baño</h3>
+                    <i class="fas fa-shower"></i> 
+                    <p>"Se comienza el día con una ducha temperada y relajante"</p>
+                </div>
+                <div class="schedule-card">
+                    <span class="time">10:00 - 11:00 am</span>
+                    <h3>Desayuno</h3>
+                    <i class="fas fa-mug-hot"></i> 
+                    <p>"Se prepara el desayuno balanceado y con buena nutrición"</p>
+                </div>
+                <div class="schedule-card">
+                    <span class="time">12:00 - 13:00 pm</span>
+                    <h3>Hidratación</h3>
+                    <i class="fas fa-tint"></i> 
+                    <p>"Pausa para hidratarse y comer una fruta"</p>
+                </div>
+                <div class="schedule-card">
+                    <span class="time">14:00 - 15:00 pm</span>
+                    <h3>Almuerzo</h3>
+                    <i class="fas fa-utensils"></i> 
+                    <p>"Comida principal nutritiva y casera"</p>
+                </div>
+                <div class="schedule-card">
+                    <span class="time">16:00 - 17:00 pm</span>
+                    <h3>Actividades</h3>
+                    <i class="fas fa-puzzle-piece"></i> 
+                    <p>"Horario libre para recreación y talleres cognitivos"</p>
+                </div>
+                <div class="schedule-card">
+                    <span class="time">18:00 - 19:00 pm</span>
+                    <h3>Once</h3>
+                    <i class="fas fa-bread-slice"></i> 
+                    <p>"Momento de compartir el té y conversar"</p>
+                </div>
+                <div class="schedule-card">
+                    <span class="time">20:00 - 21:00 pm</span>
+                    <h3>Dormir</h3>
+                    <i class="fas fa-bed"></i> 
+                    <p>"Descanso reparador y supervisión nocturna"</p>
+                </div>
+                <div class="schedule-card">
+                    <span class="time">20:00 - 21:00 pm</span>
+                    <h3>Aseo</h3>
+                    <i class="fa-solid fa-broom"></i> 
+                    <p>"Limpieza general de la instalación"</p>
+                </div>
             </div>
 
-            <div class="schedule-card">
-                <span class="time">12:00 - 13:00 pm</span>
-                <h3>Hidratación</h3>
-                <i class="fas fa-tint"></i> <p>"Pausa para hidratarse y comer una fruta"</p>
-            </div>
-
-            <div class="schedule-card">
-                <span class="time">14:00 - 15:00 pm</span>
-                <h3>Almuerzo</h3>
-                <i class="fas fa-utensils"></i> <p>"Comida principal nutritiva y casera"</p>
-            </div>
-
-            <div class="schedule-card">
-                <span class="time">16:00 - 17:00 pm</span>
-                <h3>Actividades</h3>
-                <i class="fas fa-puzzle-piece"></i> <p>"Horario libre para recreación y talleres cognitivos"</p>
-            </div>
-
-            <div class="schedule-card">
-                <span class="time">18:00 - 19:00 pm</span>
-                <h3>Once</h3>
-                <i class="fas fa-bread-slice"></i> <p>"Momento de compartir el té y conversar"</p>
-            </div>
-
-            <div class="schedule-card">
-                <span class="time">20:00 - 21:00 pm</span>
-                <h3>Dormir</h3>
-                <i class="fas fa-bed"></i> <p>"Descanso reparador y supervisión nocturna"</p>
-            </div>
-            <div class="schedule-card">
-                <span class="time">20:00 - 21:00 pm</span>
-                <h3>Aseo</h3>
-                <i class="fa-solid fa-broom"></i> <p>"Limpieza general de la instalación"</p>
-            </div>
-            
-        </div>
         </div>
     </section>
+
+
     <section id="tarifas" class="pricing-section">
         <div class="container pricing-wrapper">
             
@@ -196,15 +208,15 @@
                     
                     <div class="pricing-card active-slide">
                         <div class="card-content">
-                            <h3>Adulto Autosuficiente</h3>
-                            <p>Persona de edad avanzada capaz de realizar sus actividades diarias y tomar sus propias decisiones sin depender de otros, manteniendo su autonomía y dignidad.</p>
+                            <h3>Adulto Dependiente Nivel 1</h3>
+                            <p>Necesita ayuda ocasional para algunas actividades diarias, manteniendo gran parte de su autonomía, pero requiere apoyo para decisiones o tareas específicas.</p>
                             <img src="Imagenes/actividades.jpeg" alt="Abuelo activo">
                         </div>
                     </div>
 
                     <div class="pricing-card">
                         <div class="card-content">
-                            <h3>Adulto Dependiente Leve</h3>
+                            <h3>Adulto Dependiente Nivel 2</h3>
                             <p>Persona que necesita ayuda puntual o intermitente para realizar algunas actividades básicas (vestirse, comer), pero conserva bastante autonomía.</p>
                             <img src="Imagenes/cuidado leve.jpg" alt="Cuidado leve">
                         </div>
@@ -234,8 +246,9 @@
 
         </div>
     </section>
+
+
     <section id="opiniones" class="testimonials-section">
-        
         <div class="container relative-container-testimonials">
             
             <div class="section-header" style="margin-bottom: 50px;">
@@ -257,7 +270,7 @@
                         </div>
                     </div>
                     <p class="testimonial-text">
-                        "Encontrar Rosa de Sarón fue una bendición. Mi madre se siente como en su propia casa, cuidada con un cariño genuino que no vimos en otros lados. La tranquilidad que sentimos no tiene precio."
+                        "Encontrar Rosa de Sarón fue una bendición. Mi madre se siente como en su propia casa, cuidada con un cariño genuino que no vimos en otros lados."
                     </p>
                     <i class="fas fa-quote-right quote-icon"></i>
                 </div>
@@ -273,7 +286,7 @@
                         </div>
                     </div>
                     <p class="testimonial-text">
-                        "El equipo es maravilloso, siempre atentos y profesionales. Las actividades que realizan mantienen a mi papá activo y feliz. Se nota la vocación en cada detalle."
+                        "El equipo es maravilloso, siempre atentos y profesionales. Las actividades que realizan mantienen a mi papá activo y feliz."
                     </p>
                     <i class="fas fa-quote-right quote-icon"></i>
                 </div>
@@ -289,13 +302,16 @@
                         </div>
                     </div>
                     <p class="testimonial-text">
-                        "La transparencia y la comunicación constante con nosotros es lo que más valoramos. Las instalaciones siempre están impecables y el ambiente es muy acogedor."
+                        "La transparencia y la comunicación constante con nosotros es lo que más valoramos. Las instalaciones siempre están impecables."
                     </p>
                     <i class="fas fa-quote-right quote-icon"></i>
                 </div>
+
             </div>
         </div>
     </section>
+
+
     <section id="contacto" class="contact-section">
         <div class="container">
             
@@ -308,20 +324,22 @@
             <div class="contact-container">
                 
                 <div class="contact-info-card">
+    
                     <div class="icon-wrapper">
                         <i class="fas fa-headset main-icon"></i>
                         <i class="fas fa-comment-dots sub-icon"></i>
                     </div>
-                    
-                    <div class="contact-details">
-                        <p><strong>Teléfono:</strong> 600 600 600</p>
-                        <p><strong>Celular:</strong> +56 9 5696 7995</p>
-                        <p><strong>Correo:</strong>  contactorosadesaronlabranza@gmail.com</p>
+
+                    <div class="contact-warm-message">
+                        <h3>¿Tienes dudas?</h3>
+                        <p>Sabemos que es una decisión importante. Déjanos un mensaje y te orientaremos con todo el cariño y respeto que tu familia merece.</p>
+                        <p class="response-time"><i class="fas fa-clock"></i> Respondemos en menos de 24 hrs.</p>
                     </div>
+
                 </div>
 
                 <form class="contact-form" action="https://formspree.io/f/xojvwavd" method="POST">
-    
+                    
                     <div class="form-group">
                         <input type="text" name="nombre" placeholder="Nombre completo" required>
                     </div>
@@ -347,6 +365,8 @@
             </div>
         </div>
     </section>
+
+
     <section id="localizacion" class="location-section">
         <div class="container">
             
@@ -357,12 +377,13 @@
             </div>
 
             <div class="map-wrapper">
-            <a href="https://www.google.com/maps/place/Calle+4+Ote.+317,+Labranza,+Temuco" target="_blank" class="map-link">
-                <img src="Imagenes/mapa-fondo.png" alt="Mapa de ubicación" class="static-map-img">
-                <div class="map-overlay-hover">
-                <span>Ver en Google Maps <i class="fas fa-external-link-alt"></i></span>
-                </div>
+                <a href="https://www.google.com/maps/place/Calle+4+Ote.+317,+Labranza,+Temuco" target="_blank" class="map-link">
+                    <img src="Imagenes/mapa-fondo.png" alt="Mapa de ubicación" class="static-map-img">
+                    <div class="map-overlay-hover">
+                        <span>Ver en Google Maps <i class="fas fa-external-link-alt"></i></span>
+                    </div>
                 </a>
+
                 <div class="address-card-overlay">
                     <p class="address-text">
                         <strong>Calle 4 Ote. 317, 4814213</strong><br>
@@ -370,14 +391,18 @@
                     </p>
                     <i class="fas fa-map-marker-alt pin-icon"></i>
                 </div>
-
             </div>
+
         </div>
     </section>
+
+
     <footer class="main-footer">
+        
         <a href="#inicio" class="scroll-top-btn">
             <i class="fas fa-arrow-up"></i>
         </a>
+
         <div class="container footer-content">
             
             <div class="footer-social">
@@ -395,7 +420,7 @@
             <div class="footer-split">
                 <div class="footer-logo">
                     <img src="Imagenes/logo.png" alt="Rosa de Sarón Logo">
-                    <h3>Residencia<br>Rosa de saron</h3>
+                    <h3>Residencia<br>Rosa de Sarón</h3>
                 </div>
 
                 <div class="footer-contact-list">
@@ -420,11 +445,15 @@
 
         </div>
     </footer>
+
+
     <a href="https://wa.me/+56956967995?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20residencia." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+
     <script>
-        // BASE DE DATOS DE SERVICIOS
+        // --- 1. LÓGICA DE SERVICIOS (CAMBIO DE TARJETA) ---
         const datosServicios = {
             'enfermeria': {
                 titulo: 'ENFERMERÍA',
@@ -468,7 +497,6 @@
             }
         };
 
-        // FUNCIÓN QUE CAMBIA EL CONTENIDO
         function cambiarServicio(servicioKey) {
             const titulo = document.getElementById('service-title');
             const imagen = document.getElementById('service-img');
@@ -478,56 +506,52 @@
             const info = datosServicios[servicioKey];
 
             if (info) {
-                // Efecto Fade Out
+                // Efecto Fade Out (Desaparece)
                 card.style.opacity = '0'; 
                 
                 setTimeout(() => {
+                    // Cambiar contenido
                     titulo.innerText = info.titulo;
-                    // Aquí usamos una imagen genérica si no existe la específica para evitar errores
-                    // Puedes borrar el '||' si tienes todas las fotos
                     imagen.src = info.img; 
                     desc.innerText = info.texto;
                     
-                    // Efecto Fade In
+                    // Efecto Fade In (Aparece)
                     card.style.opacity = '1'; 
                 }, 200);
             }
         }
-// --- LÓGICA DEL CARRUSEL DE TARIFAS ---
-        let indiceActual = 0; // Empieza en la primera tarjeta (0)
+
+        // --- 2. LÓGICA DEL CARRUSEL DE TARIFAS ---
+        let indiceActual = 0; 
 
         function mostrarSlide(n) {
             const slides = document.querySelectorAll('.pricing-card');
             const dots = document.querySelectorAll('.dot');
             
-            // Lógica de bucle (si pasas del último, vuelve al primero)
+            // Lógica de bucle (Circular)
             if (n >= slides.length) { indiceActual = 0; }
             if (n < 0) { indiceActual = slides.length - 1; }
 
-            // 1. Ocultar todas
+            // Ocultar todas
             slides.forEach(slide => slide.classList.remove('active-slide'));
             dots.forEach(dot => dot.classList.remove('active-dot'));
 
-            // 2. Mostrar la actual
+            // Mostrar la actual
             slides[indiceActual].classList.add('active-slide');
             dots[indiceActual].classList.add('active-dot');
         }
 
-        // Función para las flechas (siguiente / anterior)
+        // Función para las flechas
         function moverCarrusel(n) {
             indiceActual += n;
             mostrarSlide(indiceActual);
         }
 
-        // Función para los puntitos
+        // Función para los puntitos (Indicadores)
         function irATarifa(n) {
             indiceActual = n;
             mostrarSlide(indiceActual);
         }
-        
-    
-    // Iniciar con la del medio abierta (Opcional)
-    // activarTarifa(2);
     </script>
 
 </body>
