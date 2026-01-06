@@ -1119,54 +1119,6 @@ body {
     z-index: 1001; /* Por encima de todo */
 }
 
-/* 2. Comportamiento en Celulares (Menor a 768px) */
-@media (max-width: 768px) {
-    
-    /* Mostrar el botón en móvil */
-    .menu-toggle {
-        display: block; 
-        position: absolute;
-        right: 20px;
-        top: 25px; /* Ajusta según tu header */
-    }
-
-    /* Transformar la lista horizontal en un menú vertical oculto */
-    .nav-links {
-        position: fixed; /* Se queda fijo en la pantalla */
-        top: 0;
-        right: -100%; /* Empieza escondido a la derecha (fuera de pantalla) */
-        width: 70%;   /* Ancho del menú desplegable */
-        height: 100vh; /* Altura completa */
-        background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro casi negro */
-        
-        display: flex;
-        flex-direction: column; /* Lista vertical */
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        
-        transition: right 0.4s ease; /* Animación suave al entrar */
-        z-index: 1000;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-    }
-
-    /* Clase "active" para cuando el menú está abierto */
-    .nav-links.active {
-        right: 0; /* Entra a la pantalla */
-    }
-
-    /* Ajuste de los enlaces en móvil */
-    .nav-links a {
-        font-size: 1.5rem; /* Letra más grande para tocar con el dedo */
-        color: white;
-        display: block;
-    }
-    
-    /* Desactivar la "Línea Mágica" en móvil porque se ve rara en vertical */
-    .nav-links a::after {
-        display: none; 
-    }
-}
 /* =========================================
    7. RESPONSIVE DESIGN (MÓVIL - CORRECCIONES CRÍTICAS)
    ========================================= */
@@ -1304,4 +1256,51 @@ body {
     .whatsapp-float { width: 50px; height: 50px; font-size: 28px; bottom: 20px; right: 20px; }
     .testimonials-section::before { height: 70%; top: 15%; transform: rotate(-15deg); }
 }
-       
+/* 2. Comportamiento en Celulares (Menor a 768px) */
+@media (max-width: 768px) {
+    
+    /* Mostrar el botón en móvil */
+    .menu-toggle {
+        display: block; 
+        position: absolute;
+        right: 20px;
+        top: 25px; /* Ajusta según tu header */
+    }
+
+    /* Transformar la lista horizontal en un menú vertical oculto */
+    .nav-links {
+        position: fixed; /* Se queda fijo en la pantalla */
+        top: 0;
+        right: -100%; /* Empieza escondido a la derecha (fuera de pantalla) */
+        width: 70%;   /* Ancho del menú desplegable */
+        height: 100vh; /* Altura completa */
+        background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro casi negro */
+        
+        display: flex;
+        flex-direction: column; /* Lista vertical */
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        
+        transition: right 0.4s ease; /* Animación suave al entrar */
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* Clase "active" para cuando el menú está abierto */
+    .nav-links.active {
+        right: 0; /* Entra a la pantalla */
+    }
+
+    /* Ajuste de los enlaces en móvil */
+    .nav-links a {
+        font-size: 1.5rem; /* Letra más grande para tocar con el dedo */
+        color: white;
+        display: block;
+    }
+    
+    /* Desactivar la "Línea Mágica" en móvil porque se ve rara en vertical */
+    .nav-links a::after {
+        display: none; 
+    }
+}
