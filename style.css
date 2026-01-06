@@ -185,7 +185,7 @@ body {
 .about-section.container {
     width: 95%;
     max-width: 1600px;
-    padding: 120px 20px; 
+    padding: 150px 20px 80px 20px; 
 }
 
 .about-grid {
@@ -419,7 +419,7 @@ body {
    ========================================= */
 .timeline-section {
     background-color: white;
-    padding: 80px 20px;
+    padding: 150px 20px 80px 20px;
     text-align: center;
 }
 
@@ -525,7 +525,7 @@ body {
    ========================================= */
 .pricing-section {
     background-color: var(--color-light-bg);
-    padding: 80px 0;
+    padding: 50px 0;
 }
 
 .pricing-grid {
@@ -612,7 +612,7 @@ body {
 
 /* --- GALERÍA --- */
 .gallery-section {
-    padding: 100px 50px;
+    padding: 150px 20px 80px 20px;
     background-color: white;
 }
 
@@ -672,7 +672,7 @@ body {
 /* --- OPINIONES --- */
 .testimonials-section {
     position: relative;
-    padding: 100px 0;
+    padding: 150px 20px 80px 20px;
     background-color: var(--color-white);
     overflow: hidden;
 }
@@ -738,7 +738,7 @@ body {
 /* --- CONTACTO --- */
 .contact-section {
     background-color: var(--color-light-bg);
-    padding: 80px 0;
+    padding: 50px 80px 20px;
 }
 
 .contact-container {
@@ -1104,6 +1104,69 @@ body {
 
 @keyframes zoomIn { from {transform:scale(0)} to {transform:scale(1)} }
 
+/*=========================================
+   MENÚ HAMBURGUESA (MÓVIL)
+   ========================================= */
+
+/* 1. Estilo del Botón (Oculto en PC por defecto) */
+.menu-toggle {
+    display: none; /* En PC no se ve */
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white; /* Color del ícono */
+    cursor: pointer;
+    z-index: 1001; /* Por encima de todo */
+}
+
+/* 2. Comportamiento en Celulares (Menor a 768px) */
+@media (max-width: 768px) {
+    
+    /* Mostrar el botón en móvil */
+    .menu-toggle {
+        display: block; 
+        position: absolute;
+        right: 20px;
+        top: 25px; /* Ajusta según tu header */
+    }
+
+    /* Transformar la lista horizontal en un menú vertical oculto */
+    .nav-links {
+        position: fixed; /* Se queda fijo en la pantalla */
+        top: 0;
+        right: -100%; /* Empieza escondido a la derecha (fuera de pantalla) */
+        width: 70%;   /* Ancho del menú desplegable */
+        height: 100vh; /* Altura completa */
+        background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro casi negro */
+        
+        display: flex;
+        flex-direction: column; /* Lista vertical */
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        
+        transition: right 0.4s ease; /* Animación suave al entrar */
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* Clase "active" para cuando el menú está abierto */
+    .nav-links.active {
+        right: 0; /* Entra a la pantalla */
+    }
+
+    /* Ajuste de los enlaces en móvil */
+    .nav-links a {
+        font-size: 1.5rem; /* Letra más grande para tocar con el dedo */
+        color: white;
+        display: block;
+    }
+    
+    /* Desactivar la "Línea Mágica" en móvil porque se ve rara en vertical */
+    .nav-links a::after {
+        display: none; 
+    }
+}
 /* =========================================
    7. RESPONSIVE DESIGN (MÓVIL - CORRECCIONES CRÍTICAS)
    ========================================= */

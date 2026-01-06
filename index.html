@@ -19,6 +19,9 @@
                     <img src="Imagenes/logo.png" alt="Rosa de Sarón" class="logo-img"> 
                 </a>
             </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
@@ -563,6 +566,36 @@
                 }, 200);
             }
         }
+        // --- MENÚ HAMBURGUESA ---
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const links = document.querySelectorAll('.nav-links a'); // Todos los enlaces
+
+        // 1. Abrir / Cerrar menú al tocar el botón
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Cambiar ícono de Hamburguesa (bars) a Cruz (times)
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 2. Cerrar menú automáticamente al tocar un enlace (Muy importante en One Page)
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                // Resetear ícono
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
     </script>
 
 </body>
