@@ -4,22 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosa de Sarón - Residencia</title>
-
     <link rel="icon" href="Imagenes/logo.png" type="image/png">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600;700&family=Sansita+Swashed:wght@300..900&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body id="inicio">
-
     <header class="main-header">
-        
         <nav class="navbar">
             <div class="logo">
                 <a href="#inicio">
@@ -38,40 +31,73 @@
                 <li><a href="galeria.html">Galería</a></li>
             </ul>
         </nav>
-
         <div class="hero-section">
             <div class="hero-content">
                 <h1>"Acompañando con respeto, <br> cuidando con el corazón."</h1>
             </div>
         </div>
     </header>
-
-
     <section id="nosotros" class="about-section container">
         <div class="about-grid">
-            
             <div class="about-text">
                 <div class="master-title-badge badge-teal">
-                    <h2>Residencia Rosa de Sarón</h2>
+                    <h2>Nuestra Esencia</h2>
                 </div>
-
                 <div class="text-card">
-                    <p>
-                        Somos una residencia de cuidado integral enfocada en brindar dignidad, higiene y cariño con estándares de excelencia. Nos diferenciamos por ser un espacio que funciona y se siente "como una casa", no como una clínica, priorizando el respeto y la comodidad.
+                    <p class="intro-text">
+                        En <strong>Residencia Rosa de Sarón</strong>, creemos que la tercera edad es una etapa para disfrutar con dignidad. No somos una clínica fría; somos un hogar lleno de vida donde cada residente es parte de nuestra familia.
                     </p>
-                    <p>
-                        Trabajamos activamente para evitar el abandono, integrando a las familias en el cuidado y contando con un equipo joven y vocacional. Ofrecemos modalidades flexibles (24/7, diurno o temporal) para adaptarnos a lo que tú y tu ser querido necesitan.
-                    </p>
+                    <div class="certification-badge">
+                        <i class="fas fa-certificate"></i>
+                        <p>
+                            <strong>Vanguardia y Calidad:</strong> Equipo en capacitación permanente a través de 
+                            <span style="color: var(--color-turquoise); font-weight: 700;">RED ELEAM</span> y 
+                            <span style="color: var(--color-turquoise); font-weight: 700;">SIMÓN DE CIRENE</span>, 
+                            adaptándonos a los cambios y exigencias actuales del cuidado mayor.
+                        </p>
+                    </div>
+                    <div class="values-list">
+                        
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="value-content">
+                                <h3>Ambiente de Hogar</h3>
+                                <p>Espacios acogedores y trato cercano para que se sientan como en su propia casa, evitando la sensación de abandono.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-user-nurse"></i>
+                            </div>
+                            <div class="value-content">
+                                <h3>Salud Integral</h3>
+                                <p>Equipo profesional joven y vocacional, enfocado en la higiene, nutrición y bienestar físico las 24 horas.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div class="value-content">
+                                <h3>Dignidad y Respeto</h3>
+                                <p>Fomentamos la autonomía y el respeto, integrando a las familias activamente en el proceso de cuidado.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <div class="about-image-container">
-                <img src="Imagenes/afiche-bome.png" alt="Atención y Salud" class="about-img">
+                <img src="Imagenes/fondo-familiar.jpg" alt="Cuidado con amor" class="about-img">
+                
+                <div class="exp-badge">
+                    <span class="big-num">24/7</span>
+                    <span class="small-text">Cuidado<br>Permanente</span>
+                </div>
             </div>
         </div>
     </section>
-
-
     <section id="servicios" class="services-section">
         <div class="services-container container">
             
@@ -115,82 +141,85 @@
                     <div class="service-btn" onclick="cambiarServicio('habitaciones')">
                         <i class="fas fa-bed"></i> <span>HABITACIONES</span>
                     </div>
-                    <div class="service-btn" onclick="cambiarServicio('otros')">
-                        <i class="fas fa-ellipsis-h"></i> <span>OTROS</span>
+                    <div class="service-btn" onclick="cambiarServicio('flexibilidad')">
+                        <i class="fas fa-clock"></i> <span>FLEXIBILIDAD</span>
                     </div>
                 </div>
 
             </div> 
         </div>
     </section>
-
-
     <section id="horarios" class="schedule-section">
         <div class="container">
 
             <div class="section-header">
                 <div class="master-title-badge badge-teal">
-                    <h2>Horario</h2>
+                    <h2>Rutina Diaria</h2>
                 </div>
             </div>
 
             <div class="schedule-container">
+                
                 <div class="schedule-card">
-                    <span class="time">08:00 - 09:00 am</span>
-                    <h3>Baño</h3>
-                    <i class="fas fa-shower"></i> 
-                    <p>"Se comienza el día con una ducha temperada y relajante"</p>
-                </div>
-                <div class="schedule-card">
-                    <span class="time">10:00 - 11:00 am</span>
+                    <span class="time">08:00 - 09:30 hrs</span>
                     <h3>Desayuno</h3>
                     <i class="fas fa-mug-hot"></i> 
-                    <p>"Se prepara el desayuno balanceado y con buena nutrición"</p>
+                    <p>"Comienzo del día con energía y una nutrición balanceada."</p>
                 </div>
+
                 <div class="schedule-card">
-                    <span class="time">12:00 - 13:00 pm</span>
-                    <h3>Hidratación</h3>
-                    <i class="fas fa-tint"></i> 
-                    <p>"Pausa para hidratarse y comer una fruta"</p>
+                    <span class="time">11:00 hrs</span>
+                    <h3>Colación</h3>
+                    <i class="fas fa-apple-alt"></i> 
+                    <p>"Una pausa saludable e hidratación a media mañana."</p>
                 </div>
+
                 <div class="schedule-card">
-                    <span class="time">14:00 - 15:00 pm</span>
+                    <span class="time">11:30 - 13:00 hrs</span>
+                    <h3>Estimulación</h3>
+                    <i class="fas fa-puzzle-piece"></i> 
+                    <p>"Actividades lúdicas, cognitivas y motoras para mantener la mente activa."</p>
+                </div>
+
+                <div class="schedule-card">
+                    <span class="time">13:00 hrs</span>
                     <h3>Almuerzo</h3>
                     <i class="fas fa-utensils"></i> 
-                    <p>"Comida principal nutritiva y casera"</p>
+                    <p>"Comida principal casera, nutritiva y adaptada a cada residente."</p>
                 </div>
+
                 <div class="schedule-card">
-                    <span class="time">16:00 - 17:00 pm</span>
-                    <h3>Actividades</h3>
-                    <i class="fas fa-puzzle-piece"></i> 
-                    <p>"Horario libre para recreación y talleres cognitivos"</p>
+                    <span class="time">15:00 hrs</span>
+                    <h3>Aire Libre</h3>
+                    <i class="fas fa-sun"></i> 
+                    <p>"Salida a áreas comunes, movilización y compañía en el jardín."</p>
                 </div>
+
                 <div class="schedule-card">
-                    <span class="time">18:00 - 19:00 pm</span>
+                    <span class="time">16:00 hrs</span>
                     <h3>Once</h3>
                     <i class="fas fa-bread-slice"></i> 
-                    <p>"Momento de compartir el té y conversar"</p>
+                    <p>"El clásico momento de compartir el té y conversar en grupo."</p>
                 </div>
+
                 <div class="schedule-card">
-                    <span class="time">20:00 - 21:00 pm</span>
-                    <h3>Dormir</h3>
-                    <i class="fas fa-bed"></i> 
-                    <p>"Descanso reparador y supervisión nocturna"</p>
+                    <span class="time">17:00 hrs</span>
+                    <h3>Recreación</h3>
+                    <i class="fas fa-book-open"></i> 
+                    <p>"Tiempo de relajación con lectura, televisión y descanso."</p>
                 </div>
+
                 <div class="schedule-card">
-                    <span class="time">20:00 - 21:00 pm</span>
-                    <h3>Aseo</h3>
-                    <i class="fa-solid fa-broom"></i> 
-                    <p>"Limpieza general de la instalación"</p>
+                    <span class="time">19:00 hrs</span>
+                    <h3>Cena</h3>
+                    <i class="fas fa-utensil-spoon"></i> 
+                    <p>"Última comida liviana para preparar el descanso nocturno."</p>
                 </div>
             </div>
-
         </div>
     </section>
-
-
     <section id="tarifas" class="pricing-section">
-        <div class="container pricing-wrapper">
+        <div class="container">
             
             <div class="section-header">
                 <div class="master-title-badge badge-white">
@@ -198,56 +227,57 @@
                 </div>
             </div>
 
-            <div class="carousel-container">
+            <div class="pricing-grid">
                 
-                <button class="carousel-btn prev-btn" onclick="moverCarrusel(-1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
-                <div class="carousel-track">
-                    
-                    <div class="pricing-card active-slide">
-                        <div class="card-content">
-                            <h3>Adulto Dependiente Nivel 1</h3>
-                            <p>Necesita ayuda ocasional para algunas actividades diarias, manteniendo gran parte de su autonomía, pero requiere apoyo para decisiones o tareas específicas.</p>
-                            <img src="Imagenes/actividades.jpeg" alt="Abuelo activo">
+                <div class="pricing-card-static">
+                    <div class="card-content">
+                        <h3>Adulto Dependiente Nivel 1</h3>
+                        
+                        <div class="price-tag">
+                            <span class="price-label">Valor Mensual:</span>
+                            <span class="price-amount">$900.000 - $1.000.000 <small>+ IVA</small></span>
                         </div>
-                    </div>
 
-                    <div class="pricing-card">
-                        <div class="card-content">
-                            <h3>Adulto Dependiente Nivel 2</h3>
-                            <p>Persona que necesita ayuda puntual o intermitente para realizar algunas actividades básicas (vestirse, comer), pero conserva bastante autonomía.</p>
-                            <img src="Imagenes/cuidado leve.jpg" alt="Cuidado leve">
-                        </div>
+                        <p class="description">Necesita ayuda ocasional para algunas actividades diarias, manteniendo gran parte de su autonomía, pero requiere apoyo para decisiones o tareas específicas.</p>
+                        
+                        <img src="Imagenes/actividades.jpeg" alt="Abuelo activo">
                     </div>
-
-                    <div class="pricing-card">
-                        <div class="card-content">
-                            <h3>Adulto Dependiente Severo</h3>
-                            <p>Persona que requiere asistencia permanente y especializada para todas las actividades de la vida diaria debido a limitaciones físicas o cognitivas importantes.</p>
-                            <img src="Imagenes/cuidado severo.jpg" alt="Cuidado severo">
-                        </div>
-                    </div>
-
                 </div>
 
-                <button class="carousel-btn next-btn" onclick="moverCarrusel(1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <div class="pricing-card-static">
+                    <div class="card-content">
+                        <h3>Adulto Dependiente Nivel 2</h3>
+                        
+                        <div class="price-tag">
+                            <span class="price-label">Valor Mensual:</span>
+                            <span class="price-amount">$1.100.000 - $1.350.000 <small>+ IVA</small></span>
+                        </div>
 
-            </div>
-            
-            <div class="carousel-indicators">
-                <span class="dot active-dot" onclick="irATarifa(0)"></span>
-                <span class="dot" onclick="irATarifa(1)"></span>
-                <span class="dot" onclick="irATarifa(2)"></span>
+                        <p class="description">Persona que necesita ayuda puntual o intermitente para realizar algunas actividades básicas (vestirse, comer), pero conserva bastante autonomía.</p>
+                        
+                        <img src="Imagenes/cuidado leve.jpg" alt="Cuidado leve">
+                    </div>
+                </div>
+
+                <div class="pricing-card-static">
+                    <div class="card-content">
+                        <h3>Adulto Dependiente Severo</h3>
+                        
+                        <div class="price-tag">
+                            <span class="price-label">Valor Mensual:</span>
+                            <span class="price-amount">Desde $1.350.000 <small>+ IVA</small></span>
+                        </div>
+
+                        <p class="description">Persona que requiere asistencia permanente y especializada para todas las actividades de la vida diaria debido a limitaciones físicas o cognitivas importantes.</p>
+                        
+                        <img src="Imagenes/cuidado severo.jpg" alt="Cuidado severo">
+                    </div>
+                </div>
+
             </div>
 
         </div>
     </section>
-
-
     <section id="opiniones" class="testimonials-section">
         <div class="container relative-container-testimonials">
             
@@ -310,8 +340,6 @@
             </div>
         </div>
     </section>
-
-
     <section id="contacto" class="contact-section">
         <div class="container">
             
@@ -332,7 +360,7 @@
 
                     <div class="contact-warm-message">
                         <h3>¿Tienes dudas?</h3>
-                        <p>Sabemos que es una decisión importante. Déjanos un mensaje y te orientaremos con todo el cariño y respeto que tu familia merece.</p>
+                        <p>Sabemos que es una decisión importante.</p>
                         <p class="response-time"><i class="fas fa-clock"></i> Respondemos en menos de 24 hrs.</p>
                     </div>
 
@@ -365,8 +393,6 @@
             </div>
         </div>
     </section>
-
-
     <section id="localizacion" class="location-section">
         <div class="container">
             
@@ -395,8 +421,6 @@
 
         </div>
     </section>
-
-
     <footer class="main-footer">
         
         <a href="#inicio" class="scroll-top-btn">
@@ -445,15 +469,13 @@
 
         </div>
     </footer>
-
-
     <a href="https://wa.me/+56956967995?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20residencia." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-
     <script>
-        // --- 1. LÓGICA DE SERVICIOS (CAMBIO DE TARJETA) ---
+        // =========================================
+        // LÓGICA DE LA SECCIÓN SERVICIOS
+        // =========================================
         const datosServicios = {
             'enfermeria': {
                 titulo: 'ENFERMERÍA',
@@ -490,10 +512,10 @@
                 img: 'Imagenes/habitaciones.jpg',
                 texto: 'Ambientes cómodos y seguros para cada residente, con todas las comodidades necesarias para su bienestar.'
             },
-            'otros': {
-                titulo: 'OTROS SERVICIOS',
-                img: 'Imagenes/otros.jpg',
-                texto: 'Servicios adicionales diseñados para mejorar la calidad de vida de nuestros residentes, siempre con un enfoque integral.'
+            'flexibilidad': {
+                titulo: 'ESTADÍAS Y HORARIOS FLEXIBLES',
+                img: 'Imagenes/otros.jpg', // Puedes usar la misma foto o una de un reloj/calendario
+                texto: 'Servicio fraccionado en distintas modalidades: diurna, horarios flexibles de lunes a viernes, fines de semana o por vacaciones. Nos ajustamos a las necesidades de tu situación actual para ser un apoyo real al cuidador directo.'
             }
         };
 
@@ -512,6 +534,7 @@
                 setTimeout(() => {
                     // Cambiar contenido
                     titulo.innerText = info.titulo;
+                    // Si alguna imagen falla, mantén la estructura
                     imagen.src = info.img; 
                     desc.innerText = info.texto;
                     
@@ -519,38 +542,6 @@
                     card.style.opacity = '1'; 
                 }, 200);
             }
-        }
-
-        // --- 2. LÓGICA DEL CARRUSEL DE TARIFAS ---
-        let indiceActual = 0; 
-
-        function mostrarSlide(n) {
-            const slides = document.querySelectorAll('.pricing-card');
-            const dots = document.querySelectorAll('.dot');
-            
-            // Lógica de bucle (Circular)
-            if (n >= slides.length) { indiceActual = 0; }
-            if (n < 0) { indiceActual = slides.length - 1; }
-
-            // Ocultar todas
-            slides.forEach(slide => slide.classList.remove('active-slide'));
-            dots.forEach(dot => dot.classList.remove('active-dot'));
-
-            // Mostrar la actual
-            slides[indiceActual].classList.add('active-slide');
-            dots[indiceActual].classList.add('active-dot');
-        }
-
-        // Función para las flechas
-        function moverCarrusel(n) {
-            indiceActual += n;
-            mostrarSlide(indiceActual);
-        }
-
-        // Función para los puntitos (Indicadores)
-        function irATarifa(n) {
-            indiceActual = n;
-            mostrarSlide(indiceActual);
         }
     </script>
 
