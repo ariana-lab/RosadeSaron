@@ -2,20 +2,11 @@
    HOJA DE ESTILOS - RESIDENCIA ROSA DE SARÓN
    Autor: Ariana Puentes
    Descripción: Estilos principales para sitio web One Page.
-   
-   ÍNDICE:
-   1. VARIABLES Y BASE
-   2. HEADER Y NAVEGACIÓN (Menú)
-   3. HERO SECTION (Banner Principal)
-   4. COMPONENTES GLOBALES (Títulos)
-   5. SECCIONES DE CONTENIDO (Nosotros, Servicios, Horarios, etc.)
-   6. FOOTER Y ELEMENTOS FLOTANTES
+   Estado: CORREGIDO PARA RESPONSIVE (MÓVIL)
    ========================================================================== */
-
 
 /* =========================================
    1. VARIABLES Y CONFIGURACIÓN BASE
-   Descripción: Paleta de colores y fuentes globales.
    ========================================= */
 :root {
     --color-primary: #76a867;       /* Verde botones */
@@ -43,6 +34,7 @@ body {
     color: var(--color-text);
     background-color: var(--color-white);
     line-height: 1.6;
+    overflow-x: hidden; /* Evita desplazamiento horizontal indeseado */
 }
 
 /* Contenedor maestro para centrar contenido */
@@ -52,14 +44,13 @@ body {
     margin: 0 auto; 
 }
 
-
 /* =========================================
    2. HEADER Y NAVEGACIÓN
-   Descripción: Barra de navegación con efecto "Línea Mágica".
    ========================================= */
 .main-header {
     width: 100%;
     position: relative;
+    z-index: 100;
 }
 
 .navbar {
@@ -71,63 +62,57 @@ body {
     top: 0;
     left: 0;
     z-index: 10;
-    padding: 0 40px; /* Margen lateral para que el logo no se pegue al borde */
+    padding: 0 40px; 
 }
 
 .logo-img {
     height: 150px; 
+    transition: height 0.3s ease;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px; /* Espacio entre los enlaces */
+    gap: 30px; 
     align-items: center;
 }
 
-/* Estilo de los enlaces (Sin botones, texto limpio) */
 .nav-links a {
     text-decoration: none;
     color: white; 
     font-weight: 600;
-    font-size: 1rem; /* Aumenté un poquito el tamaño para leer mejor (antes 0.9rem) */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Sombra para contraste */
+    font-size: 1rem; 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
     padding: 10px 0;
-    position: relative; /* Necesario para la línea mágica */
+    position: relative; 
     transition: color 0.3s ease;
 }
 
-/* La Línea Mágica (Pseudo-elemento) */
+/* La Línea Mágica */
 .nav-links a::after {
     content: '';
     position: absolute;
-    width: 0;           /* Invisible al inicio */
-    height: 3px;        /* Grosor */
+    width: 0;           
+    height: 3px;        
     bottom: 0;
     left: 50%;
     background-color: var(--color-turquoise); 
-    transform: translateX(-50%); /* Centrado */
+    transform: translateX(-50%); 
     transition: width 0.3s ease;
     border-radius: 2px;
 }
 
-/* Efecto Hover: Aparece la línea y cambia color */
-.nav-links a:hover {
-    color: var(--color-turquoise);
-}
-
-.nav-links a:hover::after {
-    width: 100%; /* La línea crece */
-}
+.nav-links a:hover { color: var(--color-turquoise); }
+.nav-links a:hover::after { width: 100%; }
 
 
 /* =========================================
    3. HERO SECTION (BANNER)
-   Descripción: Foto principal con degradado oscuro encima.
    ========================================= */
 .hero-section {
     height: 60vh; 
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('Imagenes/fondo-familiar.jpg');
+    min-height: 400px; /* Altura mínima para que no quede muy corto */
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Imagenes/fondo-familiar.jpg');
     background-size: cover;
     background-position: center top;
     display: flex;
@@ -135,6 +120,7 @@ body {
     align-items: center;
     text-align: center;
     color: var(--color-white);
+    padding-top: 80px; /* Espacio para que el header no tape el titulo */
 }
 
 .hero-content h1 {
@@ -142,9 +128,9 @@ body {
     font-size: 4rem;
     font-weight: 400;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    padding: 0 10px;
 }
 
-/* Banner pequeño para páginas internas (Galería) */
 .hero-small {
     height: 40vh; 
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Imagenes/fondo-familiar.jpg');
@@ -152,10 +138,8 @@ body {
     background-position: center;
 }
 
-
 /* =========================================
    4. COMPONENTES GLOBALES (TÍTULOS)
-   Descripción: Estilos reutilizables para encabezados de sección.
    ========================================= */
 .master-title-badge {
     font-family: var(--font-fancy);
@@ -167,7 +151,8 @@ body {
     width: fit-content;
     margin: 0 auto;
     color: black;
-    -webkit-text-stroke: 1.3px white; /* Borde blanco en letras */
+    -webkit-text-stroke: 1.3px white; 
+    max-width: 90%; /* Para que no se salga en móvil */
 }
 
 .master-title-badge h2 {
@@ -176,7 +161,6 @@ body {
     font-weight: 600;
 }
 
-/* Variante Turquesa (Flota hacia arriba) */
 .badge-teal {
     background-color: var(--color-turquoise);
     border: 3px solid white;
@@ -186,7 +170,6 @@ body {
     position: relative;
 }
 
-/* Variante Blanca (Normal) */
 .badge-white {
     background-color: white;
     border: 3px solid var(--color-turquoise);
@@ -198,7 +181,7 @@ body {
    5. SECCIONES DE CONTENIDO
    ========================================= */
 
-/* --- NOSOTROS (ACTUALIZADO) --- */
+/* --- NOSOTROS (CORREGIDO) --- */
 .about-section.container {
     width: 95%;
     max-width: 1600px;
@@ -207,13 +190,12 @@ body {
 
 .about-grid {
     display: flex;
-    align-items: center; /* Alineación vertical */
+    align-items: center; 
     gap: 60px;
     width: 100%;
     flex-wrap: wrap;
 }
 
-/* Columna de Texto */
 .about-text {
     flex: 1.5;
     min-width: 300px;
@@ -231,9 +213,9 @@ body {
     color: #333;
     position: relative;
     z-index: 1;
+    width: 100%; /* Asegura que ocupe el ancho disponible */
 }
 
-/* Texto introductorio */
 .intro-text {
     font-size: 1.1rem;
     color: #555;
@@ -242,11 +224,11 @@ body {
     line-height: 1.8;
 }
 
-/* Lista de Pilares (Iconos + Texto) */
 .values-list {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    width: 100%;
 }
 
 .value-item {
@@ -255,9 +237,8 @@ body {
     gap: 20px;
 }
 
-/* Círculo del ícono */
 .value-icon {
-    background-color: #e0fcf9; /* Fondo Turquesa claro */
+    background-color: #e0fcf9;
     min-width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -267,6 +248,7 @@ body {
     color: var(--color-turquoise);
     font-size: 1.5rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    flex-shrink: 0; /* Evita que el ícono se aplaste */
 }
 
 .value-content h3 {
@@ -283,20 +265,19 @@ body {
     margin: 0;
 }
 
-/* Columna de Imagen */
 .about-image-container {
     flex: 1;
     min-width: 300px;
     display: flex;
     justify-content: center;
-    position: relative; /* Importante para el sello flotante */
+    position: relative; 
 }
 
 .about-img {
     width: 100%;
     height: 450px;
     object-fit: cover;
-    border-radius: 30px 0 30px 0; /* Bordes asimétricos modernos */
+    border-radius: 30px 0 30px 0; 
     border: 5px solid white;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     transition: transform 0.3s ease;
@@ -304,7 +285,6 @@ body {
 
 .about-img:hover { transform: scale(1.02); }
 
-/* Sello Flotante "24/7" */
 .exp-badge {
     position: absolute;
     bottom: -20px;
@@ -323,7 +303,7 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     border: 4px solid white;
     transform: rotate(-10deg);
-    z-index: 2; /* Para que quede encima de la foto */
+    z-index: 2; 
 }
 
 .exp-badge .big-num {
@@ -337,6 +317,7 @@ body {
     line-height: 1.1;
     margin-top: 5px;
 }
+
 
 /* --- SERVICIOS --- */
 .services-section {
@@ -486,39 +467,36 @@ body {
 
 
 /* =========================================
-   8. SECCIÓN TARIFAS (Tarjetas Fijas)
+   8. SECCIÓN TARIFAS
    ========================================= */
 .pricing-section {
     background-color: var(--color-light-bg);
     padding: 80px 0;
 }
 
-/* Contenedor de las 3 tarjetas */
 .pricing-grid {
     display: flex;
-    justify-content: center; /* Centradas horizontalmente */
-    align-items: flex-start; /* Alineadas arriba */
-    gap: 30px; /* Espacio entre ellas */
-    flex-wrap: wrap; /* Para que bajen en pantallas chicas */
+    justify-content: center; 
+    align-items: flex-start;
+    gap: 30px; 
+    flex-wrap: wrap; 
     margin-top: 40px;
 }
 
-/* Diseño de la Tarjeta Estática */
 .pricing-card-static {
     background: white;
-    flex: 1; /* Crecen para ocupar espacio igual */
-    min-width: 300px; /* Ancho mínimo antes de bajar */
-    max-width: 380px; /* Ancho máximo para que no se vean gigantes */
+    flex: 1; 
+    min-width: 300px; 
+    max-width: 380px; 
     border-radius: 20px;
-    border: 1px solid #eee; /* Borde suave */
+    border: 1px solid #eee;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     padding: 30px;
     text-align: center;
 }
 
-/* Efecto suave al pasar el mouse */
 .pricing-card-static:hover {
-    box-shadow: 0 15px 35px rgba(28, 214, 185, 0.2); /* Sombra turquesa suave */
+    box-shadow: 0 15px 35px rgba(28, 214, 185, 0.2); 
     border-color: var(--color-turquoise);
 }
 
@@ -527,7 +505,7 @@ body {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 20px;
-    height: 50px; /* Altura fija para alinear títulos aunque tengan distinto largo */
+    height: 50px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -538,7 +516,7 @@ body {
     color: #666;
     margin-bottom: 20px;
     line-height: 1.5;
-    min-height: 100px; /* Altura mínima para alinear botones/fotos */
+    min-height: 100px; 
 }
 
 .pricing-card-static img {
@@ -549,7 +527,6 @@ body {
     margin-top: 15px;
 }
 
-/* --- ESTILO DE LOS PRECIOS --- */
 .price-tag {
     background-color: #f0fdfa;
     padding: 10px;
@@ -576,19 +553,6 @@ body {
     font-size: 0.8rem;
     color: #888;
     font-weight: 400;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 900px) {
-    .pricing-card-static {
-        width: 100%;
-        max-width: 100%; /* En celular ocupan todo el ancho */
-    }
-    .pricing-card-static h3, 
-    .pricing-card-static .description {
-        height: auto; /* Quitamos alturas fijas en celular */
-        min-height: auto;
-    }
 }
 
 
@@ -727,47 +691,36 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
-    /* CAMBIO CLAVE: 'stretch' obliga a que la tarjeta blanca mida lo mismo de alto que el formulario */
     align-items: stretch; 
-    
     gap: 40px;
     flex-wrap: wrap;
     width: 100%;
 }
 
-/* --- TARJETA IZQUIERDA (ÍCONO + MENSAJE) --- */
 .contact-info-card {
     background-color: white;
-    padding: 40px; /* Espacio interno generoso */
+    padding: 40px; 
     border-radius: 25px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     border: 1px solid #f0f0f0;
-    
-    /* TAMAÑO Y POSICIÓN */
-    flex: 1; /* Ocupa espacio proporcional */
+    flex: 1; 
     min-width: 300px;
     max-width: 400px; 
-    
-    /* Centrado del contenido */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra todo verticalmente */
-    align-items: center;     /* Centra todo horizontalmente */
-    
-    /* Aseguramos una altura mínima para que el texto no aplaste al ícono */
+    justify-content: center; 
+    align-items: center; 
     min-height: 500px; 
 }
 
-/* El Ícono */
 .icon-wrapper {
     position: relative;
     display: inline-block;
-    margin-bottom: 30px; /* Separación clara entre ícono y título */
+    margin-bottom: 30px;
 }
 
 .main-icon {
-    font-size: 6rem; /* Tamaño grande */
+    font-size: 6rem;
     color: #333;
 }
 
@@ -782,7 +735,6 @@ body {
     padding: 5px;
 }
 
-/* --- MENSAJE CÁLIDO --- */
 .contact-warm-message {
     text-align: center;
     width: 100%;
@@ -800,37 +752,31 @@ body {
     color: #666;
     line-height: 1.6;
     margin-bottom: 25px;
-    padding: 0 10px; /* Margen lateral para que el texto no toque bordes */
+    padding: 0 10px;
 }
 
-/* Etiqueta de tiempo de respuesta */
 .response-time {
     font-weight: 600;
     color: var(--color-dark-green);
-    background-color: #f0fdfa; /* Fondo menta muy suave */
+    background-color: #f0fdfa; 
     padding: 10px 20px;
     border-radius: 20px;
     display: inline-block;
     font-size: 0.9rem !important;
 }
 
-.response-time i {
-    margin-right: 5px;
-}
+.response-time i { margin-right: 5px; }
 
-/* --- FORMULARIO (DERECHA) --- */
 .contact-form {
-    flex: 1.5; /* El formulario es un poco más ancho que la tarjeta */
+    flex: 1.5; 
     min-width: 320px;
     max-width: 600px;
-    
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrado vertical */
+    justify-content: center; 
     gap: 20px;
 }
 
-/* Inputs y Textarea */
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -851,7 +797,6 @@ body {
     box-shadow: 0 4px 15px rgba(28, 214, 185, 0.2);
 }
 
-/* Botón Enviar */
 .submit-btn {
     background-color: var(--color-turquoise);
     color: white;
@@ -873,19 +818,6 @@ body {
 .submit-btn:hover {
     transform: scale(1.02);
     background-color: var(--color-turquoise-dark);
-}
-
-/* --- RESPONSIVE (Móvil) --- */
-@media (max-width: 900px) {
-    .contact-container {
-        flex-direction: column; /* Uno debajo del otro */
-        align-items: center;
-    }
-    .contact-info-card, .contact-form {
-        width: 100%;
-        max-width: 100%;
-        min-height: auto; /* En móvil dejamos que la altura sea automática */
-    }
 }
 
 /* --- LOCALIZACIÓN --- */
@@ -1119,10 +1051,67 @@ body {
 @keyframes zoomIn { from {transform:scale(0)} to {transform:scale(1)} }
 
 /* =========================================
-   RESPONSIVE DESIGN (MÓVIL)
+   7. RESPONSIVE DESIGN (MÓVIL - CORRECCIONES CRÍTICAS)
    ========================================= */
 @media (max-width: 900px) {
-    .about-grid, 
+    /* AJUSTE DEL MENÚ DE NAVEGACIÓN EN MÓVIL */
+    .navbar {
+        position: relative; /* Ya no flota sobre la foto */
+        flex-direction: column;
+        background-color: var(--color-primary); /* Fondo sólido */
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        gap: 15px;
+    }
+    
+    .logo-img {
+        height: 100px; /* Logo más pequeño */
+        margin-bottom: 20px;
+    }
+
+    /* AJUSTE DEL TEXTO HERO */
+    .hero-section {
+        padding-top: 0;
+        height: auto;
+        padding: 60px 0;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem; /* Texto más chico en celular */
+    }
+
+    /* CORRECCIÓN "NUESTRA ESENCIA" (El problema del screenshot) */
+    .about-section.container {
+        padding: 60px 15px; /* Menos relleno superior */
+    }
+    
+    .about-grid {
+        flex-direction: column; /* Una cosa abajo de la otra */
+    }
+
+    .about-text, 
+    .about-image-container {
+        width: 100%; /* Ocupan todo el ancho */
+        min-width: 0;
+        flex: auto;
+    }
+
+    .text-card {
+        padding: 25px 20px; /* Reducimos el relleno interno de 40px a 20px */
+    }
+    
+    /* AJUSTE BADGE (El titulo que flotaba mal) */
+    .badge-teal { 
+        transform: none; 
+        margin-bottom: 20px;
+        top: 0;
+    }
+
+    /* OTROS AJUSTES GENERALES */
     .services-container, 
     .contact-container,
     .map-wrapper,
@@ -1130,21 +1119,29 @@ body {
         flex-direction: column;
         align-items: center;
     }
+    
     .services-right-column,
     .contact-info-card, 
     .contact-form,
-    .testimonial-card { width: 100%; }
+    .testimonial-card { 
+        width: 100%; 
+        max-width: 100%;
+    }
     
-    .badge-teal { transform: none; margin-bottom: 20px; }
-    
+    .pricing-card-static {
+        width: 100%;
+        max-width: 100%; 
+    }
+    .pricing-card-static h3, 
+    .pricing-card-static .description {
+        height: auto; 
+        min-height: auto;
+    }
+
     .address-card-overlay {
         position: relative; right: auto; top: auto; transform: none;
         width: 100%; border-radius: 0; box-shadow: none; border-top: 1px solid #eee;
     }
-    
-    .carousel-container { position: relative; }
-    .carousel-btn { width: 40px; height: 40px; font-size: 1rem; }
-    .pricing-card { padding: 25px; }
     
     .footer-split { text-align: center; }
     .footer-contact-list { align-items: center; }
