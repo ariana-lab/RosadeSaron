@@ -1105,84 +1105,93 @@ body {
 @keyframes zoomIn { from {transform:scale(0)} to {transform:scale(1)} }
 
 /* =========================================
-   7. RESPONSIVE DESIGN (MÓVIL UNIFICADO)
+   7. RESPONSIVE DESIGN (SOLUCIÓN DEFINITIVA)
    ========================================= */
 
-/* Estilo del Botón Hamburguesa (Visible solo en móvil) */
+/* Por defecto en PC el botón no se ve */
 .menu-toggle {
-    display: none; /* En PC oculto */
+    display: none;
 }
 
 @media (max-width: 900px) {
     
-    /* --- 1. HEADER Y NAVEGACIÓN --- */
+    /* --- 1. HEADER Y NAVEGACIÓN (EL ARREGLO) --- */
     
-    /* El botón hamburguesa aparece */
+    /* El contenedor del menú se mantiene horizontal para que el logo y el botón queden alineados */
+    .navbar {
+        position: absolute; 
+        flex-direction: row; /* IMPORTANTE: Fila, no columna */
+        justify-content: space-between;
+        padding: 20px;
+        background-color: transparent; /* Quitamos el fondo verde */
+    }
+
+    /* El Botón Hamburguesa aparece */
     .menu-toggle {
         display: block;
         background: none;
         border: none;
         font-size: 2rem;
-        color: white; /* Color del icono */
+        color: white; 
         cursor: pointer;
-        z-index: 2000; /* Encima del menú desplegable */
-        position: absolute;
-        top: 30px;  /* Ajusta para alinear con el logo */
-        right: 30px;
+        z-index: 2000; /* Encima de todo */
+        /* Ajuste de posición si es necesario */
+        margin-right: 10px;
     }
 
-    /* El logo un poco más chico */
-    .logo-img {
-        height: 100px; 
-    }
-
-    /* EL MENÚ LATERAL (DRAWER) */
+    /* EL MENÚ LATERAL (OCULTO POR DEFECTO) */
     .nav-links {
-        position: fixed; /* Fijo en la pantalla */
+        position: fixed; /* Fijo respecto a la ventana */
         top: 0;
-        right: -100%; /* Empieza escondido a la derecha */
-        width: 75%;   /* Ancho del menú */
-        height: 100vh; /* Altura completa */
+        right: -100%; /* ESCONDIDO A LA DERECHA */
+        width: 75%;   /* Ancho del panel */
+        height: 100vh; /* Alto completo */
         background-color: rgba(0, 0, 0, 0.95); /* Fondo negro elegante */
         
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Elementos en lista */
         align-items: center;
         justify-content: center;
         gap: 30px;
         padding: 0;
         
         transition: right 0.4s ease; /* Animación suave */
-        z-index: 1500; /* Encima del resto de la web */
+        z-index: 1500; 
         box-shadow: -5px 0 15px rgba(0,0,0,0.5);
     }
 
-    /* Cuando se abre el menú */
+    /* Cuando JS agrega esta clase, el menú entra */
     .nav-links.active {
-        right: 0; /* Entra a la pantalla */
+        right: 0; 
     }
 
-    /* Enlaces más grandes para el dedo */
+    /* Estilo de los enlaces en el menú móvil */
     .nav-links a {
         font-size: 1.5rem;
         display: block;
+        color: white;
     }
     
-    /* Sin línea mágica en móvil */
-    .nav-links a::after { display: none; }
-
-
-    /* --- 2. AJUSTES GENERALES DE SECCIONES --- */
+    .nav-links a::after { display: none; } /* Sin rayita abajo */
     
-    /* Hero (Portada) */
+    /* Logo más pequeño en móvil */
+    .logo-img {
+        height: 100px; 
+    }
+
+
+    /* --- 2. AJUSTES DEL RESTO DE LA PÁGINA --- */
+    
+    /* Hero */
     .hero-section {
+        padding-top: 100px; /* Espacio para que no choque */
         background-position: center;
     }
     .hero-content h1 {
-        font-size: 2.5rem; /* Título más chico */
+        font-size: 2.2rem; 
     }
 
-    /* Contenedores Flex a Columna */
+    /* Secciones Generales a Columna */
     .about-grid,
     .services-container, 
     .contact-container,
@@ -1195,30 +1204,32 @@ body {
         align-items: center;
     }
 
-    /* Invertir orden en Contacto (Formulario primero, Mapa después) */
+    /* Invertir orden en Contacto (Formulario primero) */
     .contact-split-layout {
         flex-direction: column; 
         gap: 0;
         border-radius: 20px;
     }
 
-    /* --- 3. AJUSTES ESPECÍFICOS --- */
-
-    /* Nosotros */
-    .about-text, 
-    .about-image-container {
-        width: 100%;
+    /* Ajustes Específicos */
+    .about-text, .about-image-container,
+    .services-right-column,
+    .contact-info-card, .contact-form,
+    .testimonial-card,
+    .pricing-card-static { 
+        width: 100%; 
+        max-width: 100%;
     }
+
     .text-card { padding: 30px 20px; }
     
-    /* Título Flotante (Corregido) */
     .badge-teal { 
         transform: none; 
         margin-bottom: 20px;
         top: 0;
     }
 
-    /* Horarios (Timeline Vertical) */
+    /* Timeline (Horarios) */
     .timeline-container {
         border-top: none;
         border-left: 5px solid var(--color-turquoise);
@@ -1233,18 +1244,7 @@ body {
         text-align: left;
     }
     .time-header { width: 90px; color: var(--color-turquoise); border: none; }
-    .time-body p { opacity: 1; transform: none; } /* Texto siempre visible */
-
-    /* Servicios y Tarifas */
-    .services-right-column,
-    .contact-info-card, 
-    .contact-form,
-    .testimonial-card,
-    .pricing-card-static { 
-        width: 100%; 
-        max-width: 100%;
-        min-width: 0;
-    }
+    .time-body p { opacity: 1; transform: none; display: block; } 
 
     /* Mapa y Formulario */
     .map-column {
@@ -1257,11 +1257,9 @@ body {
         padding: 40px 20px;
     }
 
-    /* Footer */
     .footer-split { text-align: center; gap: 30px; }
     .footer-contact-list { align-items: center; }
     
-    /* Elementos Flotantes */
     .whatsapp-float { width: 50px; height: 50px; font-size: 28px; bottom: 20px; right: 20px; }
     .exp-badge { width: 90px; height: 90px; right: 10px; bottom: -10px; }
     .exp-badge .big-num { font-size: 1.4rem; }
