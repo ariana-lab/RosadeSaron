@@ -1,21 +1,20 @@
 /* ==========================================================================
    HOJA DE ESTILOS - RESIDENCIA ROSA DE SARÓN
-   Versión: Final Consolidada
+   Versión: Final Corregida (Mobile Fix)
    ========================================================================== */
 
 /* =========================================
    1. VARIABLES Y CONFIGURACIÓN BASE
    ========================================= */
 :root {
-    --color-primary: #76a867;       /* Verde botones */
-    --color-dark-green: #558b46;    /* Verde oscuro texto */
-    --color-turquoise: #1CD6B9;     /* Turquesa Servicios */
+    --color-primary: #76a867;       
+    --color-dark-green: #558b46;    
+    --color-turquoise: #1CD6B9;     
     --color-turquoise-dark: #14bfa3;
-    --color-light-bg: #FFF0E5;      /* Fondo durazno suave */
+    --color-light-bg: #FFF0E5;      
     --color-white: #ffffff;
     --color-text: #4a4a4a;
     
-    /* Fuentes */
     --font-title: 'Dancing Script', cursive;
     --font-fancy: 'Sansita Swashed', cursive;
     --font-body: 'Poppins', sans-serif;
@@ -29,7 +28,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* Para que el menú no tape el título al bajar */
+    scroll-padding-top: 100px; 
 }
 
 body {
@@ -72,7 +71,6 @@ body {
     transition: height 0.3s ease;
 }
 
-/* Menú PC (Lista Horizontal) */
 .nav-links {
     list-style: none;
     display: flex;
@@ -91,7 +89,6 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Línea Mágica (PC) */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -108,10 +105,7 @@ body {
 .nav-links a:hover { color: var(--color-turquoise); }
 .nav-links a:hover::after { width: 100%; }
 
-/* Botón Hamburguesa (Oculto en PC) */
-.menu-toggle {
-    display: none; 
-}
+.menu-toggle { display: none; } /* Oculto en PC */
 
 /* =========================================
    3. HERO SECTION (BANNER)
@@ -162,15 +156,14 @@ body {
     font-weight: 600;
 }
 
-/* Título Turquesa Flotante */
+/* Estilos PC (Flotantes) */
 .badge-teal {
     background-color: var(--color-turquoise);
     border: 3px solid white;
-    transform: translateY(-50%); /* Flota hacia arriba */
+    transform: translateY(-50%); 
     margin-bottom: -30px; 
 }
 
-/* Título Blanco Normal */
 .badge-white {
     background-color: white;
     border: 3px solid var(--color-turquoise);
@@ -415,63 +408,65 @@ body {
     width: 100%;
     border-top: 5px solid var(--color-turquoise); 
     margin-top: 50px;
-    padding-bottom: 30px; 
+    padding-bottom: 40px; 
 }
 
 .timeline-item {
     flex: 1; 
-    min-width: 100px; 
+    min-width: 120px; 
     background-color: #f8fcfb; 
     border-right: 1px solid rgba(0,0,0,0.05); 
     position: relative;
     transition: all 0.3s ease; 
     cursor: pointer;
-    height: 160px; 
+    height: 220px; 
     overflow: hidden; 
 }
 .timeline-item:last-child { border-right: none; }
 
 .timeline-item:hover {
     background-color: white;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    height: 280px; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+    height: auto; 
+    min-height: 320px; 
     transform: translateY(10px); 
     z-index: 10; 
     border-top: 5px solid var(--color-turquoise); 
     margin-top: -5px; 
-    border-radius: 0 0 10px 10px; 
+    border-radius: 0 0 15px 15px; 
 }
 
 .time-header {
     background-color: transparent;
     color: #888;
     font-weight: 700;
-    font-size: 0.85rem;
-    padding: 15px 5px;
+    font-size: 0.9rem;
+    padding: 20px 5px; 
     border-bottom: 1px solid rgba(0,0,0,0.05);
     transition: color 0.3s;
 }
 .timeline-item:hover .time-header { color: var(--color-turquoise); font-size: 1rem; }
 
 .time-icon {
-    font-size: 2rem;
+    font-size: 2.2rem; 
     color: #ccc; 
-    padding: 20px 0;
+    padding: 25px 0; 
     transition: all 0.3s;
 }
 .timeline-item:hover .time-icon { color: var(--color-turquoise); transform: scale(1.1); }
 
-.time-body { padding: 0 10px 20px 10px; }
+.time-body { padding: 0 15px 25px 15px; }
 .time-body h3 {
     font-family: var(--font-fancy);
     color: #333;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 1.3rem; 
+    margin-bottom: 15px;
+    line-height: 1.2;
 }
 .time-body p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #666;
-    line-height: 1.4;
+    line-height: 1.5;
     opacity: 0; 
     transform: translateY(10px);
     transition: all 0.3s ease 0.1s; 
@@ -479,7 +474,7 @@ body {
 .timeline-item:hover .time-body p { opacity: 1; transform: translateY(0); }
 
 .timeline-footer {
-    margin-top: 30px;
+    margin-top: 40px;
     font-size: 1.1rem;
     color: #555;
     font-family: var(--font-fancy);
@@ -614,7 +609,7 @@ body {
 .user-img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-turquoise); }
 
 
-/* --- CONTACTO --- */
+/* --- CONTACTO (PC) --- */
 .contact-section {
     background-color: var(--color-light-bg);
     padding: 80px 20px;
@@ -716,7 +711,7 @@ body {
 
 /* --- LOCALIZACIÓN --- */
 .location-section {
-    padding: 120px 0 50px 0;
+    padding: 60px 50px;
     background-color: white;
 }
 
@@ -903,13 +898,13 @@ body {
     }
 
     /* TÍTULOS: Ajuste para que no floten mal */
-    .badge-teal {
-        transform: none; 
-        margin-bottom: 30px;
-        margin-top: -20px;
+    .badge-teal, .badge-white {
+        transform: none !important; /* IMPORTANTE: Resetea la posición */
+        margin-bottom: 20px;
+        margin-top: 0;
         top: 0;
     }
-    .section-header { margin-bottom: 30px; }
+    .section-header { margin-bottom: 20px; }
 
     /* ANCHOS 100% EN MÓVIL */
     .about-text, .about-image-container,
@@ -918,8 +913,8 @@ body {
     .testimonial-card,
     .pricing-card-static,
     .map-column, .form-column { 
-        width: 100%; 
-        max-width: 100%;
+        width: 100% !important; 
+        max-width: 100% !important;
         min-width: 0;
     }
 
@@ -943,8 +938,12 @@ body {
     .time-header { width: 90px; color: var(--color-turquoise); border: none; }
     .time-body p { opacity: 1; transform: none; display: block; } 
 
-    /* CONTACTO AJUSTE */
-    .contact-info-card, .contact-form { min-height: auto; }
+    /* CONTACTO AJUSTE CRÍTICO */
+    .contact-info-card { 
+        min-height: auto; 
+        margin-bottom: 30px; /* Separar del formulario */
+    }
+    .contact-form { width: 100%; }
 
     /* MAPA */
     .address-card-overlay {
