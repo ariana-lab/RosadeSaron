@@ -319,7 +319,7 @@ body {
 }
 
 
-/* --- SERVICIOS --- */
+/* --- SERVICIOS (CORREGIDO PARA INVERTIR ORDEN) --- */
 .services-section {
     background-color: var(--color-light-bg);
     padding: 90px 0;
@@ -335,6 +335,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* LA TARJETA GRANDE (Ahora a la derecha) */
 .service-display-card {
     flex: 1;
     min-width: 300px;
@@ -346,6 +347,7 @@ body {
     flex-direction: column;
     height: auto; 
     transition: opacity 0.2s ease;
+    order: 2; /* ¡ESTO ES LO NUEVO! Le dice que se ponga en segundo lugar (derecha) */
 }
 
 .card-header-color {
@@ -372,6 +374,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* LA COLUMNA DE BOTONES (Ahora a la izquierda) */
 .services-right-column {
     flex: 1; 
     min-width: 300px;
@@ -379,6 +382,7 @@ body {
     flex-direction: column; 
     align-items: center;
     justify-content: center;
+    order: 1; /* ¡ESTO ES LO NUEVO! Le dice que se ponga en primer lugar (izquierda) */
 }
 
 .services-grid {
@@ -409,7 +413,6 @@ body {
     transform: scale(1.05) translateY(-3px);
     background-color: var(--color-turquoise-dark);
 }
-
 
 /* --- HORARIOS --- */
 .schedule-section {
