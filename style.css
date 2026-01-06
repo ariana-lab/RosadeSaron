@@ -414,60 +414,112 @@ body {
 }
 
 /* --- HORARIOS --- */
-.schedule-section {
-    background: linear-gradient(to bottom, #ffffff 0%, #e0fcf9 100%);
-    padding: 100px 20px;
-    text-align: center;
-}
-
-.schedule-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    padding: 40px 10px;
-}
-
-.schedule-card {
+/* =========================================
+   7. SECCIÓN HORARIOS (LÍNEA DE TIEMPO)
+   ========================================= */
+.timeline-section {
     background-color: white;
-    width: 200px;
-    padding: 30px 15px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border: 1px solid #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 80px 20px;
     text-align: center;
-    transition: all 0.2s cubic-bezier(0.15, 0.7, 0.2, 1.2);
+}
+
+.timeline-container {
+    display: flex; /* Pone todo en una fila */
+    width: 100%;
+    overflow-x: auto; /* Permite scroll horizontal en pantallas muy chicas */
+    border-top: 4px solid var(--color-turquoise); /* La línea superior de color */
+    margin-top: 40px;
+    padding-bottom: 20px; /* Espacio para la sombra */
+}
+
+/* CADA BLOQUE DE TIEMPO */
+.timeline-item {
+    flex: 1; /* Todos ocupan el mismo ancho */
+    min-width: 120px; /* Ancho mínimo */
+    background-color: #f4fdfb; /* Fondo muy clarito por defecto */
+    border-right: 1px solid rgba(0,0,0,0.05); /* Línea divisoria suave */
     position: relative;
-    z-index: 1;
+    transition: all 0.3s ease;
+    cursor: default;
+    
+    /* Altura inicial "compacta" */
+    height: 180px; 
+    overflow: hidden; /* Oculta el texto largo hasta el hover */
 }
 
-.schedule-card h3 {
-    font-family: 'Sansita Swashed', cursive;
+.timeline-item:last-child {
+    border-right: none;
+}
+
+/* EFECTO HOVER (LA MAGIA) */
+.timeline-item:hover,
+.timeline-item.active-time { /* Para dejar uno activo por defecto si quieres */
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: translateY(10px); /* Baja un poco como una pestaña */
+    height: auto; /* Se estira para mostrar todo el texto */
+    min-height: 280px; /* Altura expandida */
+    z-index: 10;
+    border-top: 4px solid var(--color-turquoise); /* Línea destacada arriba */
+    margin-top: -4px; /* Compensa el borde para que no se desfase */
+}
+
+/* La Hora (Encabezado) */
+.time-header {
+    background-color: transparent;
+    color: #666;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 15px 5px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.timeline-item:hover .time-header {
+    background-color: var(--color-turquoise);
+    color: white;
+}
+
+/* El Ícono */
+.time-icon {
+    font-size: 2rem;
     color: var(--color-turquoise);
-    font-size: 1.4rem;
-    margin-bottom: 15px;
+    padding: 20px 0;
 }
 
-.schedule-card i {
-    font-size: 2.5rem;
+/* Cuerpo (Título y Texto) */
+.time-body {
+    padding: 0 10px 20px 10px;
+}
+
+.time-body h3 {
+    font-family: var(--font-fancy);
     color: #333;
-    margin-bottom: 15px;
-    border: 3px solid #333;
-    padding: 10px;
-    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
-.schedule-card:hover {
-    transform: scale(1.05) translateY(-5px); 
-    box-shadow: 0 5px 10px rgba(28, 214, 185, 0.5); 
-    z-index: 10; 
-    border-bottom: 5px solid #1CD6B9;
+.time-body p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+    
+    /* Truco: Ocultar texto suavemente si no está en hover */
+    opacity: 0; 
+    transition: opacity 0.3s ease 0.1s;
 }
 
+.timeline-item:hover .time-body p,
+.timeline-item.active-time .time-body p {
+    opacity: 1; /* Aparece el texto al expandirse */
+}
 
+/* Frase final */
+.timeline-footer {
+    margin-top: 40px;
+    font-size: 1.1rem;
+    color: #555;
+    font-family: var(--font-fancy);
+}
 /* =========================================
    8. SECCIÓN TARIFAS
    ========================================= */
@@ -1112,6 +1164,44 @@ body {
         margin-bottom: 20px;
         top: 0;
     }
+    .timeline-container {
+        flex-direction: column; /* En celular pasa a lista vertical */
+        border-top: none;
+        border-left: 4px solid var(--color-turquoise); /* Línea a la izquierda */
+    }
+    
+    .timeline-item {
+        display: flex; /* Diseño horizontal interno */
+        align-items: center;
+        height: auto;
+        min-height: auto;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding: 10px;
+        text-align: left;
+    }
+    
+    .timeline-item:hover {
+        transform: translateX(10px); /* En celular se mueve a la derecha */
+        margin-top: 0;
+    }
+    
+    .time-header {
+        background: none !important;
+        color: var(--color-turquoise) !important;
+        width: 80px;
+        border: none;
+    }
+    
+    .time-icon {
+        font-size: 1.5rem;
+        padding: 0 15px;
+    }
+    
+    .time-body p {
+        opacity: 1; /* En celular mostramos siempre el texto */
+        display: block;
+    }
 
     /* OTROS AJUSTES GENERALES */
     .services-container, 
@@ -1151,3 +1241,4 @@ body {
     .whatsapp-float { width: 50px; height: 50px; font-size: 28px; bottom: 20px; right: 20px; }
     .testimonials-section::before { height: 70%; top: 15%; transform: rotate(-15deg); }
 }
+       
