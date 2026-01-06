@@ -1104,203 +1104,165 @@ body {
 
 @keyframes zoomIn { from {transform:scale(0)} to {transform:scale(1)} }
 
-/*=========================================
-   MENÚ HAMBURGUESA (MÓVIL)
+/* =========================================
+   7. RESPONSIVE DESIGN (MÓVIL UNIFICADO)
    ========================================= */
 
-/* 1. Estilo del Botón (Oculto en PC por defecto) */
+/* Estilo del Botón Hamburguesa (Visible solo en móvil) */
 .menu-toggle {
-    display: none; /* En PC no se ve */
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: white; /* Color del ícono */
-    cursor: pointer;
-    z-index: 1001; /* Por encima de todo */
+    display: none; /* En PC oculto */
 }
 
-/* =========================================
-   7. RESPONSIVE DESIGN (MÓVIL - CORRECCIONES CRÍTICAS)
-   ========================================= */
 @media (max-width: 900px) {
-    /* AJUSTE DEL MENÚ DE NAVEGACIÓN EN MÓVIL */
-    .navbar {
-        position: relative; /* Ya no flota sobre la foto */
-        flex-direction: column;
-        background-color: var(--color-primary); /* Fondo sólido */
-        padding: 20px;
+    
+    /* --- 1. HEADER Y NAVEGACIÓN --- */
+    
+    /* El botón hamburguesa aparece */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: white; /* Color del icono */
+        cursor: pointer;
+        z-index: 2000; /* Encima del menú desplegable */
+        position: absolute;
+        top: 30px;  /* Ajusta para alinear con el logo */
+        right: 30px;
     }
 
+    /* El logo un poco más chico */
+    .logo-img {
+        height: 100px; 
+    }
+
+    /* EL MENÚ LATERAL (DRAWER) */
     .nav-links {
+        position: fixed; /* Fijo en la pantalla */
+        top: 0;
+        right: -100%; /* Empieza escondido a la derecha */
+        width: 75%;   /* Ancho del menú */
+        height: 100vh; /* Altura completa */
+        background-color: rgba(0, 0, 0, 0.95); /* Fondo negro elegante */
+        
+        display: flex;
         flex-direction: column;
-        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
         padding: 0;
-        gap: 15px;
+        
+        transition: right 0.4s ease; /* Animación suave */
+        z-index: 1500; /* Encima del resto de la web */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* Cuando se abre el menú */
+    .nav-links.active {
+        right: 0; /* Entra a la pantalla */
+    }
+
+    /* Enlaces más grandes para el dedo */
+    .nav-links a {
+        font-size: 1.5rem;
+        display: block;
     }
     
-    .logo-img {
-        height: 100px; /* Logo más pequeño */
-        margin-bottom: 20px;
-    }
+    /* Sin línea mágica en móvil */
+    .nav-links a::after { display: none; }
 
-    /* AJUSTE DEL TEXTO HERO */
+
+    /* --- 2. AJUSTES GENERALES DE SECCIONES --- */
+    
+    /* Hero (Portada) */
     .hero-section {
-        padding-top: 0;
-        height: auto;
-        padding: 60px 0;
+        background-position: center;
     }
     .hero-content h1 {
-        font-size: 2.5rem; /* Texto más chico en celular */
+        font-size: 2.5rem; /* Título más chico */
     }
 
-    /* CORRECCIÓN "NUESTRA ESENCIA" (El problema del screenshot) */
-    .about-section.container {
-        padding: 60px 15px; /* Menos relleno superior */
-    }
-    
-    .about-grid {
-        flex-direction: column; /* Una cosa abajo de la otra */
+    /* Contenedores Flex a Columna */
+    .about-grid,
+    .services-container, 
+    .contact-container,
+    .map-wrapper,
+    .footer-split,
+    .contact-split-layout,
+    .timeline-container,
+    .pricing-grid {
+        flex-direction: column;
+        align-items: center;
     }
 
+    /* Invertir orden en Contacto (Formulario primero, Mapa después) */
+    .contact-split-layout {
+        flex-direction: column; 
+        gap: 0;
+        border-radius: 20px;
+    }
+
+    /* --- 3. AJUSTES ESPECÍFICOS --- */
+
+    /* Nosotros */
     .about-text, 
     .about-image-container {
-        width: 100%; /* Ocupan todo el ancho */
-        min-width: 0;
-        flex: auto;
+        width: 100%;
     }
-
-    .text-card {
-        padding: 25px 20px; /* Reducimos el relleno interno de 40px a 20px */
-    }
+    .text-card { padding: 30px 20px; }
     
-    /* AJUSTE BADGE (El titulo que flotaba mal) */
+    /* Título Flotante (Corregido) */
     .badge-teal { 
         transform: none; 
         margin-bottom: 20px;
         top: 0;
     }
+
+    /* Horarios (Timeline Vertical) */
     .timeline-container {
-        flex-direction: column; /* En celular pasa a lista vertical */
         border-top: none;
-        border-left: 4px solid var(--color-turquoise); /* Línea a la izquierda */
+        border-left: 5px solid var(--color-turquoise);
+        padding-bottom: 0;
     }
-    
     .timeline-item {
-        display: flex; /* Diseño horizontal interno */
-        align-items: center;
+        flex-direction: row;
         height: auto;
-        min-height: auto;
         border-right: none;
         border-bottom: 1px solid #eee;
-        padding: 10px;
+        padding: 15px;
         text-align: left;
     }
-    
-    .timeline-item:hover {
-        transform: translateX(10px); /* En celular se mueve a la derecha */
-        margin-top: 0;
-    }
-    
-    .time-header {
-        background: none !important;
-        color: var(--color-turquoise) !important;
-        width: 80px;
-        border: none;
-    }
-    
-    .time-icon {
-        font-size: 1.5rem;
-        padding: 0 15px;
-    }
-    
-    .time-body p {
-        opacity: 1; /* En celular mostramos siempre el texto */
-        display: block;
-    }
+    .time-header { width: 90px; color: var(--color-turquoise); border: none; }
+    .time-body p { opacity: 1; transform: none; } /* Texto siempre visible */
 
-    /* OTROS AJUSTES GENERALES */
-    .services-container, 
-    .contact-container,
-    .map-wrapper,
-    .footer-split {
-        flex-direction: column;
-        align-items: center;
-    }
-    
+    /* Servicios y Tarifas */
     .services-right-column,
     .contact-info-card, 
     .contact-form,
-    .testimonial-card { 
+    .testimonial-card,
+    .pricing-card-static { 
         width: 100%; 
         max-width: 100%;
-    }
-    
-    .pricing-card-static {
-        width: 100%;
-        max-width: 100%; 
-    }
-    .pricing-card-static h3, 
-    .pricing-card-static .description {
-        height: auto; 
-        min-height: auto;
+        min-width: 0;
     }
 
-    .address-card-overlay {
-        position: relative; right: auto; top: auto; transform: none;
-        width: 100%; border-radius: 0; box-shadow: none; border-top: 1px solid #eee;
+    /* Mapa y Formulario */
+    .map-column {
+        height: 300px;
+        min-height: 300px;
+        width: 100%;
     }
-    
-    .footer-split { text-align: center; }
+    .form-column {
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    /* Footer */
+    .footer-split { text-align: center; gap: 30px; }
     .footer-contact-list { align-items: center; }
     
+    /* Elementos Flotantes */
     .whatsapp-float { width: 50px; height: 50px; font-size: 28px; bottom: 20px; right: 20px; }
-    .testimonials-section::before { height: 70%; top: 15%; transform: rotate(-15deg); }
-}
-/* 2. Comportamiento en Celulares (Menor a 768px) */
-@media (max-width: 768px) {
-    
-    /* Mostrar el botón en móvil */
-    .menu-toggle {
-        display: block; 
-        position: absolute;
-        right: 20px;
-        top: 25px; /* Ajusta según tu header */
-    }
-
-    /* Transformar la lista horizontal en un menú vertical oculto */
-    .nav-links {
-        position: fixed; /* Se queda fijo en la pantalla */
-        top: 0;
-        right: -100%; /* Empieza escondido a la derecha (fuera de pantalla) */
-        width: 70%;   /* Ancho del menú desplegable */
-        height: 100vh; /* Altura completa */
-        background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro casi negro */
-        
-        display: flex;
-        flex-direction: column; /* Lista vertical */
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        
-        transition: right 0.4s ease; /* Animación suave al entrar */
-        z-index: 1000;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-    }
-
-    /* Clase "active" para cuando el menú está abierto */
-    .nav-links.active {
-        right: 0; /* Entra a la pantalla */
-    }
-
-    /* Ajuste de los enlaces en móvil */
-    .nav-links a {
-        font-size: 1.5rem; /* Letra más grande para tocar con el dedo */
-        color: white;
-        display: block;
-    }
-    
-    /* Desactivar la "Línea Mágica" en móvil porque se ve rara en vertical */
-    .nav-links a::after {
-        display: none; 
-    }
+    .exp-badge { width: 90px; height: 90px; right: 10px; bottom: -10px; }
+    .exp-badge .big-num { font-size: 1.4rem; }
 }
