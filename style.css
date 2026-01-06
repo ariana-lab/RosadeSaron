@@ -1,6 +1,6 @@
 /* ==========================================================================
    HOJA DE ESTILOS - RESIDENCIA ROSA DE SARÓN
-   Versión: Final Corregida (Mobile Fix)
+   Versión: Final Corregida (Títulos y Espacios Móviles)
    ========================================================================== */
 
 /* =========================================
@@ -105,7 +105,7 @@ body {
 .nav-links a:hover { color: var(--color-turquoise); }
 .nav-links a:hover::after { width: 100%; }
 
-.menu-toggle { display: none; } /* Oculto en PC */
+.menu-toggle { display: none; }
 
 /* =========================================
    3. HERO SECTION (BANNER)
@@ -156,7 +156,7 @@ body {
     font-weight: 600;
 }
 
-/* Estilos PC (Flotantes) */
+/* Estilos para PC (Flotantes) */
 .badge-teal {
     background-color: var(--color-turquoise);
     border: 3px solid white;
@@ -609,7 +609,7 @@ body {
 .user-img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-turquoise); }
 
 
-/* --- CONTACTO (PC) --- */
+/* --- CONTACTO --- */
 .contact-section {
     background-color: var(--color-light-bg);
     padding: 80px 20px;
@@ -711,7 +711,7 @@ body {
 
 /* --- LOCALIZACIÓN --- */
 .location-section {
-    padding: 60px 50px;
+    padding: 120px 0 50px 0;
     background-color: white;
 }
 
@@ -897,16 +897,16 @@ body {
         align-items: center;
     }
 
-    /* TÍTULOS: Ajuste para que no floten mal */
+    /* TÍTULOS: RESPETAR ESPACIO EN MÓVIL */
     .badge-teal, .badge-white {
-        transform: none !important; /* IMPORTANTE: Resetea la posición */
-        margin-bottom: 20px;
+        transform: none !important; /* IMPORTANTE: No flota en móvil */
+        margin-bottom: 30px;
         margin-top: 0;
         top: 0;
     }
-    .section-header { margin-bottom: 20px; }
+    .section-header { margin-bottom: 30px; }
 
-    /* ANCHOS 100% EN MÓVIL */
+    /* ANCHOS 100% EN MÓVIL (CORRECCIÓN CONTACTO) */
     .about-text, .about-image-container,
     .services-right-column,
     .contact-info-card, .contact-form,
@@ -958,4 +958,15 @@ body {
     .whatsapp-float { width: 50px; height: 50px; font-size: 28px; bottom: 20px; right: 20px; }
     .exp-badge { width: 90px; height: 90px; right: 10px; bottom: -10px; }
     .exp-badge .big-num { font-size: 1.4rem; }
+    
+    /* Espaciado General en Móvil */
+    .about-section.container, 
+    .services-section, 
+    .timeline-section,
+    .pricing-section,
+    .contact-section,
+    .location-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
 }
