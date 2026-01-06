@@ -152,9 +152,9 @@ body {
     margin: 0 auto;
     color: black;
     -webkit-text-stroke: 1.3px white; 
-    max-width: 90%; /* Para que no se salga en móvil */
+    position: relative;
+    z-index: 10;
 }
-
 .master-title-badge h2 {
     font-size: 2.5rem;
     margin: 0;
@@ -164,16 +164,14 @@ body {
 .badge-teal {
     background-color: var(--color-turquoise);
     border: 3px solid white;
-    transform: translateY(-80px); 
-    margin-bottom: -45px; 
-    z-index: 10;
-    position: relative;
+    transform: translateY(-50%); 
+    margin-bottom: -30px; 
 }
 
 .badge-white {
     background-color: white;
     border: 3px solid var(--color-turquoise);
-    margin-bottom: 30px; 
+    margin-bottom: 40px; 
 }
 
 
@@ -185,7 +183,7 @@ body {
 .about-section.container {
     width: 95%;
     max-width: 1600px;
-    padding: 150px 20px 80px 20px; 
+    padding: 100px 20px 80px 20px; 
 }
 
 .about-grid {
@@ -738,7 +736,7 @@ body {
 /* --- CONTACTO --- */
 .contact-section {
     background-color: var(--color-light-bg);
-    padding: 50px 80px 20px;
+    padding: 80px 20px;
 }
 
 .contact-container {
@@ -749,8 +747,9 @@ body {
     gap: 40px;
     flex-wrap: wrap;
     width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
 }
-
 .contact-info-card {
     background-color: white;
     padding: 40px; 
@@ -758,13 +757,13 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     border: 1px solid #f0f0f0;
     flex: 1; 
-    min-width: 300px;
-    max-width: 400px; 
+    min-width: 320px; 
+    max-width: 450px; 
+    
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center; 
-    min-height: 500px; 
 }
 
 .icon-wrapper {
@@ -825,6 +824,7 @@ body {
     flex: 1.5; 
     min-width: 320px;
     max-width: 600px;
+    width: 100%; 
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -1115,18 +1115,15 @@ body {
 
 @media (max-width: 900px) {
     
-    /* --- 1. HEADER Y NAVEGACIÓN (EL ARREGLO) --- */
-    
-    /* El contenedor del menú se mantiene horizontal para que el logo y el botón queden alineados */
+    /* --- HEADER MÓVIL --- */
     .navbar {
         position: absolute; 
-        flex-direction: row; /* IMPORTANTE: Fila, no columna */
+        flex-direction: row; 
         justify-content: space-between;
         padding: 20px;
-        background-color: transparent; /* Quitamos el fondo verde */
+        background-color: transparent; 
     }
 
-    /* El Botón Hamburguesa aparece */
     .menu-toggle {
         display: block;
         background: none;
@@ -1134,28 +1131,26 @@ body {
         font-size: 2rem;
         color: white; 
         cursor: pointer;
-        z-index: 2000; /* Encima de todo */
-        /* Ajuste de posición si es necesario */
+        z-index: 2000; 
         margin-right: 10px;
     }
-
     /* EL MENÚ LATERAL (OCULTO POR DEFECTO) */
     .nav-links {
-        position: fixed; /* Fijo respecto a la ventana */
+        position: fixed; 
         top: 0;
-        right: -100%; /* ESCONDIDO A LA DERECHA */
-        width: 75%;   /* Ancho del panel */
-        height: 100vh; /* Alto completo */
-        background-color: rgba(0, 0, 0, 0.95); /* Fondo negro elegante */
+        right: -100%; 
+        width: 75%;   
+        height: 100vh; 
+        background-color: rgba(0, 0, 0, 0.95); 
         
         display: flex;
-        flex-direction: column; /* Elementos en lista */
+        flex-direction: column; 
         align-items: center;
         justify-content: center;
         gap: 30px;
         padding: 0;
         
-        transition: right 0.4s ease; /* Animación suave */
+        transition: right 0.4s ease; 
         z-index: 1500; 
         box-shadow: -5px 0 15px rgba(0,0,0,0.5);
     }
@@ -1194,8 +1189,6 @@ body {
     /* Secciones Generales a Columna */
     .about-grid,
     .services-container, 
-    .contact-container,
-    .map-wrapper,
     .footer-split,
     .contact-split-layout,
     .timeline-container,
@@ -1223,10 +1216,32 @@ body {
 
     .text-card { padding: 30px 20px; }
     
-    .badge-teal { 
-        transform: none; 
-        margin-bottom: 20px;
-        top: 0;
+    /* --- AJUSTES DE TÍTULOS EN MÓVIL --- */
+    .badge-teal {
+        transform: none; /* Quitamos la flotación en móvil */
+        margin-bottom: 30px;
+        margin-top: -20px; /* Lo subimos un poco manualmente */
+    }
+    
+
+    /* --- AJUSTES DE CONTACTO EN MÓVIL --- */
+    .contact-container {
+        flex-direction: column; /* Uno debajo del otro */
+        align-items: center;
+    }
+    
+    .contact-info-card, .contact-form {
+        width: 100%; /* Ocupan todo el ancho de la pantalla */
+        max-width: 100%;
+        min-height: auto; 
+    }
+    
+    /* El mapa también full ancho */
+    .map-wrapper {
+        width: 100%;
+    }
+    .section-header {
+        margin-bottom: 30px; /* Espacio debajo del título */
     }
 
     /* Timeline (Horarios) */
