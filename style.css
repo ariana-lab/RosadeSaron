@@ -38,6 +38,12 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
+section {
+    padding-top: 120px;
+    padding-bottom: 100px;
+}
+
+
 
 .container {
     width: 90%;
@@ -66,11 +72,21 @@ body {
     padding: 0 40px; 
 }
 
-.logo-img {
-    height: 150px; 
-    transition: height 0.3s ease;
+/* Esto va en el contenedor del logo */
+.logo {
+    background-color: white;
+    padding: 10px 20px 15px 20px; /* Un poco de aire alrededor */
+    border-radius: 0 0 30px 30px; /* Redondea solo abajo */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra para dar profundidad */
+    margin-top: 0; /* Asegura que pegue arriba */
 }
 
+/* Ajusta la imagen para que no sea gigante */
+.logo-img {
+    height: 100px; /* Reducimos un poco la altura para que no invada tanto */
+    width: auto;
+    display: block;
+}
 .nav-links {
     list-style: none;
     display: flex;
@@ -148,6 +164,7 @@ body {
     -webkit-text-stroke: 1.3px white; 
     position: relative;
     z-index: 10;
+    transform: translateY(-30px);
 }
 
 .master-title-badge h2 {
@@ -157,17 +174,24 @@ body {
 }
 
 /* Estilos para PC (Flotantes) */
+.section-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px; /* MISMA distancia en todas */
+}
+.section .master-title-badge {
+    transform: none !important;
+    margin: 0 !important;
+}
 .badge-teal {
     background-color: var(--color-turquoise);
     border: 3px solid white;
-    transform: translateY(-50%); 
-    margin-bottom: -30px; 
 }
 
 .badge-white {
     background-color: white;
     border: 3px solid var(--color-turquoise);
-    margin-bottom: 40px; 
+
 }
 
 /* =========================================
@@ -176,9 +200,8 @@ body {
 
 /* --- NOSOTROS --- */
 .about-section.container {
-    width: 95%;
+    width: 100%;
     max-width: 1600px;
-    padding: 100px 20px 80px 20px; 
 }
 
 .about-grid {
@@ -308,7 +331,6 @@ body {
 /* --- SERVICIOS --- */
 .services-section {
     background-color: var(--color-light-bg);
-    padding: 120px 0 90px 0;
     font-family: var(--font-body);
 }
 
@@ -399,7 +421,6 @@ body {
 /* --- HORARIOS (LÍNEA DE TIEMPO) --- */
 .timeline-section {
     background-color: white;
-    padding: 150px 20px 80px 20px;
     text-align: center;
 }
 
@@ -412,7 +433,7 @@ body {
 }
 
 .timeline-item {
-    flex: 1; 
+    flex: 1 1 0; 
     min-width: 120px; 
     background-color: #f8fcfb; 
     border-right: 1px solid rgba(0,0,0,0.05); 
@@ -427,7 +448,7 @@ body {
 .timeline-item:hover {
     background-color: white;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
-    height: auto; 
+    height: 380px; 
     min-height: 320px; 
     transform: translateY(10px); 
     z-index: 10; 
@@ -457,11 +478,12 @@ body {
 
 .time-body { padding: 0 15px 25px 15px; }
 .time-body h3 {
-    font-family: var(--font-fancy);
+    font-family: var(--font-body);
     color: #333;
-    font-size: 1.3rem; 
+    font-size: 1.2rem; 
     margin-bottom: 15px;
     line-height: 1.2;
+    letter-spacing: 0.5px;
 }
 .time-body p {
     font-size: 0.9rem;
@@ -484,13 +506,13 @@ body {
 /* --- TARIFAS --- */
 .pricing-section {
     background-color: var(--color-light-bg);
-    padding: 50px 0;
+    
 }
 
 .pricing-grid {
     display: flex;
     justify-content: center; 
-    align-items: flex-start;
+    align-items: stretch;
     gap: 30px; 
     flex-wrap: wrap; 
     margin-top: 40px;
@@ -558,7 +580,6 @@ body {
 /* --- OPINIONES --- */
 .testimonials-section {
     position: relative;
-    padding: 150px 20px 80px 20px;
     background-color: var(--color-white);
     overflow: hidden;
 }
@@ -612,7 +633,7 @@ body {
 /* --- CONTACTO --- */
 .contact-section {
     background-color: var(--color-light-bg);
-    padding: 80px 20px;
+    
 }
 
 .contact-container {
@@ -711,7 +732,6 @@ body {
 
 /* --- LOCALIZACIÓN --- */
 .location-section {
-    padding: 120px 0 50px 0;
     background-color: white;
 }
 
