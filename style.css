@@ -372,7 +372,7 @@ section {
 .services-container {
     display: flex;
     flex-direction: row;
-    align-items: flex-start; 
+    align-items: center; 
     justify-content: center;
     gap: 50px;
     flex-wrap: wrap;
@@ -438,7 +438,8 @@ section {
     border-radius: 35px; 
     border: 2px solid white;
     display: flex;
-    align-items: center;
+    align-items: center;   
+    justify-content: center; 
     gap: 10px;
     cursor: pointer;
     font-weight: 700;
@@ -1068,7 +1069,7 @@ section {
         margin-top: 10px; /* Alineado con el logo */
     }
 
-.nav-links {
+    .nav-links {
     position: fixed; 
     top: 0;
     right: -100%; 
@@ -1085,7 +1086,7 @@ section {
     transition: right 0.4s ease; 
     z-index: 1500; 
     box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-}
+    }
     .nav-links.active { right: 0; }
 
     .nav-links a { 
@@ -1286,13 +1287,13 @@ section {
     .exp-badge { width: 90px; height: 90px; right: 10px; bottom: -10px; }
     .exp-badge .big-num { font-size: 1.4rem; }
     
-    .about-section.container, 
+    .about-section.container,
     .services-section, 
     .timeline-section,
     .pricing-section,
     .contact-section,
     .location-section {
-        padding-top: 60px;
+        padding-top: 80px;
         padding-bottom: 60px;
     }
 }
