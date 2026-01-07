@@ -555,6 +555,19 @@
                 }, 200);
             }
         }
+        
+        // --- LÓGICA DEL MENÚ PEGAJOSO ---
+        window.addEventListener("scroll", function() {
+            // Seleccionamos la barra de navegación
+            var navbar = document.querySelector(".navbar");
+            
+            // Si bajamos más de 50 pixeles...
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled"); // ¡Activa el modo blanco!
+            } else {
+                navbar.classList.remove("scrolled"); // Vuelve a transparente
+            }
+            });
         // --- MENÚ HAMBURGUESA ---
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
@@ -585,6 +598,7 @@
                 icon.classList.add('fa-bars');
             });
         });
+        
     </script>
 
 </body>

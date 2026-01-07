@@ -16,10 +16,15 @@
     <header class="main-header">
         <nav class="navbar">
             <div class="logo">
-                <img src="Imagenes/logo.png" alt="Rosa de Sarón" class="logo-img"> 
+                <a href="index.html">
+                    <img src="Imagenes/logo.png" alt="Rosa de Sarón" class="logo-img"> 
+                </a>
             </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
-                <li><a href="index.html#">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="index.html#nosotros">Nosotros</a></li>
                 <li><a href="index.html#servicios">Servicios</a></li>
                 <li><a href="index.html#horarios">Horarios</a></li>
@@ -37,47 +42,53 @@
             </div>
         </div>
     </header>
-    <section class="gallery-page-header container" style="text-align: center;">
-        <div class="master-title-badge badge-teal" style="transform: none; margin-top: 60px; margin-bottom: 40px;">
-            <h2>Nuestra Galería</h2>
-        </div>
-        <p style="margin-top: 20px; color: #666;">Un recorrido visual por nuestros espacios y momentos especiales.</p>
-    </section>
 
-    <section class="container" style="margin-bottom: 100px;">
-        <div class="gallery-grid">
+    <section class="gallery-section">
+        <div class="container">
             
-            <div class="gallery-item" onclick="abrirLightbox(this)">
-                <img src="Imagenes/galeria1.jpg" alt="Sala de estar">
-                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            <div class="section-header">
+                <div class="master-title-badge badge-teal">
+                    <h2>Nuestra Galería</h2>
+                </div>
+                <p style="text-align: center; margin-top: 20px; color: #666;">
+                    Un recorrido visual por nuestros espacios y momentos especiales.
+                </p>
             </div>
 
-            <div class="gallery-item" onclick="abrirLightbox(this)">
-                <img src="Imagenes/galeria2.jpg" alt="Actividades recreativas">
-                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
+            <div class="gallery-grid">
+                
+                <div class="gallery-item" onclick="abrirLightbox(this)">
+                    <img src="Imagenes/galeria1.jpg" alt="Sala de estar">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
 
-            <div class="gallery-item" onclick="abrirLightbox(this)">
-                <img src="Imagenes/galeria3.jpg" alt="Comedor">
-                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
+                <div class="gallery-item" onclick="abrirLightbox(this)">
+                    <img src="Imagenes/galeria2.jpg" alt="Actividades recreativas">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
 
-            <div class="gallery-item" onclick="abrirLightbox(this)">
-                <img src="Imagenes/galeria4.jpg" alt="Jardín">
-                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
+                <div class="gallery-item" onclick="abrirLightbox(this)">
+                    <img src="Imagenes/galeria3.jpg" alt="Comedor">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
 
-            <div class="gallery-item" onclick="abrirLightbox(this)">
-                <img src="Imagenes/habitacion.jpg" alt="Habitaciones">
-                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
+                <div class="gallery-item" onclick="abrirLightbox(this)">
+                    <img src="Imagenes/galeria4.jpg" alt="Jardín">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
 
-            <div class="gallery-item" onclick="abrirLightbox(this)">
-                <img src="Imagenes/enfermeria.jpg" alt="Enfermería">
-                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
+                <div class="gallery-item" onclick="abrirLightbox(this)">
+                    <img src="Imagenes/habitacion.jpg" alt="Habitaciones">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="abrirLightbox(this)">
+                    <img src="Imagenes/enfermeria.jpg" alt="Enfermería">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
 
             </div>
+        </div>
     </section>
 
     <footer class="main-footer">
@@ -101,6 +112,27 @@
     </div>
 
     <script>
+        // SCRIPT DEL MENÚ MÓVIL (Faltaba esto para que funcione el botón en el celular)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if(menuToggle){
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                // Icono cambio
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+
+        // LÓGICA DEL LIGHTBOX (Tu código original)
         function abrirLightbox(elemento) {
             const modal = document.getElementById("miLightbox");
             const imgGrande = document.getElementById("imgGrande");
