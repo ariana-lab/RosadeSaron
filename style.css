@@ -1141,6 +1141,18 @@ section {
         max-width: 100% !important;
         min-width: 0;
     }
+    .services-section {
+        padding-top: 20px !important; /* Forzamos a que tenga poco espacio arriba */
+    }
+    
+    .services-section .section-header {
+        margin-bottom: 30px; /* Reducimos también el espacio entre el título y los botones */
+        margin-top: 0;
+    }
+    
+    .services-section .master-title-badge {
+        margin-top: 0 !important; /* Asegura que el título no tenga margen extra arriba */
+    }
 
     .text-card { padding: 30px 20px; }
 
