@@ -196,14 +196,14 @@ section {
     width: fit-content;
     margin: 0 auto;
     color: black;
-    -webkit-text-stroke: 1.3px white; 
+    -webkit-text-stroke: 1px white; 
     position: relative;
     z-index: 10;
     transform: translateY(-30px);
 }
 
 .master-title-badge h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin: 0;
     font-weight: 600;
 }
@@ -614,57 +614,143 @@ section {
 
 
 /* --- OPINIONES --- */
-.testimonials-section {
-    position: relative;
-    background-color: var(--color-white);
-    overflow: hidden;
-}
-
-.relative-container-testimonials { position: relative; z-index: 2; }
-
-.testimonials-section::before {
-    content: '';
-    position: absolute;
-    top: 25%;
-    left: -10%;
-    width: 120%;
-    height: 50%;
-    background-color: #e0fcf9;
-    transform: rotate(-5deg);
-    border-radius: 50px;
-    z-index: 0;
-    opacity: 0.8;
-    animation: floatRibbon 8s ease-in-out infinite alternate;
-}
-@keyframes floatRibbon {
-    0% { transform: rotate(-5deg) translateY(0px); }
-    100% { transform: rotate(-5deg) translateY(20px); }
-}
-
-.testimonials-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
 .testimonial-card {
     background-color: white;
-    width: 300px;
-    padding: 25px;
-    border-radius: 25px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    padding: 40px 30px; /* Buen espacio interno */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra suave */
     border: 1px solid #f0f0f0;
+    
+    /* ESTO ES LA CLAVE DEL CENTRADO: */
+    display: flex;
+    flex-direction: column; /* Elementos uno debajo del otro */
+    align-items: center;    /* Centra la foto, estrellas, etc. horizontalmente */
+    text-align: center;     /* Centra el texto de los párrafos */
+    
+    width: 100%;
+    max-width: 350px;       /* Ancho máximo para que no se vea estirada */
+    margin: 0 auto;         /* Centra la tarjeta en sí misma */
     position: relative;
 }
-.testimonial-card:hover {
-    box-shadow: 0 30px 50px rgba(28, 214, 185, 0.4);
-    border-color: var(--color-turquoise);
-    z-index: 10;
-}
-.user-img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-turquoise); }
 
+/* Ajuste de la cabecera (Foto + Nombre) */
+.card-header-testimonial {
+    display: flex;
+    flex-direction: column; /* Foto arriba, nombre abajo */
+    align-items: center;    /* Todo al centro */
+    gap: 15px;              /* Espacio entre foto y nombre */
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Foto redonda y perfecta */
+.user-img {
+    width: 90px;        /* Tamaño fijo controlado */
+    height: 90px; 
+    border-radius: 50%; /* Círculo perfecto */
+    object-fit: cover;  /* Evita que la foto se deforme */
+    border: 3px solid var(--color-turquoise); /* Borde de marca */
+    padding: 3px;       /* Espacio entre foto y borde */
+    background-color: white;
+}
+
+/* Nombre de la familia */
+.card-header-testimonial h3 {
+    font-family: var(--font-fancy);
+    font-size: 1.4rem;
+    color: #333;
+    margin: 0;
+}
+
+/* Estrellas doradas */
+.stars {
+    color: #FFD700; /* Dorado */
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Texto de la opinión */
+.testimonial-text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    font-style: italic; /* Un toque elegante */
+    margin: 0;
+}
+
+/* Comillas decorativas (Opcional, se ve muy pro) */
+.testimonial-card::before {
+    content: '\201C'; /* Comilla izquierda gigante */
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 5rem;
+    color: var(--color-turquoise);
+    opacity: 0.2;
+    font-family: sans-serif;
+    line-height: 1;
+}
+.carousel-container {
+    position: relative;
+    max-width: 1200px; /* MÁS ANCHO: Para que quepan 3 tarjetas cómodas */
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.carousel-slide {
+    min-width: 33.3333%; /* Ocupa 1/3 del ancho en PC */
+    padding: 20px 10px; /* Espacio entre tarjetas */
+    box-sizing: border-box;
+}
+
+/* Ajuste de la tarjeta dentro del slide */
+.carousel-slide .testimonial-card {
+    width: 100%;
+    max-width: 400px; /* Tamaño ideal de la tarjeta */
+    margin: 0; /* Centrado automático por flex */
+}
+
+/* Botones Flechas */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: var(--color-turquoise);
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background-color: var(--color-turquoise);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
 
 /* --- CONTACTO --- */
 .contact-section {
@@ -1307,5 +1393,28 @@ section {
     .location-section {
         padding-top: 80px;
         padding-bottom: 60px;
+    }
+    /* Reducimos el contenedor de la etiqueta */
+    .master-title-badge {
+        padding: 8px 20px !important; /* Menos relleno */
+        margin-bottom: 30px !important;
+        max-width: 90%; /* Evita que se salga de la pantalla */
+    }
+
+    /* Reducimos el tamaño de la letra del título */
+    .master-title-badge h2 {
+        font-size: 1.8rem !important; /* Bajamos de 2.5rem a 1.8rem */
+    }
+    .carousel-container {
+        padding: 0 10px; /* Flechas más pegaditas */
+    } /* Reducimos padding */
+    .carousel-btn { 
+        width: 35px; height: 35px; font-size: 1rem;
+        background-color: rgba(255,255,255,0.9); /* Semitransparente */
+    }
+    .prev-btn { left: -5px; } /* Pegaditas al borde */
+    .next-btn { right: -5px; }
+    .carousel-slide {
+        min-width: 100%; /* En celular vuelve a ser 1 sola tarjeta */
     }
 }
