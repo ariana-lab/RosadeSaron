@@ -1221,6 +1221,35 @@ section {
         line-height: 1.3;
         padding: 0 15px;
     }
+    /* --- CORRECCIÓN BADGE "24/7" (CÍRCULO VERDE) --- */
+    .exp-badge { 
+        width: 90px !important;  /* Aumentamos de 70px a 90px para que respire */
+        height: 90px !important;
+        right: 10px !important;
+        bottom: -20px !important; /* Que cuelgue un poco más abajo */
+        
+        /* Aseguramos el centrado perfecto */
+        padding: 5px !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .exp-badge .big-num { 
+        font-size: 1.4rem !important; /* Número grande pero equilibrado */
+        line-height: 1 !important;
+        margin-bottom: 2px !important;
+    }
+    
+    /* El texto pequeño "Cuidado Permanente" */
+    .exp-badge span, 
+    .exp-badge p {
+        font-size: 0.7rem !important; /* Letra pequeña y nítida */
+        line-height: 1.1 !important;
+        font-weight: 400 !important;
+    }
 
     /* --- GENERAL --- */
     .about-grid, .services-container, .contact-container, .map-wrapper, .footer-split, .timeline-container, .pricing-grid {
