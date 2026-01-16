@@ -1128,7 +1128,25 @@ section {
 
     /* --- AJUSTE GLOBAL DE TAMAÑO (MAGIA COMPACTA) --- */
     html {
-        font-size: 14px; /* Reduce un poco todo el texto proporcionalmente */
+        font-size: 14px; /* Base más pequeña */
+    }
+
+    /* --- CORRECCIÓN DE TEXTOS (JERARQUÍA VISUAL) --- */
+    /* ESTO ES LO NUEVO: Diferencia clara entre Títulos y Texto */
+    p, 
+    .about-text p, 
+    .text-card p, 
+    .hero-content p {
+        font-size: 0.95rem !important; /* Texto del cuerpo más pequeño */
+        line-height: 1.6 !important;   /* Más espacio entre líneas (lectura fácil) */
+        color: #555;                   /* Gris oscuro suave, no negro intenso */
+        margin-bottom: 15px;
+    }
+
+    /* Reforzamos que los subtítulos dentro de tarjetas se noten más */
+    h3, h4, .text-card h3 {
+        font-size: 1.2rem !important; 
+        margin-bottom: 10px;
     }
 
     /* --- 1. CABECERA Y MENÚ --- */
@@ -1137,18 +1155,18 @@ section {
         flex-direction: row; 
         justify-content: space-between;
         align-items: flex-start;
-        padding: 10px 15px; /* Menos relleno lateral */
+        padding: 10px 15px;
         background-color: transparent; 
     }
 
     .logo {
-        height: 60px; /* Logo más compacto (antes 70px) */
+        height: 60px;
         padding: 0 10px 5px 10px;
         border-radius: 0 0 10px 10px;
     }
 
     .logo-img { 
-        height: 45px; /* Imagen ajustada */
+        height: 45px;
         margin-top: 2px;
     }
 
@@ -1156,7 +1174,7 @@ section {
         display: block;
         background: none;
         border: none;
-        font-size: 1.4rem; /* Icono ajustado */
+        font-size: 1.4rem;
         color: white; 
         cursor: pointer;
         z-index: 2000; 
@@ -1168,14 +1186,14 @@ section {
         position: fixed; 
         top: 0;
         right: -100%; 
-        width: 50%; /* Lo subí de 40% a 50% para que el texto no se apriete al achicar la letra */
+        width: 50%;
         height: 100vh; 
         background-color: rgba(0, 0, 0, 0.95); 
         display: flex;
         flex-direction: column; 
         align-items: center;
         justify-content: center;
-        gap: 15px; /* Menos espacio entre links */
+        gap: 15px;
         padding: 0;
         transition: right 0.4s ease; 
         z-index: 1500; 
@@ -1192,14 +1210,14 @@ section {
 
     /* --- PORTADA (HERO) --- */
     .hero-section {
-        height: 40vh; /* Más bajita para ver contenido rápido */
+        height: 40vh;
         min-height: 250px;
         padding-top: 80px;
         align-items: center;
     }
     
     .hero-content h1 {
-        font-size: 1.6rem; /* Título de portada ajustado */
+        font-size: 1.6rem;
         line-height: 1.3;
         padding: 0 15px;
     }
@@ -1208,19 +1226,20 @@ section {
     .about-grid, .services-container, .contact-container, .map-wrapper, .footer-split, .timeline-container, .pricing-grid {
         flex-direction: column;
         align-items: center;
-        gap: 20px; /* Menos espacio entre elementos apilados */
+        gap: 20px;
     }
 
     /* TÍTULOS DE SECCIÓN (MÁS COMPACTOS) */
     .badge-teal, .badge-white, .master-title-badge {
         transform: none !important; 
-        margin-bottom: 20px !important; /* Menos margen abajo */
+        margin-bottom: 20px !important;
         margin-top: 0;
         top: 0;
-        padding: 5px 15px !important; /* Etiqueta más pequeña */
+        padding: 5px 15px !important;
     }
+    /* Mantenemos el título en 1.6rem, ahora el párrafo será 0.95rem. ¡Habrá contraste! */
     .master-title-badge h2, .badge-teal h2, .badge-white h2 {
-        font-size: 1.6rem !important; /* Fuente del título reducida */
+        font-size: 1.6rem !important; 
     }
     .section-header { margin-bottom: 20px; }
 
@@ -1231,7 +1250,7 @@ section {
         min-width: 0;
     }
     
-    .text-card { padding: 20px 15px; } /* Tarjetas de texto con menos relleno */
+    .text-card { padding: 20px 15px; }
 
     /* AJUSTE SERVICIOS */
     .services-section { padding-top: 10px !important; }
@@ -1254,13 +1273,13 @@ section {
     .timeline-item {
         width: 100%;
         flex: 0 0 auto;
-        height: 65px; /* MÁS BAJO: Antes 85px. Compacto pero tocable. */
+        height: 65px;
         overflow: hidden;
         display: flex;
         flex-direction: row;
         align-items: center;
         background: white;
-        margin-bottom: none; /* Menos espacio entre items */
+        margin-bottom: 5px; /* Juntitos como pediste */
         border-radius: 0 10px 10px 0;
         border-right: none;
         border-bottom: 1px solid #eee;
@@ -1270,13 +1289,13 @@ section {
         box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
-    /* PUNTITO CONECTOR (Ajustado a la nueva altura) */
+    /* PUNTITO CONECTOR */
     .timeline-item::before {
         content: '';
         position: absolute;
         left: -19px;
-        top: 32px; /* Ajustado al centro de 65px */
-        width: 10px; /* Puntito un poco más chico */
+        top: 32px;
+        width: 10px;
         height: 10px;
         background-color: var(--color-turquoise);
         border-radius: 50%;
@@ -1303,7 +1322,7 @@ section {
         width: 70px; 
         color: var(--color-turquoise); 
         font-weight: 700;
-        font-size: 0.85rem; /* Letra hora más chica */
+        font-size: 0.85rem;
         border: none;
         padding: 0;
         text-align: left;
@@ -1324,26 +1343,28 @@ section {
     .time-body { flex: 1; padding: 0; border: none; text-align: left; }
     .time-body h3 { margin: 0; font-size: 1rem; }
     .timeline-item:hover .time-body, .timeline-item:active .time-body { text-align: center; width: 100%; }
-    .time-body p { display: none; font-size: 0.85rem; color: #666; }
+    
+    /* El párrafo del horario también obedece la regla de texto pequeño ahora */
+    .time-body p { display: none; font-size: 0.85rem; color: #666; margin: 0; }
     .timeline-item:hover .time-body p, .timeline-item:active .time-body p { display: block; margin-top: 5px; } 
 
     /* --- OTROS --- */
     .contact-info-card { min-height: auto; margin-bottom: 20px; padding: 20px; }
     .contact-form { width: 100%; }
-    .address-card-overlay { position: relative; width: 100%; border-radius: 0; box-shadow: none; border-top: 1px solid #eee; }
+    
     .footer-split { text-align: center; gap: 20px; }
     .whatsapp-float { width: 45px; height: 45px; font-size: 24px; bottom: 15px; right: 15px; }
-    .exp-badge { width: 70px; height: 70px; right: 10px; bottom: -10px; } /* Badge más pequeño */
+    .exp-badge { width: 70px; height: 70px; right: 10px; bottom: -10px; }
     .exp-badge .big-num { font-size: 1.1rem; }
     
-    /* Espaciado General en Móvil (EL CAMBIO IMPORTANTE) */
+    /* Espaciado General en Móvil */
     .about-section.container,
     .services-section, 
     .timeline-section,
     .pricing-section,
     .contact-section,
     .location-section {
-        padding-top: 50px; /* Reducido de 80px a 50px */
+        padding-top: 50px;
         padding-bottom: 40px;
     }
 
@@ -1355,38 +1376,34 @@ section {
     .carousel-slide { min-width: 100%; padding: 0 5px; }
     .testimonial-card { padding: 20px 15px; }
     .user-img { width: 70px; height: 70px; }
+    
+    /* Localización Corregida */
     .map-link {
-        height: 250px !important; /* Bajamos de 450px a 250px */
+        height: 250px !important;
     }
 
-    /* 2. Arreglamos la cajita blanca de la dirección */
     .address-card-overlay {
-        /* RESET TOTAL: Borramos la posición de PC */
         position: relative !important; 
         top: auto !important;
         right: auto !important;
         left: auto !important;
         transform: none !important;
-        
-        /* ESTILO MÓVIL: Bloque sólido abajo */
         width: 100% !important;
-        min-width: 0 !important; /* Evita que se desborde */
+        min-width: 0 !important;
         margin: 0 !important;
-        
-        /* DISEÑO */
         background-color: white;
         padding: 20px;
-        border-radius: 0 0 20px 20px; /* Redondeado solo abajo */
-        box-shadow: none; /* Quitamos la sombra flotante */
-        border-top: 1px solid #eee; /* Línea separadora con el mapa */
+        border-radius: 0 0 20px 20px;
+        box-shadow: none;
+        border-top: 1px solid #eee;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    /* Ajuste del texto dentro de la cajita */
+    
     .address-text {
-        font-size: 0.95rem;
+        font-size: 0.95rem; /* También aplicamos letra chica aquí */
         line-height: 1.5;
     }
 }
