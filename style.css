@@ -1207,14 +1207,22 @@ section {
     }
 
     /* --- 1. CABECERA Y MENÚ --- */
+/* DENTRO DE @MEDIA (MAX-WIDTH: 900PX) */
+    
     .navbar {
-        position: absolute; 
+        position: fixed; /* CAMBIO CLAVE: De absolute a FIXED */
+        top: 0;
+        left: 0;
+        width: 100%;
         flex-direction: row; 
         justify-content: space-between;
-        align-items: flex-start;
-        padding: 10px 15px;
-        background-color: transparent; 
+        align-items: center; /* Alineación centrada para que se vea pro */
+        padding: 10px 20px;
+        background-color: transparent; /* Transparente al inicio */
+        transition: all 0.3s ease; /* Suaviza el cambio de color */
+        z-index: 3000; /* Por encima de todo, incluso del menú desplegable */
     }
+    
 
     .logo {
         height: 60px;
@@ -1312,6 +1320,17 @@ section {
         background-color: #f9f9f9; /* Fondo gris muy clarito */
         transform: translateX(5px); /* Pequeño movimiento a la derecha */
     }
+    .navbar.scrolled {
+        background-color: white !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 5px 20px; /* Un poco más compacta al bajar */
+    }
+
+    /* 2. El botón de las 3 rayitas se vuelve OSCURO para verse sobre blanco */
+    .navbar.scrolled .menu-toggle {
+        color: #333 !important; /* Gris oscuro / Negro */
+    }
+    
 
     body.menu-open .menu-toggle, /* Opción A: si usas clase en el body */
     .navbar .menu-toggle .fa-times { /* Opción B: si detectamos el icono X */
@@ -1545,5 +1564,14 @@ section {
     .address-text {
         font-size: 0.95rem; /* También aplicamos letra chica aquí */
         line-height: 1.5;
+    }
+    #opiniones {
+        padding-top: 40px !important; /* Antes tenía 50px o más, esto lo sube drásticamente */
+        margin-top: -10px !important; /* Truco extra: un pequeño margen negativo para nivelarlo visualmente */
+    }
+
+    /* Opcional: Si sientes que quedó muy pegado a las tarjetas de abajo, dale aire abajo */
+    #opiniones .section-header {
+        margin-bottom: 20px !important; 
     }
 }
