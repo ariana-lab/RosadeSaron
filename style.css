@@ -903,6 +903,29 @@ section {
 /* =========================================
    8. ESTILOS DE LA GALERÍA (CORREGIDO)
    ========================================= */
+/* --- EFECTO SCROLL EN LA BARRA DE NAVEGACIÓN --- */
+
+/* 1. La barra se vuelve blanca */
+.navbar.scrolled {
+    background-color: white !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* 2. Los enlaces (letras) se vuelven negros */
+.navbar.scrolled .nav-links a {
+    color: #333 !important; /* Gris muy oscuro casi negro */
+    text-shadow: none; /* Quitamos sombras de texto si las hubiera */
+}
+
+/* 3. El botón hamburguesa (móvil) se vuelve negro */
+.navbar.scrolled .menu-toggle {
+    color: #333 !important;
+}
+
+/* 4. Ajuste del hover para que se vea bien sobre blanco */
+.navbar.scrolled .nav-links a:hover {
+    color: var(--color-turquoise) !important; /* Tu color turquesa al pasar el mouse */
+}
 
 .gallery-section {
     background-color: #f9f9f9;
@@ -1035,6 +1058,40 @@ section {
     color: var(--color-turquoise);
     text-decoration: none;
     cursor: pointer;
+}
+/* Estilo base para ambas flechas */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%; /* Centradas verticalmente */
+  width: auto;
+  padding: 16px;
+  margin-top: -50px; /* Ajuste fino del centrado */
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none; /* Evita que se seleccione el texto al hacer clic rápido */
+  z-index: 5010; /* Por encima de la imagen */
+  text-decoration: none;
+  background-color: rgba(0,0,0,0.3); /* Fondo semicircular suave */
+}
+
+/* Posición específica */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+}
+
+/* Efecto Hover */
+.prev:hover, .next:hover {
+  background-color: rgba(28, 214, 185, 0.8); /* Color turquesa al pasar el mouse */
+  color: white;
 }
 
 @keyframes zoomIn {
@@ -1174,39 +1231,92 @@ section {
         display: block;
         background: none;
         border: none;
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         color: white; 
         cursor: pointer;
-        z-index: 2000; 
+        z-index: 2001; /* Encima de todo */
         margin-right: 0;
-        margin-top: 8px; 
+        margin-top: 8px;
+        transition: transform 0.3s ease;
     }
 
     .nav-links {
-        position: fixed; 
-        top: 0;
-        right: -100%; 
-        width: 50%;
-        height: 100vh; 
-        background-color: rgba(0, 0, 0, 0.95); 
+        position: fixed; /* Fijo para que flote aunque hagas scroll */
+        top: 80px;       /* Distancia desde el techo (justo debajo del header) */
+        right: 20px;     /* Pegado a la derecha, pero con margen */
+        
+        /* --- AQUÍ ESTÁ LA CLAVE DE LO COMPACTO --- */
+        width: 220px;    /* Ancho fijo pequeño (no ocupa media pantalla) */
+        height: auto;    /* Altura automática: se ajusta a la cantidad de links */
+        background-color: white;
+        border-radius: 15px; /* Bordes redondeados de tarjeta */
+        
+        /* Sombra fuerte para que "flote" sobre la web */
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2); 
+        
+        /* Diseño de la lista */
         display: flex;
-        flex-direction: column; 
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        padding: 0;
-        transition: right 0.4s ease; 
-        z-index: 1500; 
-        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+        flex-direction: column;
+        padding: 15px 0; /* Un poco de aire arriba y abajo */
+        gap: 0; 
+
+        /* Efecto de Aparición (Fade In + Subida) */
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95); /* Empieza un poco arriba y chico */
+        pointer-events: none; /* No se puede tocar cuando está invisible */
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 2000;
     }
-    .nav-links.active { right: 0; }
+    .nav-links::before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Sube el triángulo */
+    right: 15px; /* Alineado con el botón hamburguesa */
+    width: 0; 
+    height: 0; 
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white; /* Triángulo blanco apuntando arriba */
+    }
+   .nav-links.active { 
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Se pone en su sitio */
+    pointer-events: auto; /* Ahora sí se puede tocar */
+    }   
 
     .nav-links a { 
-        font-size: 1.1rem; 
+        font-family: var(--font-body);
+        font-size: 1rem; /* Letra tamaño normal */
+        font-weight: 500;
         display: block; 
-        color: white; 
+        color: #555; 
+        text-decoration: none;
+        text-align: center; /* Texto centrado en la tarjeta */
+        padding: 12px 0;    /* Espacio cómodo para el dedo */
+        border-bottom: 1px solid #f5f5f5; /* Línea muy finita */
+        width: 100%;
+        transition: background 0.2s;
     }
     .nav-links a::after { display: none; }
+    /* El último enlace sin borde abajo */
+    .nav-links a:last-child {
+        border-bottom: none; /* Quitamos la línea del último */
+    }
+    /* Efecto al tocar un enlace */
+    .nav-links a:hover {
+        background-color: #f9f9f9;
+        color: var(--color-turquoise);
+    }
+    .nav-links a:active {
+        color: var(--color-turquoise); /* Se pone Turquesa */
+        background-color: #f9f9f9; /* Fondo gris muy clarito */
+        transform: translateX(5px); /* Pequeño movimiento a la derecha */
+    }
+
+    body.menu-open .menu-toggle, /* Opción A: si usas clase en el body */
+    .navbar .menu-toggle .fa-times { /* Opción B: si detectamos el icono X */
+        color: #555 !important; /* La X se vuelve oscura */
+    }
 
     /* --- PORTADA (HERO) --- */
     .hero-section {
@@ -1257,6 +1367,7 @@ section {
         align-items: center;
         gap: 20px;
     }
+    .prev, .next { font-size: 30px; padding: 10px; }
 
     /* TÍTULOS DE SECCIÓN (MÁS COMPACTOS) */
     .badge-teal, .badge-white, .master-title-badge {

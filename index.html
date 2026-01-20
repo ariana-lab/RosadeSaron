@@ -26,6 +26,7 @@
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#horarios">Horarios</a></li>
                 <li><a href="#tarifas">Tarifas</a></li>
+                <li><a href="#opiniones">Opiniones</a></li>
                 <li><a href="#contacto">Contáctanos</a></li>
                 <li><a href="#localizacion">Localización</a></li>
                 <li><a href="galeria.html">Galería</a></li>
@@ -606,25 +607,38 @@
                 navbar.classList.remove("scrolled"); // Vuelve a transparente
             }
             });
-        // --- MENÚ HAMBURGUESA ---
+        // ==========================================
+        // MENÚ MÓVIL (COMPACTO)
+        // ==========================================
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
-        const links = document.querySelectorAll('.nav-links a'); // Todos los enlaces
-
-        // 1. Abrir / Cerrar menú al tocar el botón
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+        
+        if(menuToggle){
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                // Animación del icono
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
             
-            // Cambiar ícono de Hamburguesa (bars) a Cruz (times)
-            const icon = menuToggle.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
+            // CERRAR EL MENÚ AL HACER CLICK EN UN ENLACE
+            // (Muy útil en menús flotantes para que no tape el contenido)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
 
         // 2. Cerrar menú automáticamente al tocar un enlace (Muy importante en One Page)
         links.forEach(link => {
