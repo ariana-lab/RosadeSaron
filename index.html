@@ -524,9 +524,9 @@
         <i class="fab fa-whatsapp"></i>
     </a>
     <script>
-        // =========================================
-        // LÓGICA DE LA SECCIÓN SERVICIOS
-        // =========================================
+
+        // 1. LÓGICA DE LA SECCIÓN SERVICIOS
+
         const datosServicios = {
             'enfermeria': {
                 titulo: 'ENFERMERÍA',
@@ -579,37 +579,30 @@
             const info = datosServicios[servicioKey];
 
             if (info) {
-                // Efecto Fade Out (Desaparece)
                 card.style.opacity = '0'; 
                 
                 setTimeout(() => {
-                    // Cambiar contenido
                     titulo.innerText = info.titulo;
-                    // Si alguna imagen falla, mantén la estructura
                     imagen.src = info.img; 
                     desc.innerText = info.texto;
-                    
-                    // Efecto Fade In (Aparece)
                     card.style.opacity = '1'; 
                 }, 200);
             }
         }
-        
-        // --- LÓGICA DEL MENÚ PEGAJOSO ---
+
+        //2. LÓGICA DEL MENÚ
+
         window.addEventListener("scroll", function() {
-            // Seleccionamos la barra de navegación
             var navbar = document.querySelector(".navbar");
-            
-            // Si bajamos más de 50 pixeles...
             if (window.scrollY > 50) {
-                navbar.classList.add("scrolled"); // ¡Activa el modo blanco!
+                navbar.classList.add("scrolled"); 
             } else {
-                navbar.classList.remove("scrolled"); // Vuelve a transparente
+                navbar.classList.remove("scrolled");
             }
             });
-        // ==========================================
-        // MENÚ MÓVIL (COMPACTO)
-        // ==========================================
+        
+        //3. MENÚ MÓVIL
+        
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
         
@@ -627,9 +620,7 @@
                     icon.classList.add('fa-bars');
                 }
             });
-            
-            // CERRAR EL MENÚ AL HACER CLICK EN UN ENLACE
-            // (Muy útil en menús flotantes para que no tape el contenido)
+
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
@@ -640,7 +631,6 @@
             });
         }
 
-        // 2. Cerrar menú automáticamente al tocar un enlace (Muy importante en One Page)
         links.forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -650,40 +640,26 @@
                 icon.classList.add('fa-bars');
             });
         });
-// --- LÓGICA DEL CARRUSEL (INTELIGENTE) ---
+
+        //4. LÓGICA DEL CARRUSEL
+
         const track = document.querySelector('.carousel-track');
-        // Obtenemos todas las slides y las guardamos en una lista
         let slides = Array.from(track.children);
         let currentIndex = 0;
-
         function moverCarrusel(direccion) {
-            // Medimos cuánto mide una tarjeta y el contenedor total
             const slideWidth = slides[0].getBoundingClientRect().width;
             const trackWidth = document.querySelector('.carousel-track-container').getBoundingClientRect().width;
-            
-            // Calculamos cuántas tarjetas se ven en pantalla (aprox 3 en PC, 1 en móvil)
             const itemsVisible = Math.round(trackWidth / slideWidth);
-            
-            // Calculamos el límite para no pasarnos y mostrar espacio blanco
             const maxIndex = slides.length - itemsVisible;
-
-            // Movemos el índice
             currentIndex += direccion;
-
-            // Lógica de bucle (Loop)
             if (currentIndex < 0) {
-                // Si vas atrás desde el principio, vas al final
                 currentIndex = maxIndex;
             } else if (currentIndex > maxIndex) {
-                // Si llegas al final, vuelves al principio
                 currentIndex = 0;
             }
-
-            // Aplicamos el movimiento
             track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
         }
 
-        // Ajuste automático al cambiar tamaño de pantalla
         window.addEventListener('resize', () => {
             const slideWidth = slides[0].getBoundingClientRect().width;
             track.style.transition = 'none';
@@ -692,6 +668,5 @@
         });
         
     </script>
-
 </body>
 </html>
