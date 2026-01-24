@@ -304,8 +304,8 @@
             </div>
 
             <div class="carousel-container">
-                <button class="carousel-btn prev-btn" onclick="moverCarrusel(-1)"><i class="fas fa-chevron-left"></i></button>
-                <button class="carousel-btn next-btn" onclick="moverCarrusel(1)"><i class="fas fa-chevron-right"></i></button>
+                <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
 
                 <div class="carousel-track-container">
                     <ul class="carousel-track">
@@ -313,7 +313,7 @@
                         <li class="carousel-slide">
                             <div class="testimonial-card">
                                 <div class="card-header-testimonial">
-                                    <img src="https://i.pravatar.cc/150?img=1" alt="Foto" class="user-img">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=familiaGonzales" alt="Ilustración representativa" class="user-img">
                                     <div>
                                         <h3>Familia González</h3>
                                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -326,7 +326,7 @@
                         <li class="carousel-slide">
                             <div class="testimonial-card">
                                 <div class="card-header-testimonial">
-                                    <img src="https://i.pravatar.cc/150?img=5" alt="Foto" class="user-img">
+                                    <img src="https://api.dicebear.com/9.x/micah/svg?seed=Chase" alt="Ilustración representativa" class="user-img">
                                     <div>
                                         <h3>María José L.</h3>
                                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -339,7 +339,7 @@
                         <li class="carousel-slide">
                             <div class="testimonial-card">
                                 <div class="card-header-testimonial">
-                                    <img src="https://i.pravatar.cc/150?img=3" alt="Foto" class="user-img">
+                                    <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Oliver" alt="Ilustración representativa" class="user-img">
                                     <div>
                                         <h3>Carlos Tapia</h3>
                                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
@@ -352,7 +352,7 @@
                         <li class="carousel-slide">
                             <div class="testimonial-card">
                                 <div class="card-header-testimonial">
-                                    <img src="https://i.pravatar.cc/150?img=9" alt="Foto" class="user-img">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=anaMaria" alt="Ilustración representativa" class="user-img">
                                     <div>
                                         <h3>Ana María R.</h3>
                                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -365,7 +365,7 @@
                         <li class="carousel-slide">
                             <div class="testimonial-card">
                                 <div class="card-header-testimonial">
-                                    <img src="https://i.pravatar.cc/150?img=12" alt="Foto" class="user-img">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=pedroS" alt="Ilustración representativa" class="user-img">
                                     <div>
                                         <h3>Pedro S.</h3>
                                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -378,7 +378,7 @@
                         <li class="carousel-slide">
                             <div class="testimonial-card">
                                 <div class="card-header-testimonial">
-                                    <img src="https://i.pravatar.cc/150?img=20" alt="Foto" class="user-img">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=luisaM" alt="Ilustración representativa" class="user-img">
                                     <div>
                                         <h3>Luisa M.</h3>
                                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -524,8 +524,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
     <script>
-
-        // 1. LÓGICA DE LA SECCIÓN SERVICIOS
+        // 1. LÓGICA DE LA SECCIÓN SERVICIOS (INTACTA)
 
         const datosServicios = {
             'enfermeria': {
@@ -565,7 +564,7 @@
             },
             'flexibilidad': {
                 titulo: 'ESTADÍAS Y HORARIOS FLEXIBLES',
-                img: 'Imagenes/otros.jpg', // Puedes usar la misma foto o una de un reloj/calendario
+                img: 'Imagenes/otros.jpg', 
                 texto: 'Servicio fraccionado en distintas modalidades: diurna, horarios flexibles de lunes a viernes, fines de semana o por vacaciones. Nos ajustamos a las necesidades de tu situación actual para ser un apoyo real al cuidador directo.'
             }
         };
@@ -590,7 +589,7 @@
             }
         }
 
-        //2. LÓGICA DEL MENÚ
+        // 2. LÓGICA DEL MENÚ (INTACTA)
 
         window.addEventListener("scroll", function() {
             var navbar = document.querySelector(".navbar");
@@ -599,14 +598,14 @@
             } else {
                 navbar.classList.remove("scrolled");
             }
-            });
+        });
         
-        //3. MENÚ MÓVIL
+        // 3. MENÚ MÓVIL (INTACTA)
         
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
         
-        if(menuToggle){
+        if (menuToggle) {
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 
@@ -631,42 +630,61 @@
             });
         }
 
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                // Resetear ícono
-                const icon = menuToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            });
-        });
-
-        //4. LÓGICA DEL CARRUSEL
+        // 4. LÓGICA DEL CARRUSEL (CORREGIDA)
 
         const track = document.querySelector('.carousel-track');
-        let slides = Array.from(track.children);
-        let currentIndex = 0;
-        function moverCarrusel(direccion) {
-            const slideWidth = slides[0].getBoundingClientRect().width;
-            const trackWidth = document.querySelector('.carousel-track-container').getBoundingClientRect().width;
-            const itemsVisible = Math.round(trackWidth / slideWidth);
-            const maxIndex = slides.length - itemsVisible;
-            currentIndex += direccion;
-            if (currentIndex < 0) {
-                currentIndex = maxIndex;
-            } else if (currentIndex > maxIndex) {
-                currentIndex = 0;
+        
+        // Verificamos si existe el track antes de seguir para evitar errores
+        if(track) {
+            let slides = Array.from(track.children);
+            let currentIndex = 0;
+
+            function moverCarrusel(direccion) {
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                
+                // Verificación de seguridad por si slideWidth es 0
+                if(slideWidth === 0) return;
+
+                const trackWidth = document.querySelector('.carousel-track-container').getBoundingClientRect().width;
+                const itemsVisible = Math.round(trackWidth / slideWidth);
+                const maxIndex = slides.length - itemsVisible;
+                
+                currentIndex += direccion;
+                
+                if (currentIndex < 0) {
+                    currentIndex = maxIndex;
+                } else if (currentIndex > maxIndex) {
+                    currentIndex = 0;
+                }
+                
+                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
             }
-            track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
+
+            // --- AQUÍ ESTÁ EL CAMBIO IMPORTANTE ---
+            // Sacamos esto de adentro de 'resize' y pusimos las clases correctas (.prev-btn y .next-btn)
+            
+            const botonIzquierda = document.querySelector('.prev-btn'); // Antes decía .tu-clase...
+            const botonDerecha = document.querySelector('.next-btn');   // Antes decía .tu-clase...
+
+            if (botonIzquierda && botonDerecha) {
+                botonIzquierda.addEventListener('click', () => {
+                    moverCarrusel(-1); 
+                });
+
+                botonDerecha.addEventListener('click', () => {
+                    moverCarrusel(1);  
+                });
+            }
+
+            // El evento resize se mantiene solo para ajustar el tamaño, no para activar botones
+            window.addEventListener('resize', () => {
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
+                setTimeout(() => track.style.transition = 'transform 0.5s ease-in-out', 50);
+            });
         }
 
-        window.addEventListener('resize', () => {
-            const slideWidth = slides[0].getBoundingClientRect().width;
-            track.style.transition = 'none';
-            track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
-            setTimeout(() => track.style.transition = 'transform 0.5s ease-in-out', 50);
-        });
-        
     </script>
 </body>
 </html>
