@@ -1144,7 +1144,7 @@ section {
 
 @media (max-width: 900px) {
 
-    /* --- 1. GLOBAL & TIPOGRAFÍA --- */
+    /* 1. GLOBAL & TIPOGRAFÍA */
     html {
         font-size: 14px; /* Base reducida */
     }
@@ -1197,7 +1197,7 @@ section {
     .text-card { padding: 20px 15px; }
 
 
-    /* --- 2. HEADER Y NAVEGACIÓN --- */
+    /* 2. HEADER Y NAVEGACIÓN */
     .navbar {
         position: fixed;
         top: 0; left: 0; width: 100%;
@@ -1284,7 +1284,7 @@ section {
     }
 
 
-    /* --- 3. PORTADA (HERO) --- */
+    /* 3. PORTADA (HERO)*/
     .hero-section {
         height: 40vh; min-height: 250px;
         padding-top: 80px; align-items: center;
@@ -1310,7 +1310,7 @@ section {
     }
 
 
-    /* --- 4. SECCIONES Y ESPACIADO --- */
+    /* 4. SECCIONES Y ESPACIADO */
     .about-section.container, .services-section, .timeline-section,
     .pricing-section, .contact-section, .location-section {
         padding-top: 50px;
@@ -1318,7 +1318,7 @@ section {
     }
 
 
-    /* --- 5. SERVICIOS --- */
+    /*5. SERVICIOS */
     .services-section { padding-top: 10px !important; }
     .services-section .section-header { margin-bottom: 20px; margin-top: 0; }
     .services-section .master-title-badge { margin-top: 0 !important; }
@@ -1328,7 +1328,7 @@ section {
     }
 
 
-    /* --- 6. HORARIOS (ACORDEÓN) --- */
+    /*6. HORARIOS (ACORDEÓN)*/
     .timeline-container {
         flex-direction: column; align-items: stretch;
         border-top: none; border-left: 4px solid var(--color-turquoise);
@@ -1385,7 +1385,7 @@ section {
     .timeline-item:hover .time-body p, .timeline-item:active .time-body p { display: block; margin-top: 5px; }
 
 
-    /* --- 7. TESTIMONIOS Y CARRUSEL --- */
+    /* 7. TESTIMONIOS Y CARRUSEL*/
     #opiniones {
         padding-top: 40px !important; margin-top: -10px !important;
     }
@@ -1402,7 +1402,7 @@ section {
     .prev, .next { font-size: 30px; padding: 10px; }
 
 
-    /* --- 8. MAPA Y FOOTER --- */
+    /*8. MAPA Y FOOTER*/
     .map-link { height: 250px !important; }
 
     /* Tarjeta de dirección (Reset para móvil) */
